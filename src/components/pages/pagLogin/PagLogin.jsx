@@ -6,9 +6,11 @@ export default function PagLogin() {
     <section className='body'>
       <div className='container-login'>
         <div className='formulario-login'>
+
           <img src='./logo-correta.png' alt='Logo Flex360' className='logo' />
           
           <h1 className='titulo'>Entrar</h1>
+
           <form>
             <div className='grupo-input'>
               <label>Email</label>
@@ -24,10 +26,12 @@ export default function PagLogin() {
             </div>
             <button className='btn-entrar'>Entrar</button>
           </form>
+
           <div className='cadastro'>
             <p>Não possui cadastro?</p>
             <button className='btn-cadastrar'>Cadastrar</button>
           </div>
+          
         </div>
         
         <div className='imagem-login'>
