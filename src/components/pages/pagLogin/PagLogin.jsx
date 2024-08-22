@@ -4,14 +4,17 @@ import { useState } from 'react';
 
 export default function PagLogin() {
   const [emailINPT, setEmailINPT] = useState("")
+  const [senha, setSenha] = useState("")
 
-  function handleText(event) {
-    alert("oi")
-    setEmailINPT(event.target.value)
-  }
-
-  function cadastra() {
-alert(emailINPT)
+  function entra() {
+    let resposta = validarCampo(document.getElementById('email'))
+    if(resposta) {
+      alert(resposta)
+    }
+    resposta = validarCampo(document.getElementById("senha"))
+    if(resposta) {
+      alert(resposta)
+    }
   }
 
 
@@ -22,29 +25,29 @@ alert(emailINPT)
       <div className='container-login'>
         <div className='formulario-login'>
           <img src='./logo-correta.png' alt='Logo Flex360' className='logo' />
-          
+
           <h1 className='titulo'>Entrar</h1>
           <form>
             <div className='grupo-input'>
-              <label>Email</label>
-              <input type='email' name='email' onchange={handleText} value={emailINPT}/>
+              <label htmlFor='email'>Email</label>
+              <input type='email' name='email' onChange={(e) => setEmailINPT(e.target.value)} value={emailINPT} id='email' />
             </div>
             <div className='grupo-input'>
-              <label>Senha</label>
-              <input type='password' name='senha' />
+              <label htmlFor='senha'>Senha</label>
+              <input type='password' name='senha' id='senha' onChange={(e) => setSenha(e.target.value)} value={senha} />
             </div>
             <div className='grupo-checkbox'>
               <input type='checkbox' id='lembrar' />
               <label htmlFor='lembrar'>Lembrar de mim</label>
             </div>
-            <button className='btn-entrar'>Entrar</button>
+            <button className='btn-entrar' onClick={entra}>Entrar</button>
           </form>
           <div className='cadastro'>
             <p>Não possui cadastro?</p>
-            <button className='btn-cadastrar' onClick={cadastra}>Cadastrar</button>
+            <button className='btn-cadastrar' >Cadastrar</button>
           </div>
         </div>
-        
+
         <div className='imagem-login'>
           <img src='./foto-login.jpg' alt='Ilustração de Login' />
         </div>
