@@ -1,4 +1,4 @@
-function validarCampo(campo, campo2 = null) {
+export function validarCampo(campo, campo2 = null) {
     const quantidadeCaracteresCampo = campo.value.length
 
     if (quantidadeCaracteresCampo == 0) {

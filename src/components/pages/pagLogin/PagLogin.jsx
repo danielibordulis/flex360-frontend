@@ -1,7 +1,22 @@
-import React from 'react';
 import './PagLogin.css';
+import { validarCampo } from '../../../utils/validation-user'
+import { useState } from 'react';
 
 export default function PagLogin() {
+  const [emailINPT, setEmailINPT] = useState("")
+
+  function handleText(event) {
+    alert("oi")
+    setEmailINPT(event.target.value)
+  }
+
+  function cadastra() {
+alert(emailINPT)
+  }
+
+
+
+
   return (
     <section className='body'>
       <div className='container-login'>
@@ -12,7 +27,7 @@ export default function PagLogin() {
           <form>
             <div className='grupo-input'>
               <label>Email</label>
-              <input type='email' name='email' />
+              <input type='email' name='email' onchange={handleText} value={emailINPT}/>
             </div>
             <div className='grupo-input'>
               <label>Senha</label>
@@ -26,7 +41,7 @@ export default function PagLogin() {
           </form>
           <div className='cadastro'>
             <p>Não possui cadastro?</p>
-            <button className='btn-cadastrar'>Cadastrar</button>
+            <button className='btn-cadastrar' onClick={cadastra}>Cadastrar</button>
           </div>
         </div>
         
