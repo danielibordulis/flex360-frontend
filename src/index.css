@@ -6,7 +6,7 @@
 
 @font-face {
   font-family: "lemonada";
-  src: url(../public/fonts/lemonada.ttf);
+  src: url(/fonts/lemonada.ttf);
 }
 
 :root {
