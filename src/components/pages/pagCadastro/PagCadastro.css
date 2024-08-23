@@ -1,30 +1,31 @@
 /* Container principal que envolve todo o cadastro */
 .container-cadastro {
     display: flex;  /* Exibe os elementos lado a lado (formulário e imagem) */
-    width: 100%;  /* Ocupa toda a largura da tela */
-    height: 100vh;  /* Ocupa toda a altura da tela */
+    width: 80%;  /* Ocupa 80% da largura da tela */
+    margin: 0 auto; /* Centraliza o container na tela */
+    min-height: 100vh; /* Garante que o container ocupe pelo menos a altura da tela */
+    align-items: center; /* Centraliza verticalmente os elementos dentro do container */
 }
-  
+
 /* Estilo da seção do formulário de cadastro */
 .formulario-cadastro {
-    padding: 20px;  /* Espaçamento interno */
-    background-color: #fff;  /* Cor de fundo branca */
     display: flex;  /* Permite organizar elementos verticalmente */
     flex-direction: column;  /* Ordena os elementos de cima para baixo */
     justify-content: center;  /* Alinha os elementos ao centro verticalmente */
     align-items: center;  /* Centraliza os elementos horizontalmente */
-    margin-right: 15%;  /* Espaço à direita do formulário */
-    max-width: 400px;  /* Define uma largura máxima para o formulário */
-    width: 50%;  /* A div do formulário ocupa 50% da tela */
+    flex-grow: 1;  /* Faz com que o formulário cresça para ocupar o espaço disponível */
+    max-width: 50%;  /* Define uma largura máxima para o formulário */
+    box-sizing: border-box; /* Garante que o padding não afete a largura total */
+   
 }
   
 /* Estilo do título "Cadastrar" */
 .titulo {
-    font-size: 40px;  /* Tamanho da fonte */
+    font-size: 30px;  /* Tamanho da fonte */
     font-family: 'Lemonada', sans-serif;  /* Fonte utilizada */
     font-weight: bold;  /* Negrito */
     color: #DA1C1C;  /* Cor do texto */
-    margin-bottom: 30px;  /* Espaço abaixo do título */
+    margin-bottom: 40px;  /* Espaço abaixo do título */
 }
   
 /* Grupo de estilo dos inputs (nome, senha, confirmar senha, email) */
@@ -54,7 +55,7 @@
   
 /* Estilo do botão "Cadastrar" */
 .btn-cadastrar {
-    width: 120px;  /* Largura do botão */
+    width: 150px;  /* Aumentando a largura do botão */
     height: 40px;  /* Altura do botão */
     font-size: 20px;  /* Tamanho da fonte */
     font-family: 'Lemonada', sans-serif;  /* Fonte utilizada */
@@ -64,21 +65,25 @@
     border: none;  /* Sem borda */
     border-radius: 5px;  /* Bordas arredondadas */
     cursor: pointer;  /* Cursor de ponteiro ao passar o mouse */
-    margin-top: 20px;  /* Espaço acima do botão */
+    margin-top: 30px;  /* Espaço acima do botão */
+    margin-left: 25%;  /* Empurra o botão para a direita */
+    display: block;  /* Faz o botão ocupar uma linha inteira */
 }
-  
+
   
 /* Estilo da seção da imagem de cadastro */
 .imagem-cadastro {
-    background-color: #fff;  /* Cor de fundo branca */
     display: flex;  /* Permite centralizar a imagem */
     justify-content: center;  /* Centraliza a imagem horizontalmente */
     align-items: center;  /* Centraliza a imagem verticalmente */
-    width: 50%;  /* Reduz a largura da imagem para ocupar metade da tela */
+    flex-grow: 1;  /* Faz com que a imagem cresça para ocupar o espaço disponível */
+    max-width: 50%;  /* Reduz a largura da imagem para ocupar metade da tela */
+    box-sizing: border-box; /* Garante que o padding não afete a largura total */
 }
   
 .imagem-cadastro img {
     max-width: 100%;  /* Largura máxima da imagem */
-    max-height: 100%;  /* Altura máxima da imagem */
+    max-height: 100vh; /* Limita a altura máxima da imagem a 80% da altura da viewport */
+    height: auto;  /* Mantém a proporção da imagem */
     border-right: 1px solid #DA1C1C;  /* Linha vertical à esquerda da imagem */
 }

@@ -6,10 +6,12 @@ export default function PagCadastro() {
     <section className='body'>
       <div className='container-cadastro'>
 
+        {/* Div para a imagem de cadastro à esquerda */}
         <div className='imagem-cadastro'>
           <img src='./foto-cadastro.jpg' alt='Imagem de Cadastro' />
         </div>
 
+        {/* Div para o formulário de cadastro à direita */}
         <div className='formulario-cadastro'>
           <h1 className='titulo'>Cadastrar</h1>
 
@@ -31,13 +33,11 @@ export default function PagCadastro() {
               <input type='email' name='email' />
             </div>
             <button className='btn-cadastrar'>Cadastrar</button>
-
           </form>
-         
 
+          
         </div>
       </div>
-      
     </section>
   );
 }
