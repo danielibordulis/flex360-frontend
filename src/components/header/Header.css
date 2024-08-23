@@ -15,6 +15,7 @@ header {
 
 .imagem-logo {
     width: 80%;
+    min-width: 150px;
 }
 
 .container-search-input {
@@ -70,4 +71,51 @@ header {
     width: 70%;
     height: 70%;
     color: aqua;
+}
+
+/* Tela de tablet */
+
+@media (min-width: 601px) and (max-width: 660px) {
+
+    .container-search-input {
+        display: none;
+    }
+
+    .container-logo {
+        width: 50%;
+    }
+
+    .imagem-logo {
+        width: 50%;
+    }
+
+    .container-botao-nav {
+        width: 50%;
+        gap: 25px;
+    }
+    
+}
+
+/* Tela de celular */
+
+@media (max-width: 600px) {
+    
+    .container-search-input {
+        display: none;
+    }
+
+    .container-logo {
+        width: 50%;
+    }
+
+    .imagem-logo {
+        max-width: 50%;
+        min-width: 150px;
+    }
+
+    .container-botao-nav {
+        width: 50%;
+        gap: 25px;
+    }
+
 }

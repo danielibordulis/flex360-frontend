@@ -4,6 +4,13 @@
   box-sizing: border-box;
 }
 
+@font-face {
+  font-family: "lemonada";
+  src: url(../public/fonts/lemonada.ttf);
+}
+
 :root {
   --cor-1: #DA1C1C;
+
+  --font-1: "lemonada"
 }
