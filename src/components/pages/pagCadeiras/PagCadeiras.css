@@ -1,6 +1,43 @@
 
 .body {
     width: 100vw;
+    min-height: 80%;
 }
 
-/* coisa legal */
+.container-numero-cadeira {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100px;
+    gap: 15px;
+}
+
+.container-numero-cadeira span {
+
+    font-family: var(--font-1), Arial, Helvetica, sans-serif;
+    font-size: 1.4em;
+
+}
+
+.container-numero-cadeira button {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    border: 0;
+    cursor: pointer;
+}
+
+.container-numero-cadeira button:hover {
+    transform: scale(1.1);
+}
+
+.container-cadeiras {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    padding-bottom: 20px;
+}
