@@ -13,14 +13,14 @@ export default function PagErgonomia() {
         <div className="container-esquerda">
 
           <img className="imagem-certificacao" src="./foto-certificacao.png" alt="Certificação" />
-          <h1 className="titulo">Encontre sua cadeira ergonômica:</h1>
+          <h1 className="titulo-principal">Encontre sua cadeira ergonômica:</h1>
 
           <form className="form-ergonomia">
 
-            <label className="titulo" for="altura">Sua altura:</label>
+            <label className="form-label" for="altura">Sua altura:</label>
             <input id="altura" type="text" placeholder="Digite sua altura" />
 
-            <label className="titulo" for="peso">Seu peso:</label>
+            <label className="form-label" for="peso">Seu peso:</label>
             <input id="peso" type="text" placeholder="Digite seu peso" />
 
           </form>
