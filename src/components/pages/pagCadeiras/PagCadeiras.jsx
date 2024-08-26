@@ -23,7 +23,19 @@ function PagCadeiras() {
 
             <section className='container-cadeiras'>
               <Cadeira />
+              <Cadeira />
+              <Cadeira />
             </section>
+
+            <div className='container-numero-cadeira'>
+              <button>
+                <img src="./flecha-esquerda.svg" alt="Voltar" />
+              </button>
+              <span>1</span>
+              <button>
+                <img src="./flecha-direita.svg" alt="Próximo" />
+              </button>
+            </div>
 
         </section>
     </>

@@ -28,6 +28,7 @@
     border-radius: 50%;
     border: 0;
     cursor: pointer;
+    background-color: var(--cor-2);
 }
 
 .container-numero-cadeira button:hover {
@@ -36,8 +37,10 @@
 
 .container-cadeiras {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
-    align-items: center;
     width: 100vw;
     padding-bottom: 20px;
+    gap: 20px;
+    padding: 10px;
 }
