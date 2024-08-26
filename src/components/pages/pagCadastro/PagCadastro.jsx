@@ -4,12 +4,11 @@ import './PagCadastro.css';
 export default function PagCadastro() {
   return (
     <section className='body'>
-      <div className='container-cadastro'>
 
-        {/* Div para a imagem de cadastro à esquerda */}
-        <div className='imagem-cadastro'>
-          <img src='./foto-cadastro.jpg' alt='Imagem de Cadastro' />
-        </div>
+      {/* Div para a imagem de cadastro à esquerda */}
+      <div className='imagem-cadastro' />
+
+      <div className='container-cadastro'>
 
         {/* Div para o formulário de cadastro à direita */}
         <div className='formulario-cadastro'>
