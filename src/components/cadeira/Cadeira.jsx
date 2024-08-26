@@ -7,7 +7,7 @@ function Cadeira({cadeiraData_}) {
 
     const cadeiraData = {
         nome: "Nome da cadeira",
-        cores: [{name: "Marrom", cod: "#a52a2a"},{name: "Marrom", cod: "#a52a2a"},{name: "Marrom", cod: "#a52a2a"}],
+        cores: [{name: "Marrom", cod: "#a52a2a", id: ""},{name: "Preto", cod: "#1E0303", id: ""},{name: "Roxo", cod: "#7C1FF1", id: ""}],
         preco: 1300.99,
         descEnconsto: "Encosto com estrutura injetada em resina plastica, com apoio lombar regulável na altura.",
         descApoio: "Apoia braço 360, regulável na altura, profundidade, abertura e ângulo.",

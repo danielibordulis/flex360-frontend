@@ -1,12 +1,19 @@
-import React from 'react'
+import React, { useState } from 'react'
 import "./PaletaCor.css"
 
 function PaletaCor({cores}) {
 
   // const corExemplo = {
+  //   id: "12312aefef-aefaefaef-aefefefe"
   //   name: "Marrom",
   //   cod: "#a52a2a"
   // }
+ 
+  const [corSelecionada, setCorSelecionada] = useState(cores[0])
+
+  const handleClick = (cor) => {
+    setCorSelecionada(cor);
+  };
 
   return (
     <div className='paleta'>
@@ -15,13 +22,18 @@ function PaletaCor({cores}) {
           {
             cores.length > 0 && cores.map((cor, index) => (
 
-                  <button className='btn-cor' key={index} style={{backgroundColor: cor.cod}}></button>
+                  <button  
+                    className={`btn-cor ${corSelecionada.cod === cor.cod ? 'cor-selecionada' : ''}`}
+                    key={index} 
+                    style={{backgroundColor: cor.cod}}
+                    onClick={() => {handleClick(cor)}}
+                  />
 
             ))
           }
 
       </div>
-      <span>{cores[0].name}</span>
+      <span>{corSelecionada.name}</span>
     </div>
   )
 }
