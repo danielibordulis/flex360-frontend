@@ -83,7 +83,7 @@
 .imagem-cadastro {
     background-image: url(./foto-cadastro.jpg);
     background-repeat: no-repeat;
-    background-position: top;
+    background-position: center;
     background-size: cover;
     width: 50%;
     height: 100vh;
