@@ -21,10 +21,13 @@ export default function PagLogin() {
 
 
   return (
+
     <section className='body'>
+
+      <img src='./logo-correta.png' alt='Logo Flex360' className='logo' />
+
       <div className='container-login'>
         <div className='formulario-login'>
-          <img src='./logo-correta.png' alt='Logo Flex360' className='logo' />
 
           <h1 className='titulo'>Entrar</h1>
           <form>
@@ -38,7 +41,7 @@ export default function PagLogin() {
             </div>
             <div className='grupo-checkbox'>
               <input type='checkbox' id='lembrar' />
-              <label htmlFor='lembrar'>Lembrar de mim</label>
+              <label htmlFor='lembrar' className='btn-lembrar-de-mim'>Lembrar de mim</label>
             </div>
             <button className='btn-entrar' onClick={entra}>Entrar</button>
           </form>
@@ -48,10 +51,11 @@ export default function PagLogin() {
           </div>
         </div>
 
-        <div className='imagem-login'>
-          <img src='./foto-login.jpg' alt='Ilustração de Login' />
-        </div>
+      </div>
+      <div className='imagem-login'>
+       
       </div>
     </section>
   );
 }
+
