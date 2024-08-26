@@ -8,6 +8,18 @@ export default function PagLogin() {
   const [emailINPT, setEmailINPT] = useState("")
   const [senha, setSenha] = useState("")
 
+
+  const inpts = document.querySelectorAll(".campo")
+  for(let obj of inpts) {
+    obj.addEventListener("keydown", (e) => {
+      let listaErros = erros;
+      const elementoId = e.target.id
+      listaErros[elementoId] = ""
+      console.log(listaErros)
+      setErros(listaErros)
+    })
+  }
+
   function entra(form) {
     form.preventDefault()
     let listaErros = {}
@@ -39,12 +51,12 @@ export default function PagLogin() {
           <form onSubmit={entra}>
             <div className='grupo-input'>
               <label htmlFor='email'>Email</label>
-              <input type='email' name='email' onChange={(e) => setEmailINPT(e.target.value)} value={emailINPT} id='email' />
+              <input type='email' name='email' onChange={(e) => setEmailINPT(e.target.value)} value={emailINPT} id='email' className='campo' />
               <Erro mensagem={erros.email} />
             </div>
             <div className='grupo-input'>
               <label htmlFor='senha'>Senha</label>
-              <input type='password' name='senha' id='senha' onChange={(e) => setSenha(e.target.value)} value={senha} />
+              <input type='password' name='senha' id='senha' onChange={(e) => setSenha(e.target.value)} value={senha} className='campo' />
               <Erro mensagem={erros.senha} />
             </div>
             <div className='grupo-checkbox'>
