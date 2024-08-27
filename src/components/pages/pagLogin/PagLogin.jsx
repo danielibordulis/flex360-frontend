@@ -15,7 +15,6 @@ export default function PagLogin() {
       let listaErros = erros;
       const elementoId = e.target.id
       listaErros[elementoId] = ""
-      console.log(listaErros)
       setErros(listaErros)
     })
   }
@@ -32,7 +31,10 @@ export default function PagLogin() {
       listaErros.senha = resposta
     }
 
+    if(Object.keys(listaErros).length > 0) {
     setErros(listaErros)
+    return
+    }
   }
 
 
@@ -48,7 +50,7 @@ export default function PagLogin() {
         <div className='formulario-login'>
 
           <h1 className='titulo'>Entrar</h1>
-          <form onSubmit={entra}>
+          <form onSubmit={entra} noValidate>
             <div className='grupo-input'>
               <label htmlFor='email'>Email</label>
               <input type='email' name='email' onChange={(e) => setEmailINPT(e.target.value)} value={emailINPT} id='email' className='campo' />
@@ -78,4 +80,3 @@ export default function PagLogin() {
     </section>
   );
 }
-

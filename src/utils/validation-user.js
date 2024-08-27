@@ -6,6 +6,13 @@ export function validarCampo(campo, campo2 = null) {
     }
 
     switch (campo.id) {
+        case "email":
+            const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+            if(!regex.test(campo.value)) {
+                alert("aff")
+                return "E-mail inválido"
+            }
+            break
         case "nomeCadastro":
             if (quantidadeCaracteresCampo < 3 || quantidadeCaracteresCampo > 20) {
                 return "O nome deve ter de três à 20 caracteres."
