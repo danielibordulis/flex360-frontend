@@ -1,0 +1,91 @@
+.container-cadeira {
+    flex: 1 1 350px;
+    max-width: 400px;
+    min-height: 100vh;
+    background-color: var(--cor-2);
+    padding-bottom: 30px;
+    border-radius: 3px;
+}
+
+.container-foto-cadeira {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.foto-cadeira {
+    width: 70%;
+}
+
+.container-paleta-de-cor {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+h1 {
+    text-align: center;
+    width: 100%;
+    margin-top: 20px;
+    font-family: var(--font-1), Arial, Helvetica, sans-serif;
+    font-size: 1em;
+}
+
+.preco-cadeira {
+    display: block;
+    margin-top: 20px;
+    width: 100%;
+    text-align: center;
+    font-weight: bold;
+    font-family: var(--font-1), Arial, Helvetica, sans-serif;
+    font-size: 1.1em;
+    margin-bottom: 10px;
+}
+
+.container-descricao {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    gap: 10px;
+}
+
+.container-descricao p {
+    width: 90%;
+    text-align: center;
+    font-family: var(--font-1), Arial, Helvetica, sans-serif;
+    font-size: 0.8em;
+    font-weight: bold;
+}
+
+.container-btn-comprar {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+.btn-comprar {
+    width: 200px;
+    height: 45px;
+    border-radius: 10px;
+    background-color: var(--cor-1);
+    color: white;
+    font-family: var(--font-1), Arial, Helvetica, sans-serif;
+    border: 0;
+    cursor: pointer;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.btn-comprar:hover {
+    transform: scale(1.1);
+}
