@@ -1,4 +1,5 @@
 import './App.css'
+import PagCadeiraIndividual from './components/pages/pagCadeiraIndividual/PagCadeiraIndividual'
 import PagCadeiras from './components/pages/pagCadeiras/PagCadeiras'
 
 function App() {
@@ -6,7 +7,7 @@ function App() {
 
   return (
     <>
-      <PagCadeiras />
+      <PagCadeiraIndividual />
     </>
   )
 }
