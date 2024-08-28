@@ -28,6 +28,7 @@
 span {
     font-family: var(--font-1), Arial, Helvetica, sans-serif;
     font-size: 0.8em;
+    color: black !important;
 }
 
 .cor-selecionada::after {
