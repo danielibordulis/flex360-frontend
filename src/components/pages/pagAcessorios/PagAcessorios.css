@@ -8,4 +8,5 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  margin-top: 20px; /* Adiciona margem superior para afastar mais ainda os produtos */
 }
