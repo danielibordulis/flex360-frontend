@@ -1,7 +1,5 @@
 import './App.css'
-import Header from './components/header/Header'
-import Nav from './components/nav/Nav'
-import PagLogin from './components/pages/pagLogin/PagLogin'
+import PagCadeiraIndividual from './components/pages/pagCadeiraIndividual/PagCadeiraIndividual'
 import PagCadeiras from './components/pages/pagCadeiras/PagCadeiras'
 
 function App() {
@@ -9,7 +7,7 @@ function App() {
 
   return (
     <>
-      <PagCadeiras />
+      <PagCadeiraIndividual />
     </>
   )
 }
