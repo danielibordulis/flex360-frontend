@@ -2,6 +2,7 @@ import React from 'react'
 import "./PagCarrinho.css"
 import Header from '../../header/Header'
 import Nav from '../../nav/Nav'
+import ItemCarrinho from '../../itemCarrinho/ItemCarrinho'
 
 function PagCarrinho() {
     return (
@@ -11,11 +12,9 @@ function PagCarrinho() {
             <section className='body-carrinho'>
 
                 <div className='container-carrinho'>
-
                     <div className='carrinho'>
-
+                        <ItemCarrinho />
                     </div>
-
                 </div>
 
                 <div className='right-side'>
