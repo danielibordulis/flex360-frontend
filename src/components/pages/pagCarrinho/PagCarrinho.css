@@ -68,10 +68,12 @@
 
 .preco-total > span {
     font-size: 1.3em;
+    color: white !important;
 }
 
 .preco-total > button:hover {
     transform: scale(1.1);
+    background-color: white;
 }
 
 .container-text {
