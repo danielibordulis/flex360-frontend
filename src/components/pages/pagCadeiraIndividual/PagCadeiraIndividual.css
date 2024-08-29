@@ -1,0 +1,181 @@
+
+.body {
+    display: flex;
+    width: 100vw;
+    min-height: 78%;
+}
+
+.sub-containers {
+    width: 50%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    padding-top: 10px;
+}
+
+.nome-cadeira {
+    width: 100%;
+    text-align: center;
+    font-family: var(--font-1), Arial, Helvetica, sans-serif;
+    height: 15%;
+    font-size: 1.6em;
+}
+
+.container-selo-abnt {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 10%;
+}
+
+.container-selo-abnt img {
+    width: 100px;
+    margin-right: -20px;
+}
+
+.container-selo-abnt h2 {
+    font-family: var(--font-1), Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+.texto-info {
+    font-family: var(--font-1), Arial, Helvetica, sans-serif;
+    width: 100%;
+    padding: 20px;
+    text-align: center;
+    height: 25%;
+    
+}
+
+.container-dimensoes-prod {
+    width: 100%;
+    height: 50%;
+    padding-left: 20px;
+}
+
+.container-dimensoes-prod h3 {
+    font-family: var(--font-1), Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    width: 100%;
+    height: 10%;
+}
+
+.container-dimensoes-prod img {
+    min-width: 60%;
+    max-width: 375px;
+}
+
+.img-top {
+    width: 100%;
+    height: 30%;
+    background-image: url(./foto-cadeira-fundo.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.container-info-cadeira {
+    width: 100%;
+    height: 70%;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.box-foto-cadeira {
+    width: 40%;
+}
+
+.foto-cadeira-p {
+    width: 100%;
+}
+
+.desc-cadeira {
+    width: 60%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding-right: 15px;
+}
+
+.container-top {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 20px;
+}
+
+.descricao {
+    width: 100%;
+    height: 70%;
+}
+
+.desc-cadeira p {
+    font-family: var(--font-1), Arial, Helvetica, sans-serif;
+    font-size: 0.8em;
+}
+
+.desc-cadeira span {
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+.container-preco {
+    display: flex;
+    height: 30%;
+}
+
+.container-preco div.box-quant {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+}
+
+.container-preco > span {
+    font-size: 1.5em;
+    width: 50%;
+    font-weight: normal;
+}
+
+.container-bottom {
+    display: flex;
+    height: -webkit-fill-available;
+
+}
+
+.left-side {
+    width: 40%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding-top: 10px;
+    
+}
+
+.right-side {
+    width: 60%;
+    height: 100%;
+    justify-content: center;
+    align-items: flex-start;
+    padding-top: 10px;
+}
+
+.right-side button {
+    padding: 10px 15px 10px 15px;
+    background-color: var(--cor-2);
+    color: black;
+    border: 0;
+    border-radius: 10px;
+    font-family: var(--font-1), Arial, Helvetica, sans-serif;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.39, 0.575, 0.565, 1);
+    
+}
+
+.right-side button:hover {
+    transform: scale(1.1);
+    background-color: var(--cor-1);
+    color: white;
+}
