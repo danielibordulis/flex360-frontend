@@ -33,13 +33,6 @@ export default function Produto({ imagem, descricao, preco }) {
         <span className="produto-preco">R${preco.toFixed(2)}</span>
       </div>
       
-      
-
-      
-
-      
-      
-      
     </div>
   );
 }
