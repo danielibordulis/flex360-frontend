@@ -58,24 +58,45 @@
 
 .botao-quantidade {
   background-color: #DA1C1C;
-  color: white;
+  color: black; /* Mantém o descritivo interno em preto */
   border: none;
   font-family: 'Inter', sans-serif;
   font-weight: bold;
-  font-size: 30px;
-  padding: 5px 10px;
+  font-size: 20px; /* Diminui o tamanho dos botões vermelhos */
+  padding: 5px 8px; /* Ajusta o padding para o tamanho menor */
 }
 
 .numero-quantidade {
   font-family: 'Inter', sans-serif;
   font-weight: bold;
-  font-size: 30px;
+  font-size: 25px;
   color: #DA1C1C;
   margin: 0 10px;
+}
+
+.botao-carrinho {
+  width: 100px;
+  height: 50px;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 0;
+  cursor: pointer;
+}
+
+.botao-carrinho:hover {
+  transform: scale(1.1);
+}
+
+.botao-carrinho img {
+  width: 100%;
 }
 
 .produto-preco {
   font-family: 'Lemonada', sans-serif;
   font-size: 20px;
   color: #000000;
+  margin-top: 5px;
+  text-align: center; /* Centraliza o preço */
 }

@@ -27,7 +27,9 @@ export default function Produto({ imagem, descricao, preco }) {
       </div>
 
       <div className='container-preco-prod'>
-        <button>botao</button>
+        <button className="botao-carrinho">
+          <img src="public/botaoCarrinho.png" alt="Carrinho"  />
+        </button>
         <span className="produto-preco">R${preco.toFixed(2)}</span>
       </div>
       
@@ -41,3 +43,4 @@ export default function Produto({ imagem, descricao, preco }) {
     </div>
   );
 }
+

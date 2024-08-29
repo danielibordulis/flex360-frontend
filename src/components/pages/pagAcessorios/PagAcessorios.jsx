@@ -41,7 +41,7 @@ export default function PagAcessorios() {
   ];
 
   return (
-    <div className="pag-acessorios">
+    <>
       <Header/>
       <Nav />
       <section className="body">
@@ -54,6 +54,6 @@ export default function PagAcessorios() {
           />
         ))}
       </section>
-    </div>
+    </>
   );
 }
