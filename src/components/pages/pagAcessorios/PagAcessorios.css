@@ -1,6 +1,6 @@
 
 .pag-acessorios {
-  padding: 20px;
+  padding: 40px;
 }
 
 
@@ -8,5 +8,5 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  margin-top: 20px; /* Adiciona margem superior para afastar mais ainda os produtos */
+  margin-top: 30px; /* Adiciona margem superior para afastar mais ainda os produtos */
 }

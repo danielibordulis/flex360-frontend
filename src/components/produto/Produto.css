@@ -4,7 +4,7 @@
     flex-direction: column;
     align-items: center;
     margin: 10px;
-    padding: 40px 50px; /* Reduz o espaçamento interno apenas nas laterais */
+    padding: 30px 10px; /* Reduz o espaçamento interno apenas nas laterais */
     flex: 1 1 30%; /* Ajusta a largura do produto para caber em três por linha */
     box-sizing: border-box;
     border: 2px solid #DA1C1C; /* Bordas ao redor dos produtos em vermelho */
@@ -43,7 +43,7 @@
 .numero-quantidade {
   font-family: 'Inter', sans-serif;
   font-weight: bold;
-  font-size: 30px;
+  font-size: 25px;
   color: #DA1C1C;
   margin: 0 10px;
 }
