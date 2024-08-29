@@ -1,5 +1,5 @@
-import { useState } from 'react'
 import './App.css'
+
 import PagCadastro from './components/pages/pagCadastro/PagCadastro'
 
 function App() {
@@ -8,6 +8,7 @@ function App() {
     <>
       
       <PagCadastro/>
+
     </>
   )
 }
