@@ -9,32 +9,32 @@ import './PagAcessorios.css';
 export default function PagAcessorios() {
   const produtos = [
     {
-      imagem: 'public/carregador-acessorios.png',
+      imagem: '/carregador-acessorios.png',
       descricao: 'Carregador por indução',
       preco: 250.00,
     },
     {
-      imagem: 'public/pistao-acessorios.png',
+      imagem: '/pistao-acessorios.png',
       descricao: 'Pistão á gás',
       preco: 280.00,
     },
     {
-      imagem: 'public/rodinha-acessorios.png',
+      imagem: '/rodinha-acessorios.png',
       descricao: 'Rodízio em gel c/ capa preta',
       preco: 80.00,
     },
     {
-      imagem: 'public/monitor-acessorios.png',
+      imagem: '/monitor-acessorios.png',
       descricao: 'Suporte para monitor',
       preco: 1154.23,
     },
     {
-      imagem: 'public/notebook-acessorios.png',
+      imagem: '/notebook-acessorios.png',
       descricao: 'Suporte para notebook',
       preco: 893.00,
     },
     {
-      imagem: 'public/apoiaPes-acessorios.png',
+      imagem: '/apoiaPes-acessorios.png',
       descricao: 'Apoia pés ergonômico',
       preco: 230.23,
     },

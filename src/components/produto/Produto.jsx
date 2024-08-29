@@ -1,6 +1,7 @@
 
 import React, { useState } from 'react';
 import './Produto.css';
+import ControleQuantidade from "../controleQuantidade//ControleQuantidade"
 
 export default function Produto({ imagem, descricao, preco }) {
   const [quantidade, setQuantidade] = useState(1);
@@ -12,16 +13,31 @@ export default function Produto({ imagem, descricao, preco }) {
 
   return (
     <div className="produto">
-      <img src={imagem} alt={descricao} className="produto-imagem" />
-      <p className="produto-descricao">{descricao}</p>
 
-      <div className="controle-quantidade">
-        <button className="botao-quantidade" onClick={diminuirQuantidade}>-</button>
-        <span className="numero-quantidade">{quantidade}</span>
-        <button className="botao-quantidade" onClick={aumentarQuantidade}>+</button>
+      <div className='container-image-prod'>
+        <img src={imagem} alt={descricao} className="produto-imagem" />
+      </div>
+
+      <div className='container-descricao-prod'>
+        <p className="produto-descricao">{descricao}</p>
+      </div>
+
+      <div className='container-controle-quantidade'>
+       <ControleQuantidade />
+      </div>
+
+      <div className='container-preco-prod'>
+        <button>botao</button>
+        <span className="produto-preco">R${preco.toFixed(2)}</span>
       </div>
       
-      <p className="produto-preco">R${preco.toFixed(2)}</p>
+      
+
+      
+
+      
+      
+      
     </div>
   );
 }
