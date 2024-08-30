@@ -15,8 +15,8 @@ function Nav() {
         </button>
         <button className={dropDown ? "dropDownButton" : ""}>Home</button>
         <button className={dropDown ? "dropDownButton" : ""}>Cadeiras</button>
-        <button className={dropDown ? "dropDownButton" : ""}>Sugestão Ergonomia</button>
-        <button className={dropDown ? "dropDownButton" : ""}>botao</button>
+        <button className={dropDown ? "dropDownButton" : ""}>Sugestão Ergonômica</button>
+        <button className={dropDown ? "dropDownButton" : ""}>Botão</button>
     </nav>
   )
 }

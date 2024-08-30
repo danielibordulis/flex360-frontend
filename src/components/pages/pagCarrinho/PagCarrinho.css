@@ -1,0 +1,110 @@
+.body-carrinho {
+    display: flex;
+    width: 100vw;
+    height: 74vh !important;
+}
+
+.container-carrinho {
+    width: 60%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 50px;
+
+}
+
+.right-side {
+    width: 40%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.carrinho {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    border: 5px solid var(--cor-1);
+    border-radius: 15px;
+    overflow-y: auto;
+    gap: 15px;
+}
+
+.carrinho::-webkit-scrollbar {
+    background-color: white;
+    border-radius: 5px;
+    width: 10px;
+    padding: 5px;
+}
+
+.carrinho::-webkit-scrollbar-thumb {
+    background-color: var(--cor-1);
+    border-radius: 10px;
+    width: 80%;
+}
+
+.container-preco-total, .container-text {
+    width: 100%;
+    height: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.preco-total {
+    width: 70%;
+    height: 200px;
+    background-color: var(--cor-1);
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.preco-total > h2, span, button {
+    color: white;
+    font-family: var(--font-1), Arial, Helvetica, sans-serif;
+}
+
+.preco-total > button {
+    width: 200px;
+    height: 50px;
+    background-color: white;
+    color: red !important;
+    cursor: pointer;
+    border-radius: 10px;
+    border: 0;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.preco-total > span {
+    font-size: 1.3em;
+    color: white !important;
+}
+
+.preco-total > button:hover {
+    transform: scale(1.1);
+    background-color: white;
+}
+
+.container-text {
+    flex-direction: column;
+    justify-content: start;
+}
+
+.container-text p {
+    color: red;
+    font-family: var(--font-1), Arial, Helvetica, sans-serif;
+    font-size: 1.3em;
+    width: 80%;
+    max-width: 400px;
+    text-align: center;
+}
+
+.container-text img {
+    width: 150px;
+}
