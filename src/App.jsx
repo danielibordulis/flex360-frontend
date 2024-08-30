@@ -1,13 +1,13 @@
 import './App.css'
-import Header from './components/header/Header'
-import Nav from './components/nav/Nav'
-import PagHome from './components/pages/pagHome/PagHome'
+import PagCadeiraIndividual from './components/pages/pagCadeiraIndividual/PagCadeiraIndividual'
+import PagCadeiras from './components/pages/pagCadeiras/PagCadeiras'
+import PagCarrinho from './components/pages/pagCarrinho/PagCarrinho'
 
 function App() {
   
   return (
     <>
-      <PagHome/>
+      <PagCarrinho />
     </>
   )
 }
