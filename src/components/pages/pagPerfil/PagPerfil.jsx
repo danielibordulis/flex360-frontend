@@ -9,7 +9,7 @@ import ScrollComponent from '../../scroll/ScrollComponent';
 
 function PagPerfil() {
   return (
-    <div>
+    <>
       <Header />
       <Nav />
       <section className='body'>
@@ -43,7 +43,7 @@ function PagPerfil() {
            <ScrollComponent/>
         </div>
       </section>   
-    </div>
+    </>
   );
 }
 
