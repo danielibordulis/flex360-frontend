@@ -14,6 +14,8 @@ function PagCarrinho() {
                 <div className='container-carrinho'>
                     <div className='carrinho'>
                         <ItemCarrinho />
+                        <ItemCarrinho />
+                        
                     </div>
                 </div>
 

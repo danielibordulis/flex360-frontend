@@ -29,6 +29,21 @@
     height: 100%;
     border: 5px solid var(--cor-1);
     border-radius: 15px;
+    overflow-y: auto;
+    gap: 15px;
+}
+
+.carrinho::-webkit-scrollbar {
+    background-color: white;
+    border-radius: 5px;
+    width: 10px;
+    padding: 5px;
+}
+
+.carrinho::-webkit-scrollbar-thumb {
+    background-color: var(--cor-1);
+    border-radius: 10px;
+    width: 80%;
 }
 
 .container-preco-total, .container-text {
