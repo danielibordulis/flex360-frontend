@@ -5,7 +5,6 @@ import PagCarrinho from './components/pages/pagCarrinho/PagCarrinho'
 
 function App() {
   
-
   return (
     <>
       <PagCarrinho />
