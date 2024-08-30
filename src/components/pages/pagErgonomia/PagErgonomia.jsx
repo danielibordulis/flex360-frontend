@@ -5,7 +5,7 @@ import './PagErgonomia.css';
 
 export default function PagErgonomia() {
   return (
-    <div className="pag-ergonomia">
+    <>
       <Header /> 
       <Nav /> 
       
@@ -36,11 +36,9 @@ export default function PagErgonomia() {
           <button className="botao-encontrar">Encontrar</button>
         </div>
 
-        <div className="container-direita">
-          <img className="imagem-ergonomia" src="./foto-ergonomia.png" alt="Ergonomia" />
-        </div>
-        
+        <div className="container-direita" />
+          
       </section>
-    </div>
+    </>
   );
 }

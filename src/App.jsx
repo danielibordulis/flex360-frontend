@@ -1,12 +1,12 @@
 import './App.css'
 
-import PagAcessorios from './components/pages/pagAcessorios/PagAcessorios'
+import PagErgonomia from "./components/pages/pagErgonomia/PagErgonomia"
 
 function App() {
   
   return (
     <>
-      <PagAcessorios />
+      <PagErgonomia />
       
     </>
   )
