@@ -10,9 +10,11 @@ const ScrollComponent = () => {
             <img src="./cadeirinha.png" alt="cadeirinha" />
           </div>
           <div className='texto'>
-            <p>Cadeira led Black n white</p>
-            <p>R$ 1.999,00</p>
+            <p className='nomeCadeira'>Cadeira led Black n white</p>
+            <p className='preço'>R$ 1.999,00</p>
           </div>
+
+          
         </div>  
       </div>
   );
