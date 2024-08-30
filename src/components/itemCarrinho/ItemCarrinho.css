@@ -45,6 +45,9 @@
 .container-nome-item > h2 {
     font-family: var(--font-1), Arial, Helvetica, sans-serif;
     font-size: 1.3em;
+    white-space: nowrap; 
+    overflow: hidden;
+    text-overflow: ellipsis; 
 }
 
 .container-deletar-item {
