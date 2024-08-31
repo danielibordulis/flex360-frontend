@@ -5,6 +5,7 @@ import './ScrollComponent.css';
 const ScrollComponent = () => {
   return (
       <div className='scrollable-content'>
+
         <div className='container-cadeirinha'>
           <div className='div-img'>
             <img src="./cadeirinha.png" alt="cadeirinha" />
