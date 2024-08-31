@@ -1,27 +1,32 @@
 .body{
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
     display: flex;
-    padding: 3%;
-    gap:2px;
-    
+    align-items: center;
+    justify-content: center;
+    gap: 5px !important;
 }
+
 .lado-esquerdo{
-    justify-content: flex-start;
+    
     width:35%;
     height: 80%;
     background-color: #747474;
-    border-radius: 20px;
-    padding: 5%;
-    margin-right: 5px;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+   
 }
 .lado-direito{
    
-    justify-content: flex-start;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
     width:35%;
+    height: 80%;
     background-color: #747474;
-    border-radius: 20px;
-    padding: 5%;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    
 }
 .Titulo{
     color: white;

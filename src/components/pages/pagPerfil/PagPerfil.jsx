@@ -13,6 +13,7 @@ function PagPerfil() {
       <Header />
       <Nav />
       <section className='body'>
+
         <div className='lado-esquerdo'>
           <h2 className='Titulo'>Meu perfil</h2>
           <div className='botoesEditar'>
@@ -42,6 +43,7 @@ function PagPerfil() {
           <h2 className='Titulo'>Vistos recentemente:</h2>
            <ScrollComponent/>
         </div>
+        
       </section>   
     </>
   );
