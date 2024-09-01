@@ -1,10 +1,19 @@
-import React from 'react'
+import React, { useState } from 'react'
 import "./PagCarrinho.css"
 import Header from '../../header/Header'
 import Nav from '../../nav/Nav'
 import ItemCarrinho from '../../itemCarrinho/ItemCarrinho'
+import ServicoCarrinho from '../../../services/servico-carrinho'
 
 function PagCarrinho() {
+
+    const [itensCarrinho, setItensCarrinho] = useState(ServicoCarrinho.pegaItens())
+
+    function removeItem(id) {
+        const carrinhoAtualizado = ServicoCarrinho.removeItem(id)
+        setItensCarrinho(carrinhoAtualizado)
+    }
+
     return (
         <>
             <Header />
@@ -13,7 +22,10 @@ function PagCarrinho() {
 
                 <div className='container-carrinho'>
                     <div className='carrinho'>
-                        <ItemCarrinho />
+                        {itensCarrinho.map((item => (
+                            <ItemCarrinho key={item.id} />
+                        )))}
+                        
                         <ItemCarrinho />
                         
                     </div>
