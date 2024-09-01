@@ -1,5 +1,5 @@
 import './PagLogin.css';
-import { validarCampo } from '../../../utils/validation-user'
+import { validarCampo, pegaEValidaLogin } from '../../../utils/validation-user'
 import Erro from '../../erro/Erro'
 import { useState } from 'react';
 
@@ -35,8 +35,10 @@ export default function PagLogin() {
     setErros(listaErros)
     return
     }
-  }
 
+    let resultado = pegaEValidaLogin()
+    alert(resposta)
+  }
 
 
 

@@ -1,3 +1,12 @@
+export function pegaEValidaLogin() {
+    let tokenSalvo = localStorage.getItem("tokenLogin")
+    if(tokenSalvo == null) return false
+
+    //Enviar o token para consultar no banco
+
+    return true
+}
+
 export function validarCampo(campo, campo2 = null) {
     const quantidadeCaracteresCampo = campo.value.length
 
