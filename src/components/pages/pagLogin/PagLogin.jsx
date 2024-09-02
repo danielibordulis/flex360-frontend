@@ -1,39 +1,42 @@
 import './PagLogin.css';
 import { validarCampo } from '../../../utils/validation-user'
 import Erro from '../../erro/Erro'
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 export default function PagLogin() {
   const [erros, setErros] = useState({})
   const [emailINPT, setEmailINPT] = useState("")
   const [senha, setSenha] = useState("")
 
+  useEffect(() => {
 
-  const inpts = document.querySelectorAll(".campo")
-  for(let obj of inpts) {
-    obj.addEventListener("keydown", (e) => {
-      let listaErros = erros;
-      const elementoId = e.target.id
-      listaErros[elementoId] = ""
-      setErros(listaErros)
-    })
-  }
+    const inpts = document.querySelectorAll(".campo")
+    for (let obj of inpts) {
+      obj.addEventListener("keydown", (e) => {
+        let listaErros = erros;
+        const elementoId = e.target.id
+        listaErros[elementoId] = ""
+        setErros(listaErros)
+      })
+    }
+
+  }, [])
 
   function entra(form) {
     form.preventDefault()
     let listaErros = {}
     let resposta = validarCampo(document.getElementById('email'))
-    if(resposta) {
+    if (resposta) {
       listaErros.email = resposta
     }
     resposta = validarCampo(document.getElementById("senha"))
-    if(resposta) {
+    if (resposta) {
       listaErros.senha = resposta
     }
 
-    if(Object.keys(listaErros).length > 0) {
-    setErros(listaErros)
-    return
+    if (Object.keys(listaErros).length > 0) {
+      setErros(listaErros)
+      return
     }
   }
 
@@ -75,7 +78,7 @@ export default function PagLogin() {
 
       </div>
       <div className='imagem-login'>
-       
+
       </div>
     </section>
   );
