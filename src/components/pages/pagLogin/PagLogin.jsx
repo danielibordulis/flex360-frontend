@@ -1,5 +1,5 @@
 import './PagLogin.css';
-import { validarCampo, pegaEValidaLogin } from '../../../utils/validation-user'
+import { validarCampo, pegaEValidaTokenLogin } from '../../../utils/validation-user'
 import Erro from '../../erro/Erro'
 import { useState } from 'react';
 
@@ -9,17 +9,17 @@ export default function PagLogin() {
   const [senha, setSenha] = useState("")
 
 
-  const inpts = document.querySelectorAll(".campo")
-  for(let obj of inpts) {
-    obj.addEventListener("keydown", (e) => {
-      let listaErros = erros;
-      const elementoId = e.target.id
-      listaErros[elementoId] = ""
-      setErros(listaErros)
-    })
-  }
+  // const inpts = document.querySelectorAll(".campo")
+  // for(let obj of inpts) {
+  //   obj.addEventListener("keydown", (e) => {
+  //     let listaErros = erros;
+  //     const elementoId = e.target.id
+  //     listaErros[elementoId] = ""
+  //     setErros(listaErros)
+  //   })
+  // }
 
-  function entra(form) {
+  async function entra(form) {
     form.preventDefault()
     let listaErros = {}
     let resposta = validarCampo(document.getElementById('email'))
@@ -36,8 +36,7 @@ export default function PagLogin() {
     return
     }
 
-    let resultado = pegaEValidaLogin()
-    alert(resposta)
+    let resultado = await pegaEValidaTokenLogin()
   }
 
 

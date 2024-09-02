@@ -1,6 +1,6 @@
-export function pegaEValidaLogin() {
+export function pegaEValidaTokenLogin() {
     let tokenSalvo = localStorage.getItem("tokenLogin")
-    if(tokenSalvo == null) return false
+    if(tokenSalvo == null) return false // Nenhum token salvo
 
     //Enviar o token para consultar no banco
 
