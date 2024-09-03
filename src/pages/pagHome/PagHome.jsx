@@ -1,8 +1,8 @@
 import React from 'react'
 import "./PagHome.css"
-import Header from '../../header/Header'
-import Nav from '../../nav/Nav'
-import Footer from '../../footer/Footer'
+import Header from '../../components/header/Header'
+import Nav from '../../components/nav/Nav'
+import Footer from '../../components/footer/Footer'
 
 
 

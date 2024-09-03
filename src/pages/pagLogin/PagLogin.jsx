@@ -1,6 +1,6 @@
 import './PagLogin.css';
-import { validarCampo } from '../../../utils/validation-user'
-import Erro from '../../erro/Erro'
+import { validarCampo } from '../../utils/validation-user'
+import Erro from '../../components/erro/Erro'
 import { useState } from 'react';
 
 export default function PagLogin() {

@@ -1,8 +1,8 @@
 
 import React from 'react';
-import Header from '../../header/Header';
-import Nav from '../../nav/Nav';
-import Produto from '../../produto/Produto'
+import Header from '../../components/header/Header';
+import Nav from '../../components/nav/Nav';
+import Produto from '../../components/produto/Produto'
 import './PagAcessorios.css';
 
 
@@ -72,7 +72,7 @@ export default function PagAcessorios() {
 >>>>>>> 52dc0dd (produtos e descricao)
       <Header/>
       <Nav />
-      <section className="body">
+      <section className="body-acessorios">
         {produtos.map((produto, index) => (
           <Produto
             key={index}

@@ -1,15 +1,15 @@
 import React from 'react'
-import Header from '../../header/Header'
-import Nav from '../../nav/Nav'
+import Header from '../../components/header/Header'
+import Nav from '../../components/nav/Nav'
 import "./PagCadeiras.css"
-import Cadeira from '../../cadeira/Cadeira'
+import Cadeira from '../../components/cadeira/Cadeira'
 
 function PagCadeiras() {
   return (
     <>
         <Header />
         <Nav />
-        <section className='body'>
+        <section className='body-cadeiras'>
             
             <div className='container-numero-cadeira'>
               <button>
