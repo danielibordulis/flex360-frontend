@@ -1,3 +1,12 @@
+export function pegaEValidaTokenLogin() {
+    let tokenSalvo = localStorage.getItem("tokenLogin")
+    if(tokenSalvo == null) return false // Nenhum token salvo
+
+    //Enviar o token para consultar no banco
+
+    return true
+}
+
 export function validarCampo(campo, campo2 = null) {
     const quantidadeCaracteresCampo = campo.value.length
 
@@ -9,7 +18,7 @@ export function validarCampo(campo, campo2 = null) {
         case "email":
             const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
             if(!regex.test(campo.value)) {
-                alert("aff")
+                
                 return "E-mail inválido"
             }
             break

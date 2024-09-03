@@ -1,7 +1,7 @@
 import './PagLogin.css';
-import { validarCampo } from '../../utils/validation-user'
+import { validarCampo, pegaEValidaTokenLogin } from '../../utils/validation-user'
 import Erro from '../../components/erro/Erro'
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 export default function PagLogin() {
   const [erros, setErros] = useState({})
@@ -9,34 +9,51 @@ export default function PagLogin() {
   const [senha, setSenha] = useState("")
 
 
-  const inpts = document.querySelectorAll(".campo")
-  for(let obj of inpts) {
-    obj.addEventListener("keydown", (e) => {
-      let listaErros = erros;
+
+  useEffect(() => {
+    const inpts = document.querySelectorAll(".campo")
+
+    function trataEvento(e) {
+      let listaErros = { ...erros }
       const elementoId = e.target.id
       listaErros[elementoId] = ""
       setErros(listaErros)
-    })
-  }
 
-  function entra(form) {
+    }
+
+    for (let obj of inpts) {
+      obj.addEventListener("keydown", trataEvento)
+    }
+
+    return () => {
+
+      for (let obj of inpts) {
+        obj.removeEventListener("keydown", trataEvento)
+      }
+    }
+
+  }, [erros])
+
+
+  async function entra(form) {
     form.preventDefault()
     let listaErros = {}
     let resposta = validarCampo(document.getElementById('email'))
-    if(resposta) {
+    if (resposta) {
       listaErros.email = resposta
     }
     resposta = validarCampo(document.getElementById("senha"))
-    if(resposta) {
+    if (resposta) {
       listaErros.senha = resposta
     }
 
-    if(Object.keys(listaErros).length > 0) {
-    setErros(listaErros)
-    return
+    if (Object.keys(listaErros).length > 0) {
+      setErros(listaErros)
+      return
     }
-  }
 
+    let resultado = await pegaEValidaTokenLogin()
+  }
 
 
 
@@ -75,7 +92,7 @@ export default function PagLogin() {
 
       </div>
       <div className='imagem-login'>
-       
+
       </div>
     </section>
   );
