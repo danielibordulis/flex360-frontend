@@ -24,7 +24,7 @@
     margin-bottom: 5px; /* Adiciona espaço abaixo da imagem de certificação */
   }
   .titulo-principal {
-    font-family: 'Lemonada', sans-serif;
+    font-family: var(--font-1), sans-serif;
     font-size: 20px;
     color: black;
     font-weight: bold;
@@ -43,7 +43,7 @@
   .form-label {
     margin-bottom: 5px; /* Espaço abaixo dos rótulos */
     font-size: 18px; /* Ajusta o tamanho da fonte dos rótulos */
-    color: #DA1C1C; /* Cor do texto dos rótulos */
+    color: var(--cor-1); /* Cor do texto dos rótulos */
     margin-right: 115px;
     
   }
@@ -52,11 +52,11 @@
   .form-ergonomia input {
       width: 30%; /* Reduz a largura dos inputs */
       height: 30px; /* Reduz a altura dos inputs */
-      background-color: #D9D9D9; /* Mantém a cor de fundo */
+      background-color: var(--cor-2); /* Mantém a cor de fundo */
       border: none; /* Mantém as bordas removidas */
       border-radius: 8px; /* Adiciona bordas arredondadas */
       padding-left: 10px; /* Mantém o preenchimento interno */
-      font-family: 'Lemonada', sans-serif; /* Mantém a fonte do texto */
+      font-family: var(--font-1), sans-serif; /* Mantém a fonte do texto */
       font-size: 15px; /* Mantém o tamanho da fonte */
       margin-bottom: 10px; /* Aumenta o espaço entre os inputs */
   }
@@ -81,14 +81,14 @@
   
   /* Estiliza cada opção de design */
   .opcao-design {
-    font-family: 'Lemonada', sans-serif; /* Define a fonte das opções de design */
+    font-family: var(--font-1), sans-serif; /* Define a fonte das opções de design */
     font-size: 15px; /* Define o tamanho da fonte das opções de design */
-    color: #DA1C1C; /* Define a cor do texto das opções de design */
+    color: var(--cor-1) ; /* Define a cor do texto das opções de design */
     margin-bottom: -5px; /* Adiciona um espaço abaixo de cada opção de design */
     text-align: center; /* Centraliza o texto das opções de design */
   }
   .titulo-ergonomia {
-    font-family: 'Lemonada', sans-serif; /* Mantém a fonte do texto */
+    font-family: var(--font-1), sans-serif; /* Mantém a fonte do texto */
     font-size: 20px;
     color: var(--cor-1);
   }
@@ -97,9 +97,9 @@
   .botao-encontrar {
     width: 15%; 
     height: 35px; 
-    background-color: #DA1C1C; /* Mantém a cor de fundo */
+    background-color: var(--cor-1); /* Mantém a cor de fundo */
     color: white; /* Mantém a cor do texto */
-    font-family: 'Lemonada', sans-serif; /* Mantém a fonte do texto */
+    font-family: var(--font-1), sans-serif; /* Mantém a fonte do texto */
     font-size: 15px; /* Mantém o tamanho da fonte */
     border: none; /* Mantém as bordas removidas */
     cursor: pointer; /* Mantém o cursor como uma mãozinha */
