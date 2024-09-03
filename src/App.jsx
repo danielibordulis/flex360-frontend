@@ -1,5 +1,6 @@
 import './App.css'
 
+import PagErgonomia from "./pages/pagErgonomia/PagErgonomia"
 import PagCadeiraIndividual from './pages/pagCadeiraIndividual/PagCadeiraIndividual'
 import PagAcessorios from './pages/pagAcessorios/PagAcessorios'
 import PagCarrinho from './pages/pagCarrinho/PagCarrinho'
@@ -13,7 +14,9 @@ function App() {
   
   return (
     <>
+ 
       <PagPerfil/>
+
     </>
   )
 }
