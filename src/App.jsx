@@ -1,7 +1,7 @@
 import './App.css'
-import PagCadeiraIndividual from './components/pages/pagCadeiraIndividual/PagCadeiraIndividual'
-import PagCadeiras from './components/pages/pagCadeiras/PagCadeiras'
-import PagCarrinho from './components/pages/pagCarrinho/PagCarrinho'
+import PagCadeiraIndividual from './pages/pagCadeiraIndividual/PagCadeiraIndividual'
+import PagCadeiras from './pages/pagCadeiras/PagCadeiras'
+import PagCarrinho from './pages/pagCarrinho/PagCarrinho'
 
 function App() {
   

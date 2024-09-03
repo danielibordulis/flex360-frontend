@@ -1,9 +1,9 @@
 import React from 'react'
 import "./PagCadeiraIndividual.css"
-import Header from '../../header/Header'
-import Nav from '../../nav/Nav'
-import PaletaCor from '../../paletaCor/PaletaCor'
-import ControleQuantidade from '../../controleQuantidade/ControleQuantidade'
+import Header from '../../components/header/Header'
+import Nav from '../../components/nav/Nav'
+import PaletaCor from '../../components/paletaCor/PaletaCor'
+import ControleQuantidade from '../../components/controleQuantidade/ControleQuantidade'
 
 function PagCadeiraIndividual() {
   return (
