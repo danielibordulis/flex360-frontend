@@ -14,8 +14,7 @@ const ScrollComponent = () => {
             <p className='nomeCadeira'>Cadeira led Black n white</p>
             <p className='preço'>R$ 1.999,00</p>
           </div>
-
-          
+    
         </div>  
 
       </div>

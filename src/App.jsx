@@ -14,8 +14,9 @@ function App() {
   
   return (
     <>
-      <PagLogin />
-      
+ 
+      <PagPerfil/>
+
     </>
   )
 }
