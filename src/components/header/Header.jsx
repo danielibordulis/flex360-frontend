@@ -8,7 +8,7 @@ function Header() {
             <img className='imagem-logo' alt='Logo' src='./logo-grande.png'/>
         </div>
         <div className='container-search-input'>
-            <input placeholder='O que você procura ...'/>
+            <input placeholder='O que você procura?...'/>
         </div>
         <div className='container-botao-nav'>
             <button>
