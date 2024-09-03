@@ -69,6 +69,10 @@
 .design-opcoes {
   width: 80%; /* Define que as opções de design ocuparão 80% da largura do container-esquerda */
   margin-bottom: 20px; /* Adiciona um espaço abaixo da seção de opções de design */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 .titulo + .design-opcoes {
   margin-top: 10px; /* Adiciona espaço acima da primeira opção */
@@ -106,14 +110,25 @@
   margin-top: 10px; /* Ajusta o espaço acima do botão para movê-lo para cima */
 }
 
+.botao-encontrar:hover {
+  transform: scale(1.1);
+}
 
 
 /* Define a área à direita, onde a imagem de ergonomia está */
 .container-direita {
   width: 50%; /* Define a largura do container direito como 50% da tela */
+  height: 90%;
+  max-height: 500px;
   display: flex; /* Os itens dentro do container serão dispostos em linha */
   justify-content: center; /* Centraliza a imagem horizontalmente no container */
   align-items: center; /* Centraliza a imagem verticalmente no container */
+  background-image: url(./foto-ergonomia.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  border-radius: 10px;
+  overflow: hidden;
 }
 
 /* Estiliza a imagem de ergonomia */
