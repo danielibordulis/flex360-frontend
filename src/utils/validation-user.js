@@ -18,7 +18,7 @@ export function validarCampo(campo, campo2 = null) {
         case "email":
             const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
             if(!regex.test(campo.value)) {
-                alert("aff")
+                
                 return "E-mail inválido"
             }
             break
