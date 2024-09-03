@@ -1,10 +1,8 @@
 
-.body {
+.body-cadeiras {
     width: 100vw;
     min-height: 80%;
 }
-<<<<<<< HEAD
-=======
 
 .container-numero-cadeira {
     display: flex;
@@ -46,4 +44,3 @@
     gap: 20px;
     padding: 10px;
 }
->>>>>>> c07826be11c088e45d4fe53fec7428065b8ee3b8
