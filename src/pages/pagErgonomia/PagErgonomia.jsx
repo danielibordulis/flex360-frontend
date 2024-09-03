@@ -9,7 +9,7 @@ export default function PagErgonomia() {
       <Header /> 
       <Nav /> 
       
-      <section className="body">
+      <section className="body-ergonomia">
         <div className="container-esquerda">
 
           <img className="imagem-certificacao" src="./foto-certificacao.png" alt="Certificação" />
@@ -25,7 +25,7 @@ export default function PagErgonomia() {
 
           </form>
 
-          <h2 className="titulo">Estilos De Design:</h2>
+          <h2 className="titulo-ergonomia">Estilos De Design:</h2>
 
           <div className="design-opcoes">
             <p className="opcao-design">Contemporâneo?</p>

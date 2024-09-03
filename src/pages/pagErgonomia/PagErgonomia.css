@@ -1,5 +1,5 @@
 /* Define a estrutura básica do corpo da página */
-.body {
+.body-ergonomia {
     display: flex; /* Define que os elementos filhos serão dispostos em linha (lado a lado) */
     justify-content: space-between; /* Distribui espaço uniformemente entre os elementos */
     align-items: center; /* Centraliza verticalmente os elementos */
@@ -13,6 +13,8 @@
     flex-direction: column; /* Garante que os itens dentro do container sejam alinhados verticalmente */
     align-items: center; /* Centraliza os itens horizontalmente no container */
     width: 50%; /* Define a largura do container esquerdo como 40% da tela */
+    height: 100%;
+    padding-bottom: 20px;
   }
   /* Estiliza a imagem de certificação */
   .imagem-certificacao {
@@ -72,7 +74,7 @@
     justify-content: center;
     align-items: center;
   }
-  .titulo + .design-opcoes {
+  .titulo-ergonomia + .design-opcoes {
     margin-top: 10px; /* Adiciona espaço acima da primeira opção */
    
   }
@@ -85,9 +87,10 @@
     margin-bottom: -5px; /* Adiciona um espaço abaixo de cada opção de design */
     text-align: center; /* Centraliza o texto das opções de design */
   }
-  .titulo{
+  .titulo-ergonomia {
     font-family: 'Lemonada', sans-serif; /* Mantém a fonte do texto */
     font-size: 20px;
+    color: var(--cor-1);
   }
   
   /* Estiliza o botão de "Encontrar" */
