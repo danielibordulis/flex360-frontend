@@ -1,0 +1,91 @@
+.body{
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px !important;
+}
+
+.lado-esquerdo{
+  
+  width:35%;
+  height: 80%;
+  background-color: #747474;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+ 
+}
+.lado-direito{
+ 
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width:35%;
+  height: 80%;
+  background-color: #747474;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  
+}
+.Titulo{
+  color: white;
+  font-size: 200%;
+  padding: 5%;
+  font-family: var(--font-1), Arial, Helvetica, sans-serif;
+  font-size: 1.8em;
+}
+.botoesEditar{
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.alinharBotoes{
+  gap: 10px;
+  margin-left: 5%;
+
+}
+.nome{
+  color: white;
+  font-family: var(--font-1), Arial, Helvetica, sans-serif;
+  font-size: 1.2em;
+}
+.email{
+  color: white;
+  font-family: var(--font-1), Arial, Helvetica, sans-serif;
+  font-size: 1.2em;
+}
+.checkEedit {
+  display: flex; 
+  align-items: center; 
+  gap: 10px; 
+}
+
+.inpNome {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  font-size: 16px; 
+  width: 300px;
+  margin-right: 20px;
+}
+
+.check, .lapis {
+  background: transparent; 
+  border: none; 
+  padding: 5px; 
+  cursor: pointer; 
+}
+
+.check img, .lapis img {
+  width: 20px; 
+  height: 20px; 
+}
+.inpEmail{
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  font-size: 16px; 
+  width: 300px;
+  gap: 10px;
+}
