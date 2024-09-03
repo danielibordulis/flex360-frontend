@@ -9,7 +9,6 @@ import PagCadeira from './pages/pagCadeiras/PagCadeiras'
 import PagHome from './pages/pagHome/PagHome'
 import PagLogin from './pages/pagLogin/PagLogin'
 import PagPerfil from './pages/pagPerfil/PagPerfil'
-import PagErgonomia from './pages/pagErgonomia/PagErgonomia'
 
 function App() {
   
