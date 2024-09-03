@@ -3,7 +3,7 @@ import './PagCadastro.css';
 
 export default function PagCadastro() {
   return (
-    <section className='body'>
+    <section className='body-cadastro'>
 
       {/* Div para a imagem de cadastro à esquerda */}
       <div className='imagem-cadastro' />
@@ -40,5 +40,4 @@ export default function PagCadastro() {
     </section>
   );
 }
-
 
