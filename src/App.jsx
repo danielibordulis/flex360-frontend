@@ -1,6 +1,6 @@
 import './App.css'
 
-import PagErgonomia from "./components/pages/pagErgonomia/PagErgonomia"
+import PagErgonomia from "./pages/pagErgonomia/PagErgonomia"
 
 function App() {
   
