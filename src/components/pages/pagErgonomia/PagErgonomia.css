@@ -122,6 +122,7 @@
   max-width: 90%; /* A imagem não ultrapassará 100% da largura disponível */
   height: auto; /* Mantém a proporção da imagem */
 }
+<<<<<<< HEAD
 =======
 =======
 /* Define a estrutura básica do corpo da página */
@@ -336,3 +337,5 @@
   height: auto; /* Mantém a proporção da imagem */
 }
 >>>>>>> 4eb01e6 (front proto)
+=======
+>>>>>>> b8be736 (merge: conflitos resolvidos)
