@@ -67,10 +67,13 @@
 .design-opcoes {
   width: 80%; /* Define que as opções de design ocuparão 80% da largura do container-esquerda */
   margin-bottom: 20px; /* Adiciona um espaço abaixo da seção de opções de design */
+<<<<<<< HEAD
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+=======
+>>>>>>> 1d3be54 (merge: conflitos resolvidos)
 }
 .titulo + .design-opcoes {
   margin-top: 10px; /* Adiciona espaço acima da primeira opção */
@@ -108,14 +111,18 @@
   margin-top: 10px; /* Ajusta o espaço acima do botão para movê-lo para cima */
 }
 
+<<<<<<< HEAD
 .botao-encontrar:hover {
   transform: scale(1.1);
 }
+=======
+>>>>>>> 1d3be54 (merge: conflitos resolvidos)
 
 
 /* Define a área à direita, onde a imagem de ergonomia está */
 .container-direita {
   width: 50%; /* Define a largura do container direito como 50% da tela */
+<<<<<<< HEAD
   height: 90%;
   max-height: 500px;
   display: flex; /* Os itens dentro do container serão dispostos em linha */
@@ -127,6 +134,11 @@
   background-size: contain;
   border-radius: 10px;
   overflow: hidden;
+=======
+  display: flex; /* Os itens dentro do container serão dispostos em linha */
+  justify-content: center; /* Centraliza a imagem horizontalmente no container */
+  align-items: center; /* Centraliza a imagem verticalmente no container */
+>>>>>>> 1d3be54 (merge: conflitos resolvidos)
 }
 
 /* Estiliza a imagem de ergonomia */
@@ -134,4 +146,8 @@
   width: 90%; 
   max-width: 90%; /* A imagem não ultrapassará 100% da largura disponível */
   height: auto; /* Mantém a proporção da imagem */
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 1d3be54 (merge: conflitos resolvidos)
