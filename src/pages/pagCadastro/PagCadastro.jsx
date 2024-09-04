@@ -5,12 +5,12 @@ export default function PagCadastro() {
   return (
     <section className='body-cadastro'>
 
-      {/* Div para a imagem de cadastro à esquerda */}
+     
       <div className='imagem-cadastro' />
 
       <div className='container-cadastro'>
 
-        {/* Div para o formulário de cadastro à direita */}
+       
         <div className='formulario-cadastro'>
           <h1 className='titulo'>Cadastrar</h1>
 
@@ -33,8 +33,9 @@ export default function PagCadastro() {
             </div>
             <button className='btn-cadastrar'>Cadastrar</button>
           </form>
-
-          
+          <button className="btn-login">
+            Já possuo cadastro
+          </button>
         </div>
       </div>
     </section>
