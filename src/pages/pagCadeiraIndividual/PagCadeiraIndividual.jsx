@@ -1,7 +1,6 @@
 import React from 'react'
 import "./PagCadeiraIndividual.css"
 import Header from '../../components/header/Header'
-import Nav from '../../components/nav/Nav'
 import PaletaCor from '../../components/paletaCor/PaletaCor'
 import ControleQuantidade from '../../components/controleQuantidade/ControleQuantidade'
 
@@ -9,7 +8,6 @@ function PagCadeiraIndividual() {
   return (
     <>
         <Header />
-        <Nav />
         <section className='body'>
             <div className='sub-containers'>
 
