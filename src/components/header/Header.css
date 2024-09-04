@@ -76,17 +76,20 @@ header {
 
 .menu-perfil {
     position: absolute;
-    top: calc(88% - 70px); /* Posiciona o menu diretamente sobre o botão */
-    right: 140px; 
+    width: 130px;
+    top: calc(75% ); /* Posiciona o menu diretamente sobre o botão */
+    right: calc(5%);
     background-color: white;
     border: 1px solid var(--cor-1);
     border-radius: 8px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
     padding: 5px;
     display: flex;
+    align-items: center;
+    justify-content: center;
     flex-direction: column;
     gap: 10px;
-    z-index: 10; /* Para garantir que o menu fique sobre outros elementos */
+    z-index: 10; 
 
 }
 
@@ -101,9 +104,9 @@ header {
 }
 
 .menu-perfil button:hover {
-    background-color: var(--cor-1);
     color: black;
     border-radius: 4px;
+    text-decoration: underline;
 }
 
 
@@ -126,6 +129,12 @@ header {
     .container-botao-nav {
         width: 50%;
         gap: 25px;
+    }
+
+    .menu-perfil {
+       
+        right: calc(13%) !important;
+         
     }
     
 }
@@ -150,6 +159,12 @@ header {
     .container-botao-nav {
         width: 50%;
         gap: 25px;
+    }
+
+    .menu-perfil {
+       
+        right: calc(13%) !important;
+         
     }
 
 }
