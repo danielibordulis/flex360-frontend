@@ -10,7 +10,6 @@ function PagHome() {
   return (
     <>
       <Header/>
-      <Nav/>
       <section className='bodyHome'>
             <div className='bannerPrincipal'>
              <img src="./bannerOrigin.png" alt="Banner grande"/>
