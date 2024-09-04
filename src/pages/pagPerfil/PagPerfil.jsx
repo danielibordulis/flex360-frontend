@@ -1,7 +1,6 @@
 // PagPerfil.js
 import React from 'react';
 import Header from '../../components/header/Header';
-import Nav from '../../components/nav/Nav';
 import './PagPerfil.css';
 import ScrollComponent from '../../components/scroll/ScrollComponent';
 
@@ -11,7 +10,6 @@ function PagPerfil() {
   return (
     <>
       <Header />
-      <Nav />
       <section className='body'>
 
         <div className='lado-esquerdo'>

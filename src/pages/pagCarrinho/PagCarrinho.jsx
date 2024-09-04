@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import "./PagCarrinho.css"
 
 import Header from '../../components/header/Header'
-import Nav from '../../components/nav/Nav'
 import ItemCarrinho from '../../components/itemCarrinho/ItemCarrinho'
 import ServicoCarrinho from '../../services/servico-carrinho'
 
@@ -18,7 +17,6 @@ function PagCarrinho() {
     return (
         <>
             <Header />
-            <Nav />
             <section className='body-carrinho'>
 
                 <div className='container-carrinho'>

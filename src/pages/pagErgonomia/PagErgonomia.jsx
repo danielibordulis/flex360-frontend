@@ -1,14 +1,11 @@
 import React from 'react';
 import Header from '../../components/header/Header'
-import Nav from '../../components/nav/Nav'
 import './PagErgonomia.css';
 
 export default function PagErgonomia() {
   return (
     <>
       <Header /> 
-      <Nav /> 
-      
       <section className="body-ergonomia">
         <div className="container-esquerda">
 

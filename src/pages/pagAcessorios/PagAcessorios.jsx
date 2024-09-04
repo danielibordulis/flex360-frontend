@@ -1,7 +1,6 @@
 
 import React from 'react';
 import Header from '../../components/header/Header';
-import Nav from '../../components/nav/Nav';
 import Produto from '../../components/produto/Produto'
 import './PagAcessorios.css';
 
@@ -43,7 +42,6 @@ export default function PagAcessorios() {
   return (
     <>
       <Header/>
-      <Nav />
       <section className="body-acessorios">
         {produtos.map((produto, index) => (
           <Produto
