@@ -34,7 +34,7 @@ function Header() {
                 <button onClick={alternarMenu}>
                     <img alt='Imagem do botão perfil' src='./perfil.png' className='botao-perfil'/>
                 </button>
-                <button onClick={() => irPara("carrinho">
+                <button onClick={() => irPara("carrinho")}>
                     <img alt='Imagem do botão carrinho' src='./carrinho.png' className='botao-carrinho'/>
                 </button>
             </div>
