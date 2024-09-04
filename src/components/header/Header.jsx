@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import "./Header.css"
 import Nav from '../nav/Nav'
 
@@ -23,7 +23,7 @@ function Header() {
                 <input placeholder='O que você procura?...'/>
             </div>
             <div className='container-botao-nav'>
-                <button>
+                <button onClick={alternarMenu}>
                     <img alt='Imagem do botão perfil' src='./perfil.png' className='botao-perfil'/>
                 </button>
                 <button>
