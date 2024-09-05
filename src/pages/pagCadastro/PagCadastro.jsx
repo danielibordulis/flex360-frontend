@@ -59,12 +59,12 @@ campos.forEach(elemento => {
   return (
     <section className='body'>
 
-      {/* Div para a imagem de cadastro à esquerda */}
+     
       <div className='imagem-cadastro' />
 
       <div className='container-cadastro'>
 
-        {/* Div para o formulário de cadastro à direita */}
+       
         <div className='formulario-cadastro'>
           <h1 className='titulo'>Cadastrar</h1>
 
@@ -91,8 +91,9 @@ campos.forEach(elemento => {
             </div>
             <button className='btn-cadastrar' type='submit'>Cadastrar</button>
           </form>
-
-
+          <button className="btn-login">
+            Já possuo cadastro
+          </button>
         </div>
       </div>
     </section>

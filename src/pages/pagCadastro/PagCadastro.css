@@ -27,9 +27,9 @@
 /* Estilo do título "Cadastrar" */
 .titulo {
     font-size: 30px;  /* Tamanho da fonte */
-    font-family: 'Lemonada', sans-serif;  /* Fonte utilizada */
+    font-family: var(--font-1), Arial, Helvetica, sans-serif; /* Fonte utilizada */
     font-weight: bold;  /* Negrito */
-    color: #DA1C1C;  /* Cor do texto */
+    color: var(--cor-1);  /* Cor do texto */
     margin-bottom: 40px;  /* Espaço abaixo do título */
 }
   
@@ -41,10 +41,10 @@
   
 .grupo-input label {
     display: block;  /* Faz com que o label ocupe a largura total, ficando em cima do input */
-    font-family: 'Lemonada', sans-serif;  /* Fonte do label */
+    font-family: var(--font-1), sans-serif;  /* Fonte do label */
     font-size: 20px;  /* Tamanho da fonte do label */
     font-weight: regular;  /* Peso da fonte (normal) */
-    color: #DA1C1C;  /* Cor do texto do label */
+    color: var(--cor-1);  /* Cor do texto do label */
     margin-bottom: 5px;  /* Espaço abaixo do label, acima do input */
 }
   
@@ -53,8 +53,8 @@
     height: 40px;  /* Altura do input */
     padding: 10px;  /* Espaçamento interno */
     font-size: 20px;  /* Tamanho da fonte */
-    font-family: 'Lemonada', sans-serif;  /* Fonte utilizada */
-    border: 1px solid #D9D9D9;  /* Borda do input */
+    font-family: var(--font-1), sans-serif;  /* Fonte utilizada */
+    border: 1px solid  var(--cor-2);  /* Borda do input */
     border-radius: 10px;  /* Bordas arredondadas */
 }
   
@@ -63,10 +63,10 @@
     width: 150px;  /* Aumentando a largura do botão */
     height: 40px;  /* Altura do botão */
     font-size: 20px;  /* Tamanho da fonte */
-    font-family: 'Lemonada', sans-serif;  /* Fonte utilizada */
+    font-family: var(--font-1), sans-serif;  /* Fonte utilizada */
     font-weight: semiBold;  /* Fonte em semi-negrito */
     color: #fff;  /* Cor do texto (branco) */
-    background-color: #DA1C1C;  /* Cor de fundo do botão */
+    background-color: var(--cor-1);  /* Cor de fundo do botão */
     border: none;  /* Sem borda */
     border-radius: 5px;  /* Bordas arredondadas */
     cursor: pointer;  /* Cursor de ponteiro ao passar o mouse */
@@ -88,4 +88,19 @@
     width: 50%;
     height: 100vh;
 }
-  
+
+.btn-login {
+    margin-top: 20px; /* Espaçamento acima da frase */
+    font-family: var(--font-1), Arial, Helvetica, sans-serif;
+    color: var(--cor-1); /* Cor do texto */
+    background: none; /* Remove cor de fundo */
+    border: none; /* Remove a borda */
+    font-size: 18px; /* Tamanho da fonte */
+    cursor: pointer; /* Cursor de ponteiro ao passar o mouse */
+    text-decoration: underline; /* Sublinha o texto */
+}
+
+.btn-login:hover {
+    text-decoration: none; /* Remove o sublinhado ao passar o mouse */
+    font-weight: bold; /* Negrito ao passar o mouse */
+}
