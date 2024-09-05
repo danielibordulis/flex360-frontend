@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import './PagCadastro.css';
 import { validarCampo } from '../../utils/validation-user'
 import Erro from '../../components/erro/Erro'
@@ -6,47 +6,51 @@ import Erro from '../../components/erro/Erro'
 export default function PagCadastro() {
 
   const [erros, setErros] = useState({})
+
   const [inputNome, setInputNome] = useState("")
   const [inputSenha, setInputSenha] = useState("")
   const [inputRepetirSenha, setInputRepetirSenha] = useState("")
   const [inputEmail, setInputEmail] = useState("")
+  const nomeRef = useRef(null)
+  const senhaRef = useRef(null)
+  const repetirSenhaRef = useRef(null)
+  const emailRef = useRef(null)
 
 
   useEffect(() => {
-    const campos = document.querySelectorAll(".campo")
+    const campos = [nomeRef, senhaRef, repetirSenhaRef, emailRef]
 
     function trataEvento(e) {
-      
-      let listaErros = {...erros}
+
       const elementoId = e.target.id
-      listaErros[elementoId] = ""
-      setErros(listaErros)
+      console.log(erros)
+      setErros(prevState =>({...prevState, [elementoId]: ""}))
 
     }
 
-    for (let obj of campos) {
-      obj.addEventListener("keydown", trataEvento)
-    }
+campos.forEach(elemento => {
+  elemento.current.addEventListener("keydown", trataEvento)
+  })
 
-    return() => {
+    return () => {
 
-      for(let obj of campos) {
-        obj.removeEventListener("keydown", trataEvento)
+      for (let obj of campos) {
+        obj.current.removeEventListener("keydown", trataEvento)
       }
 
     }
 
-  }, [erros])
+  }, [])
 
 
   function cadastra(form) {
     form.preventDefault()
-    let listaErros = {}
-
-    listaErros.nomeCadastro = validarCampo(document.getElementById("nomeCadastro"))
-    listaErros.senhaCadastro = validarCampo(document.getElementById("senhaCadastro"))
-    listaErros.repetirSenhaCadastro = validarCampo(document.getElementById("repetirSenhaCadastro"), document.getElementById("senhaCadastro"))
-    listaErros.email = validarCampo(document.getElementById("email"))
+    let listaErros = {
+      nomeCadastro: validarCampo(nomeRef.current),
+      senhaCadastro: validarCampo(senhaRef.current),
+      repetirSenhaCadastro: validarCampo(repetirSenhaRef.current, senhaRef.current),
+      email: validarCampo(emailRef.current)
+    }
 
     setErros(listaErros)
   }
@@ -67,22 +71,22 @@ export default function PagCadastro() {
           <form onSubmit={cadastra} noValidate>
             <div className='grupo-input'>
               <label htmlFor='nomeCadastro'>Nome</label>
-              <input type='text' name='nome' onChange={e => setInputNome(e.target.value)} value={inputNome} id='nomeCadastro' className='campo' />
+              <input type='text' name='nome' onChange={e => setInputNome(e.target.value)} value={inputNome} id='nomeCadastro' className='campo' ref={nomeRef} />
               <Erro mensagem={erros.nomeCadastro} />
             </div>
             <div className='grupo-input'>
               <label htmlFor='senhaCadastro'>Senha</label>
-              <input type='password' name='senha' onChange={e => setInputSenha(e.target.value)} value={inputSenha} id='senhaCadastro' className='campo' />
+              <input type='password' name='senha' onChange={e => setInputSenha(e.target.value)} value={inputSenha} id='senhaCadastro' className='campo' ref={senhaRef} />
               <Erro mensagem={erros.senhaCadastro} />
             </div>
             <div className='grupo-input'>
               <label htmlFor='repetirSenhaCadastro'>Confirmar Senha</label>
-              <input type='password' name='confirmarSenha' onChange={e => setInputRepetirSenha(e.target.value)} value={inputRepetirSenha} id='repetirSenhaCadastro' className='campo' />
+              <input type='password' name='confirmarSenha' onChange={e => setInputRepetirSenha(e.target.value)} value={inputRepetirSenha} id='repetirSenhaCadastro' className='campo' ref={repetirSenhaRef} />
               <Erro mensagem={erros.repetirSenhaCadastro} />
             </div>
             <div className='grupo-input'>
               <label htmlFor='email'>E-mail</label>
-              <input type='email' name='email' onChange={e => setInputEmail(e.target.value)} value={inputEmail} id='email' className='campo' />
+              <input type='email' name='email' onChange={e => setInputEmail(e.target.value)} value={inputEmail} id='email' className='campo' ref={emailRef} />
               <Erro mensagem={erros.email} />
             </div>
             <button className='btn-cadastrar' type='submit'>Cadastrar</button>
