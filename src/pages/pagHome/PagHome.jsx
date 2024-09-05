@@ -3,6 +3,7 @@ import "./PagHome.css"
 import Header from '../../components/header/Header'
 import Nav from '../../components/nav/Nav'
 import Footer from '../../components/footer/Footer'
+import CadeiraHome from '../../components/cadeiraHome/CadeiraHome'
 
 
 
@@ -15,15 +16,20 @@ function PagHome() {
              <img src="./bannerOrigin.png" alt="Banner grande"/>
             </div>
             <div className='elementosBody'>
-                <div className='horario'>
-                    <img src="./cadeira-esc.png.png" alt="imagem de uma cadeira"/>
-                    <p>Agende seu horário</p>
-                    <p>Gostaria de um profissional que entendesse a importância 
-                    da conformidade da NR17 e ABNT na sua empresa?</p> 
-                    <div className='divBotao'>
-                       <button className='agendar-botao'>Agendar</button>
-                     </div>  
-                </div>
+                <div className='cadeiraHome-div'>
+                  <CadeiraHome/>
+                  <CadeiraHome/>
+                  <CadeiraHome/>
+                  <CadeiraHome/>
+                  <CadeiraHome/>
+                </div> 
+                <div className='cadeiraHome-div2'>
+                  <CadeiraHome/>
+                  <CadeiraHome/>
+                  <CadeiraHome/>
+                  <CadeiraHome/>
+                  <CadeiraHome/>
+                </div>                 
                 <div className='quemSomos'>
                     <img src="./trabalhador.png.png" alt="imagem de um homem sentado no escritorio com seu notebook"/>
                     <p>Quem somos</p>
