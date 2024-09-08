@@ -1,0 +1,44 @@
+[
+    {
+        "fk_produto_id": "efjenmfiuenmfuief-3iu4h3874-0379h237hd",
+        "quantidade": 1,
+        "cor": {
+            "id": "aiundaiyuwdn-3927hd1728hd-d19872ghd1",
+            "nome": "Marrom",
+            "codigo": "#a52a2a"
+        }
+    },
+    {
+        "fk_produto_id": "efjenfgigenmfuief-3344h3874-0379h237hd",
+        "quantidade": 1,
+        "cor": {
+            "id": "aiundaiyuwdn-3927hdht28hd-d19872ghd1",
+            "nome": "Marrom",
+            "codigo": "#a52a2a"
+        }
+    },
+    {
+        "fk_produto_id": "efjenmfbnenmfuief-3iu4h3874-0379h237hd",
+        "quantidade": 1,
+        "cor": {
+            "id": "aiun4giyuwdn-3927hd1728hd-d19872ghd1",
+            "nome": "Marrom",
+            "codigo": "#a52a2a"
+        }
+    },
+    {
+        "fk_produto_id": "efjenmfiuenmfuief-3iu4h3874-0379h237hd",
+        "quantidade": 1,
+        "cor": null
+    },
+    {
+        "fk_produto_id": "efjenfgigenmfuief-3344h3874-0379h237hd",
+        "quantidade": 1,
+        "cor": null
+    },
+    {
+        "fk_produto_id": "efjenmfbnenmfuief-3iu4h3874-0379h237hd",
+        "quantidade": 1,
+        "cor": null
+    }
+]
