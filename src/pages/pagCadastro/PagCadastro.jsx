@@ -57,7 +57,7 @@ campos.forEach(elemento => {
 
 
   return (
-    <section className='body'>
+    <section className='body-cadastro'>
 
      
       <div className='imagem-cadastro' />
