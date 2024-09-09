@@ -21,10 +21,8 @@ function PagHome() {
                   <CadeiraHome/>
                   <CadeiraHome/>
                   <CadeiraHome/>
-                  <CadeiraHome/>
                 </div> 
-                <div className='cadeiraHome-div2'>
-                  <CadeiraHome/>
+                <div className='cadeiraHome-div'>
                   <CadeiraHome/>
                   <CadeiraHome/>
                   <CadeiraHome/>
@@ -32,7 +30,7 @@ function PagHome() {
                 </div>                 
                 <div className='quemSomos'>
                     <img src="./trabalhador.png.png" alt="imagem de um homem sentado no escritorio com seu notebook"/>
-                    <p>Quem somos</p>
+                    <h2>Quem somos</h2>
                     <p>Bem-vindo à Flex360!
                     Cadeiras ergonômicas e consultoria para um ambiente de trabalho saudável.
                     Explore nossas soluções: cadeiras ergonômicas, assessoria e consultoria de ergonomia conforme a NR17.</p>
