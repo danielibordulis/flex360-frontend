@@ -1,5 +1,6 @@
 // PagPerfil.js
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import ServicoUsuario from '../../services/servico-usuario'
 import Header from '../../components/header/Header';
 import './PagPerfil.css';
 import ScrollComponent from '../../components/scroll/ScrollComponent';
@@ -7,6 +8,23 @@ import ScrollComponent from '../../components/scroll/ScrollComponent';
 
 
 function PagPerfil() {
+
+  const [inputNome, setInputNome] = useState("")
+  const [inputTelefone, setInputTelefone] = useState("")
+  const [inputEmail, setInputEmail] = useState("")
+
+  useEffect(() => {
+    const usuarioLogado = ServicoUsuario.pegaUsuarioLogado()
+    console.log(usuarioLogado)
+    if(usuarioLogado) {
+    setInputNome(usuarioLogado.nome)
+    setInputTelefone(usuarioLogado.telefone)
+    setInputEmail(usuarioLogado.email)
+    }
+
+}, [])
+
+
   return (
     <>
       <Header />
@@ -18,7 +36,7 @@ function PagPerfil() {
             <div className='alinharBotoes'>
               <p className='nome'>Nome:</p>
               <div className='checkEedit'>
-                <input className='inpNome'></input>
+                <input className='inpNome' onChange={e => setInputNome(e.target.value)} value={inputNome} disabled/>
                 <button className='check'><img src="./check.png" alt="Check" /></button>
                 <button className='lapis'><img src="./lapis.png" alt="Edit" /></button>
               </div>
@@ -26,14 +44,14 @@ function PagPerfil() {
             <div className='alinharBotoes'>
               <p className='nome'>Nº de telefone:</p>
               <div className='checkEedit'>
-                <input className='inpNome'></input>
+                <input className='inpNome' onChange={e => setInputTelefone(e.target.value)} value={inputTelefone} disabled/>
                 <button className='check'><img src="./check.png" alt="Check" /></button>
                 <button className='lapis'><img src="./lapis.png" alt="Edit" /></button>
               </div>
             </div>
               <div className='alinharBotoes'>
                 <p className='email'>Email:</p>
-                <input className='inpEmail'></input>
+                <input className='inpEmail' onChange={e => setInputEmail(e.target.value)} value={inputEmail} disabled/>
               </div>
           </div>  
         </div> 
