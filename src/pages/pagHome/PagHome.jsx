@@ -1,13 +1,34 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import "./PagHome.css"
 import Header from '../../components/header/Header'
 import Nav from '../../components/nav/Nav'
 import Footer from '../../components/footer/Footer'
 import CadeiraHome from '../../components/cadeiraHome/CadeiraHome'
+import cadeiraJson from '../../utils/json/cadeira.json'
+
+
+
 
 
 
 function PagHome() {
+  const [cadeiras, setCadeiras] = useState([]);
+  
+
+
+  // Função para buscar as cadeiras e selecionar algumas aleatoriamente
+  const fetchRandomCadeiras = () => {
+
+
+    const shuffled = [...cadeiraJson].sort(() => 0.5 - Math.random()); // Embaralha o array
+    const selected = shuffled.slice(0, 4); // Seleciona as primeiras 4 cadeiras aleatoriamente
+    setCadeiras(selected);
+  };
+
+  useEffect(() => {
+    fetchRandomCadeiras(); // Chama a função ao montar o componente
+  }, []);
+
   return (
     <>
       <Header/>
@@ -17,17 +38,12 @@ function PagHome() {
             </div>
             <div className='elementosBody'>
                 <div className='cadeiraHome-div'>
-                  <CadeiraHome/>
-                  <CadeiraHome/>
-                  <CadeiraHome/>
-                  <CadeiraHome/>
-                </div> 
-                <div className='cadeiraHome-div'>
-                  <CadeiraHome/>
-                  <CadeiraHome/>
-                  <CadeiraHome/>
-                  <CadeiraHome/>
-                </div>                 
+                  {
+                    cadeiras.map((cadeira,index) => <CadeiraHome  key={cadeira.id} foto_cadeira={cadeira.foto_cadeira} nome={cadeira.nome} preco={cadeira.preco}/>)
+                  }
+                 
+                  
+                </div>               
                 <div className='quemSomos'>
                     <img src="./trabalhador.png.png" alt="imagem de um homem sentado no escritorio com seu notebook"/>
                     <h2>Quem somos</h2>
