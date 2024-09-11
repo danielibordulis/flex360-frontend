@@ -39,16 +39,20 @@ function PagPerfil() {
               <p className='nome'>Nome:</p>
               <div className='checkEedit'>
                 <input className='inpNome' onChange={e => setInputNome(e.target.value)} value={inputNome} disabled={campoNomeDesabilitado} />
-                <button className='check'><img src="./check.png" alt="Check" /></button>
-                {campoNomeDesabilitado && (
-                  <button className='lapis' onClick={() => setCampoNomeDesabilitado(false)}><img src="./lapis.png" alt="Edit" /></button>)}
+                {!campoNomeDesabilitado && (
+                  <button className='check'><img src="./check.png" alt="Check" /></button>
+                )}
+                {campoNomeDesabilitado && (<button className='lapis' onClick={() => setCampoNomeDesabilitado(false)}><img src="./lapis.png" alt="Edit" /></button>
+              )}
               </div>
             </div>
             <div className='alinharBotoes'>
               <p className='nome'>Nº de telefone:</p>
               <div className='checkEedit'>
                 <input className='inpNome' onChange={e => setInputTelefone(e.target.value)} value={inputTelefone} disabled={campoTelefoneDesabilitado} />
-                <button className='check'><img src="./check.png" alt="Check" /></button>
+                {!campoTelefoneDesabilitado && (
+                  <button className='check'><img src="./check.png" alt="Check" /></button>
+                )}
                 {campoTelefoneDesabilitado && (
                   <button className='lapis' onClick={() => setCampoTelefoneDesabilitado(false)}><img src="./lapis.png" alt="Edit" /></button>
                   )}
