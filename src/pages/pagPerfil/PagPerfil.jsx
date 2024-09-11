@@ -1,5 +1,5 @@
 // PagPerfil.js
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import ServicoUsuario from '../../services/servico-usuario'
 import Header from '../../components/header/Header';
 import './PagPerfil.css';
@@ -13,16 +13,18 @@ function PagPerfil() {
   const [inputTelefone, setInputTelefone] = useState("")
   const [inputEmail, setInputEmail] = useState("")
 
+  const [campoNomeDesabilitado, setCampoNomeDesabilitado] = useState(true)
+  const [campoTelefoneDesabilitado, setCampoTelefoneDesabilitado] = useState(true)
+
   useEffect(() => {
     const usuarioLogado = ServicoUsuario.pegaUsuarioLogado()
-    console.log(usuarioLogado)
-    if(usuarioLogado) {
-    setInputNome(usuarioLogado.nome)
-    setInputTelefone(usuarioLogado.telefone)
-    setInputEmail(usuarioLogado.email)
+    if (usuarioLogado) {
+      setInputNome(usuarioLogado.nome)
+      setInputTelefone(usuarioLogado.telefone)
+      setInputEmail(usuarioLogado.email)
     }
 
-}, [])
+  }, [])
 
 
   return (
@@ -36,37 +38,40 @@ function PagPerfil() {
             <div className='alinharBotoes'>
               <p className='nome'>Nome:</p>
               <div className='checkEedit'>
-                <input className='inpNome' onChange={e => setInputNome(e.target.value)} value={inputNome} disabled/>
+                <input className='inpNome' onChange={e => setInputNome(e.target.value)} value={inputNome} disabled={campoNomeDesabilitado} />
                 <button className='check'><img src="./check.png" alt="Check" /></button>
-                <button className='lapis'><img src="./lapis.png" alt="Edit" /></button>
+                {campoNomeDesabilitado && (
+                  <button className='lapis' onClick={() => setCampoNomeDesabilitado(false)}><img src="./lapis.png" alt="Edit" /></button>)}
               </div>
             </div>
             <div className='alinharBotoes'>
               <p className='nome'>Nº de telefone:</p>
               <div className='checkEedit'>
-                <input className='inpNome' onChange={e => setInputTelefone(e.target.value)} value={inputTelefone} disabled/>
+                <input className='inpNome' onChange={e => setInputTelefone(e.target.value)} value={inputTelefone} disabled={campoTelefoneDesabilitado} />
                 <button className='check'><img src="./check.png" alt="Check" /></button>
-                <button className='lapis'><img src="./lapis.png" alt="Edit" /></button>
+                {campoTelefoneDesabilitado && (
+                  <button className='lapis' onClick={() => setCampoTelefoneDesabilitado(false)}><img src="./lapis.png" alt="Edit" /></button>
+                  )}
               </div>
             </div>
-              <div className='alinharBotoes'>
-                <p className='email'>Email:</p>
-                <input className='inpEmail' onChange={e => setInputEmail(e.target.value)} value={inputEmail} disabled/>
-              </div>
-          </div>  
-        </div> 
+            <div className='alinharBotoes'>
+              <p className='email'>Email:</p>
+              <input className='inpEmail' onChange={e => setInputEmail(e.target.value)} value={inputEmail} disabled />
+            </div>
+          </div>
+        </div>
         <div className='lado-direito'>
           <h2 className='Titulo'>Vistos recentemente:</h2>
-           <ScrollComponent/>
+          <ScrollComponent />
         </div>
-        
-      </section>   
+
+      </section>
     </>
   );
 }
 
 export default PagPerfil;
-      
-  
+
+
 
 
