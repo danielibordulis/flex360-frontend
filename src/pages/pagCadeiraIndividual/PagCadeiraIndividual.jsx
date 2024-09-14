@@ -5,6 +5,7 @@ import PaletaCor from '../../components/paletaCor/PaletaCor'
 import ControleQuantidade from '../../components/controleQuantidade/ControleQuantidade'
 
 function PagCadeiraIndividual() {
+
   return (
     <>
         <Header />

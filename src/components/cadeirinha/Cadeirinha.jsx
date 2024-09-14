@@ -1,6 +1,9 @@
 import './Cadeirinha.css'
+import { useNavigate } from 'react-router-dom'
 
-function Cadeirinha({nomeCadeira, precoCadeira}) {
+function Cadeirinha({id, nomeCadeira, precoCadeira}) {
+
+  const navigate = useNavigate()
 
   return (
     <>

@@ -123,7 +123,7 @@ function PagPerfil() {
                       <h2 className='Titulo'>Vistos recentemente:</h2>
                       {/* <ScrollComponent /> */}
             {cadeirasRecentes.map((cadeira) => (
-              <Cadeirinha key={cadeira.id} nomeCadeira={cadeira.nome} precoCadeira={cadeira.preco} />
+              <Cadeirinha key={cadeira.id} id={cadeira.id} nomeCadeira={cadeira.nome} precoCadeira={cadeira.preco} />
             ))}
             </>
           )}
