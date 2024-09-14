@@ -1,6 +1,7 @@
 import './Cadeirinha.css'
 
-function Cadeirinha() {
+function Cadeirinha({nomeCadeira, precoCadeira}) {
+
   return (
     <>
       <div className='container-cadeirinha'>
@@ -8,8 +9,8 @@ function Cadeirinha() {
                 <img src="./cadeirinha.png" alt="cadeirinha" />
             </div>
             <div className='texto'>
-                <p className='nomeCadeira'>Cadeira led Black n white</p>
-                <p className='preço'>R$ 1.999,00</p>
+                <p className='nomeCadeira'> {nomeCadeira}</p>
+                <p className='preço'>R$ {Number(precoCadeira).toLocaleString('pt-BR')}</p>
             </div>
           </div>
     </>

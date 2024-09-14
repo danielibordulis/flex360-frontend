@@ -4,6 +4,7 @@ import ServicoUsuario from '../../services/servico-usuario'
 import Header from '../../components/header/Header';
 import './PagPerfil.css';
 import ScrollComponent from '../../components/scroll/ScrollComponent';
+import Cadeirinha from '../../components/cadeirinha/cadeirinha';
 
 
 
@@ -18,7 +19,6 @@ function PagPerfil() {
   const [campoTelefoneDesabilitado, setCampoTelefoneDesabilitado] = useState(true)
 
   useEffect(() => {
-
 
     async function buscaCadeirasRecentes() {
 
@@ -53,6 +53,7 @@ function PagPerfil() {
     },
       ]
 
+      setCadeirasRecentes(jsonCadeiras)
     }
 
 
@@ -84,7 +85,7 @@ function PagPerfil() {
             <div className='alinharBotoes'>
               <p className='nome'>Nome:</p>
               <div className='checkEedit'>
-                <input className='inpNome' onChange={e => setInputNome(e.target.value)} value={inputNome} disabled={campoNomeDesabilitado} />
+                <input className='inpNome' onChange={e => setInputNome(e.target.value)} value={inputNome || ""} disabled={campoNomeDesabilitado} />
                 {!campoNomeDesabilitado && (
                   <button className='check'><img src="./check.png" alt="Check" onClick={() => {
                     atualizaPerfil("nome", inputNome)
@@ -98,7 +99,7 @@ function PagPerfil() {
             <div className='alinharBotoes'>
               <p className='nome'>Nº de telefone:</p>
               <div className='checkEedit'>
-                <input className='inpNome' onChange={e => setInputTelefone(e.target.value)} value={inputTelefone} disabled={campoTelefoneDesabilitado} />
+                <input className='inpNome' onChange={e => setInputTelefone(e.target.value)} value={inputTelefone || ""} disabled={campoTelefoneDesabilitado} />
                 {!campoTelefoneDesabilitado && (
                   <button className='check'><img src="./check.png" alt="Check" onClick={() => {
                     atualizaPerfil("telefone", inputTelefone)
@@ -112,13 +113,20 @@ function PagPerfil() {
             </div>
             <div className='alinharBotoes'>
               <p className='email'>Email:</p>
-              <input className='inpEmail' onChange={e => setInputEmail(e.target.value)} value={inputEmail} disabled />
+              <input className='inpEmail' onChange={e => setInputEmail(e.target.value)} value={inputEmail || ""} disabled />
             </div>
           </div>
         </div>
         <div className='lado-direito'>
-          <h2 className='Titulo'>Vistos recentemente:</h2>
-          <ScrollComponent />
+          {cadeirasRecentes.length > 0 && (
+            <>
+                      <h2 className='Titulo'>Vistos recentemente:</h2>
+                      {/* <ScrollComponent /> */}
+            {cadeirasRecentes.map((cadeira) => (
+              <Cadeirinha key={cadeira.id} nomeCadeira={cadeira.nome} precoCadeira={cadeira.preco} />
+            ))}
+            </>
+          )}
         </div>
 
       </section>
@@ -126,8 +134,4 @@ function PagPerfil() {
   );
 }
 
-export default PagPerfil;
-
-
-
-
+export default PagPerfil
