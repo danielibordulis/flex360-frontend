@@ -27,6 +27,10 @@ function PagPerfil() {
   }, [])
 
 
+  function atualizaPerfil(campo, valor) {
+    //Colocar a requisição para o banco depois
+  }
+
   return (
     <>
       <Header />
@@ -40,7 +44,10 @@ function PagPerfil() {
               <div className='checkEedit'>
                 <input className='inpNome' onChange={e => setInputNome(e.target.value)} value={inputNome} disabled={campoNomeDesabilitado} />
                 {!campoNomeDesabilitado && (
-                  <button className='check'><img src="./check.png" alt="Check" /></button>
+                  <button className='check'><img src="./check.png" alt="Check" onClick={() => {
+                    atualizaPerfil("nome", inputNome)
+                    setCampoNomeDesabilitado(true)
+                  }} /></button>
                 )}
                 {campoNomeDesabilitado && (<button className='lapis' onClick={() => setCampoNomeDesabilitado(false)}><img src="./lapis.png" alt="Edit" /></button>
               )}
@@ -51,7 +58,10 @@ function PagPerfil() {
               <div className='checkEedit'>
                 <input className='inpNome' onChange={e => setInputTelefone(e.target.value)} value={inputTelefone} disabled={campoTelefoneDesabilitado} />
                 {!campoTelefoneDesabilitado && (
-                  <button className='check'><img src="./check.png" alt="Check" /></button>
+                  <button className='check'><img src="./check.png" alt="Check" onClick={() => {
+                    atualizaPerfil("telefone", inputTelefone)
+                    setCampoTelefoneDesabilitado(true)
+                  }} /></button>
                 )}
                 {campoTelefoneDesabilitado && (
                   <button className='lapis' onClick={() => setCampoTelefoneDesabilitado(false)}><img src="./lapis.png" alt="Edit" /></button>
