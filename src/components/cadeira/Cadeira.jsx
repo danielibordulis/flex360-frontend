@@ -2,8 +2,19 @@ import React from 'react'
 import "./Cadeira.css"
 import PaletaCor from '../paletaCor/PaletaCor'
 import Line from '../line/Line'
+import { useNavigate } from 'react-router-dom'
 
 function Cadeira({cadeiraData}) {
+
+    const navigate = useNavigate()
+
+    function comprar() {
+
+        navigate("/cadeiraIndividual", {
+            state: { cadeiraId: cadeiraData.id },
+        });
+
+    }
 
     return (
         <div className='container-cadeira'>
@@ -59,7 +70,7 @@ function Cadeira({cadeiraData}) {
 
 
             <div className='container-btn-comprar'>
-                <button className='btn-comprar'>Comprar</button>
+                <button className='btn-comprar' onClick={comprar}>Comprar</button>
             </div>
 
         </div>
