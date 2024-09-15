@@ -1,5 +1,4 @@
-// PagPerfil.js
-import React, { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import ServicoUsuario from '../../services/servico-usuario'
 import Header from '../../components/header/Header';
 import './PagPerfil.css';
