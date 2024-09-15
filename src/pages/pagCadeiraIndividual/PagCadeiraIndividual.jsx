@@ -9,7 +9,7 @@ function PagCadeiraIndividual() {
 
     const location = useLocation();
     const { cadeiraId, corPreferida } = location.state || {}
-
+    
   return (
     <>
         <Header />
