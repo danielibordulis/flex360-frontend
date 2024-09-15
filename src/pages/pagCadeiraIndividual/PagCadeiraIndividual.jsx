@@ -3,9 +3,13 @@ import "./PagCadeiraIndividual.css"
 import Header from '../../components/header/Header'
 import PaletaCor from '../../components/paletaCor/PaletaCor'
 import ControleQuantidade from '../../components/controleQuantidade/ControleQuantidade'
+import { useLocation } from 'react-router-dom'
 
 function PagCadeiraIndividual() {
 
+    const location = useLocation();
+    const { cadeiraId, corPreferida } = location.state || {}
+    
   return (
     <>
         <Header />
