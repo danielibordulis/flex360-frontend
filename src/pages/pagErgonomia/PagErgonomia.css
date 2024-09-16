@@ -3,7 +3,7 @@
     display: flex; /* Define que os elementos filhos serão dispostos em linha (lado a lado) */
     justify-content: space-between; /* Distribui espaço uniformemente entre os elementos */
     align-items: center; /* Centraliza verticalmente os elementos */
-    padding: 20px; /* Adiciona um preenchimento interno de 20px ao redor do corpo */
+    padding: 10px 0 10px 0;
     height: 80vh; /* Faz com que o conteúdo ocupe a altura total da tela */
   }
   
@@ -11,6 +11,7 @@
   .container-esquerda {
     display: flex; /* Define que os elementos filhos serão dispostos em coluna (um abaixo do outro) */
     flex-direction: column; /* Garante que os itens dentro do container sejam alinhados verticalmente */
+    justify-content: center;
     align-items: center; /* Centraliza os itens horizontalmente no container */
     width: 50%; /* Define a largura do container esquerdo como 40% da tela */
     height: 100%;
@@ -119,22 +120,12 @@
   /* Define a área à direita, onde a imagem de ergonomia está */
   .container-direita {
     width: 50%; /* Define a largura do container direito como 50% da tela */
-    height: 90%;
-    max-height: 500px;
-    display: flex; /* Os itens dentro do container serão dispostos em linha */
-    justify-content: center; /* Centraliza a imagem horizontalmente no container */
-    align-items: center; /* Centraliza a imagem verticalmente no container */
+    height: -webkit-fill-available;
     background-image: url(./foto-ergonomia.png);
     background-position: center;
     background-repeat: no-repeat;
-    background-size: contain;
-    border-radius: 10px;
+    background-size: cover;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
     overflow: hidden;
-  }
-  
-  /* Estiliza a imagem de ergonomia */
-  .imagem-ergonomia {
-    width: 90%; 
-    max-width: 90%; /* A imagem não ultrapassará 100% da largura disponível */
-    height: auto; /* Mantém a proporção da imagem */
   }
