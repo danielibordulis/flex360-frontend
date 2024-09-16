@@ -124,7 +124,7 @@
     display: flex; /* Os itens dentro do container serão dispostos em linha */
     justify-content: center; /* Centraliza a imagem horizontalmente no container */
     align-items: center; /* Centraliza a imagem verticalmente no container */
-    background-image: url(./foto-ergonomia.png);
+    background-image: url(./fotonova-ergonomia.png);
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
