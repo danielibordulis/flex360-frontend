@@ -1,17 +1,27 @@
 import './Cadeirinha.css'
+import { useNavigate } from 'react-router-dom'
 
-function Cadeirinha() {
+function Cadeirinha({ id, nomeCadeira, precoCadeira }) {
+
+  const navigate = useNavigate()
+
+  function navegarParaCadeiraIndividual() {
+    navigate("/cadeiraIndividual", {
+      state: { cadeiraId: id }
+    })
+  }
+
   return (
     <>
-      <div className='container-cadeirinha'>
-            <div className='div-img'>
-                <img src="./cadeirinha.png" alt="cadeirinha" />
-            </div>
-            <div className='texto'>
-                <p className='nomeCadeira'>Cadeira led Black n white</p>
-                <p className='preço'>R$ 1.999,00</p>
-            </div>
-          </div>
+      <div className='container-cadeirinha' onClick={navegarParaCadeiraIndividual} >
+        <div className='div-img'>
+          <img src="./cadeirinha.png" alt="cadeirinha" />
+        </div>
+        <div className='texto'>
+          <p className='nomeCadeira'> {nomeCadeira}</p>
+          <p className='preço'>R$ {Number(precoCadeira).toLocaleString('pt-BR')}</p>
+        </div>
+      </div>
     </>
   )
 }
