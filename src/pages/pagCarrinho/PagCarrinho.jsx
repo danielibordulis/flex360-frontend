@@ -131,7 +131,7 @@ function PagCarrinho() {
 
                             <h2>Valor Total</h2>
 
-                            <span>R$ 1500.00</span>
+                            <span>R$ {ServicoCarrinho.pegaPrecoTotal()}</span>
 
                             <button>Finalizar Compra</button>
 
