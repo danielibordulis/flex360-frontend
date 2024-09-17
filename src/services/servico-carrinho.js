@@ -16,7 +16,7 @@ function ServicoCarrinho() {
     }
 
     function pegaQuantidadeItem(id) {
-        let indiceBusca = carrinho.findIndex(itemBuscar => itemBuscar.id == itemAdd.id)
+        let indiceBusca = carrinho.findIndex(itemBuscar => itemBuscar.id == id)
         if (indiceBusca !== -1) {
             return carrinho[indiceBusca].quantidade
         }
@@ -43,30 +43,32 @@ function ServicoCarrinho() {
         return carrinho
     }
 
-    function reduzItem(idItem) {
+    function reduzQuantidade(idItem) {
         let indiceBusca = carrinho.findIndex(itemBuscar => itemBuscar.id == itemAdd.id)
         if (indiceBusca !== -1) {
             carrinho[indiceBusca].quantidade--
 
             if (carrinho[indiceBusca].quantidade <= 0) {
                 carrinho.splice(indiceBusca, 1)
+                return 0
             }
 
-            console.log("Item reduzido")
+            return carrinho[indiceBusca].quantidade
         }
 
-        return carrinho
+        return 0
     }
 
-    function aumentaItem(idItem) {
+    function aumentaQuantidade(idItem) {
         let indiceBusca = carrinho.findIndex(itemBuscar => itemBuscar.id == itemAdd.id)
         if (indiceBusca !== -1) {
             carrinho[indiceBusca].quantidade++
 
             console.log("Item aumentado")
+            return carrinho[indiceBusca].quantidade
         }
 
-        return carrinho
+        return 0
     }
 
     function removeItem(idItem) {
@@ -83,8 +85,8 @@ function ServicoCarrinho() {
         pegaPrecoTotalItem,
         pegaQuantidadeItem,
         adicionaItem,
-        aumentaItem,
-        reduzItem,
+        aumentaQuantidade,
+        reduzQuantidade,
         removeItem
     }
 }

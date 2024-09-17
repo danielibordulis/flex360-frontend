@@ -30,7 +30,7 @@ function ItemCarrinho({item}) {
                 {item.cores_disponiveis && item.cores_disponiveis.length > 0 && (
                   <PaletaCor cores={item.cores_disponiveis} />
                   )}
-                <span className='item-preco'>R$1500.00</span>
+                <span className='item-preco'>R$ {Number(item.preco).toLocaleString('pt-BR')}</span>
             </div>
 
       </div>
