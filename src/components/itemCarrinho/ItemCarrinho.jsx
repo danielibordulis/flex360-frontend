@@ -25,7 +25,9 @@ function ItemCarrinho({item}) {
                 <ControleQuantidade />
             </div>
             <div className='container-top-bottom'>
-                <PaletaCor cores={[{name: "Marrom", cod: "#a52a2a", id: ""},{name: "Preto", cod: "#1E0303", id: ""},{name: "Roxo", cod: "#7C1FF1", id: ""}]}/>
+                {item.cores && item.cores.length > 0 && (
+                  <PaletaCor cores={item.cores} />
+                  )}
                 <span className='item-preco'>R$1500.00</span>
             </div>
 
