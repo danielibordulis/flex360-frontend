@@ -3,17 +3,17 @@ import "./ItemCarrinho.css"
 import ControleQuantidade from '../controleQuantidade/ControleQuantidade'
 import PaletaCor from '../paletaCor/PaletaCor'
 
-function ItemCarrinho() {
+function ItemCarrinho({item}) {
   return (
     <div className='item-container'>
       <div className='container-img-carrinho'>
-        <img src="./cadeira-ex.png" alt="" />
+        <img src={item.foto_cadeira? item.foto_cadeira : item.foto} alt="" />
       </div>
       <div className='container-info-item'>
 
             <div className='container-top-item'>
                 <div className='container-nome-item'>
-                    <h2>Nome do produto</h2>
+                    <h2>{item.nome}</h2>
                 </div>
                 <div className='container-deletar-item'>
                     <button>
