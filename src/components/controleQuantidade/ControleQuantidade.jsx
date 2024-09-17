@@ -1,10 +1,14 @@
-import React from 'react'
+import React, { useState } from 'react'
 import "./ControleQuantidade.css"
+import ServicoCarrinho from '../../services/servico-carrinho'
 
-function ControleQuantidade() {
+function ControleQuantidade({id}) {
+
+  const[quantidadeItem, setQuantidadeItem] = useState(ServicoCarrinho)
+
   return (
     <div className='container-controle-quantidade'>
-      <button>
+      <button onClick={() => ServicoCarrinho.adicionaItem(id)}>
         <img src="./icon-mais.png" alt="" />
       </button>
 

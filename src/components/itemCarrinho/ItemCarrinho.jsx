@@ -24,7 +24,7 @@ function ItemCarrinho({item}) {
                 </div>
             </div>
             <div className='container-middle-item'>
-                <ControleQuantidade />
+                <ControleQuantidade id={item.id} />
             </div>
             <div className='container-top-bottom'>
                 {item.cores_disponiveis && item.cores_disponiveis.length > 0 && (
