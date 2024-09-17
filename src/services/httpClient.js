@@ -29,6 +29,8 @@ export default function httpClient() {
             })
             .catch((err) => {
 
+                setIsLoading(false);
+
                 // tratar o erro
 
             })
@@ -59,6 +61,8 @@ export default function httpClient() {
                 return response
             })
             .catch((err) => {
+
+                setIsLoading(false);
 
                 // tratar o erro
 
@@ -95,6 +99,8 @@ export default function httpClient() {
             })
             .catch((err) => {
 
+                setIsLoading(false);
+
                 // tratar o erro
 
             })
@@ -124,16 +130,48 @@ export default function httpClient() {
             })
             .catch((err) => {
 
+                setIsLoading(false);
+
                 // tratar o erro
 
             })
 
     }
 
+    async function patch(rota, data, jwt) {
+        setIsLoading(true);
+
+        let config = {};
+
+        if (jwt) {
+            config = {
+                headers: {
+                    Authorization: `Bearer ${jwt}`,
+                },
+            };
+        }
+
+        const jsonData = JSON.stringify(data);
+
+        return await axios.patch(rota, jsonData, config)
+            .then((response) => {
+                setIsLoading(false);
+                return response;
+            })
+            .catch((err) => {
+
+                setIsLoading(false);
+
+                // tratar o erro
+                
+            });
+    }
+
     return {
         get,
         post,
         put,
+        patch,
         deleteOne
     }
 
