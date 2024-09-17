@@ -8,6 +8,7 @@
     flex-direction: column;
     position: relative;
     width: 90%;
+    cursor: pointer;
  }
  .texto{
     position: absolute; 

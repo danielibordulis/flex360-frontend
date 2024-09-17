@@ -3,8 +3,6 @@ import ServicoUsuario from '../../services/servico-usuario'
 import Header from '../../components/header/Header';
 import './PagPerfil.css';
 import ScrollComponent from '../../components/scroll/ScrollComponent';
-import Cadeirinha from '../../components/cadeirinha/cadeirinha';
-
 
 
 function PagPerfil() {
@@ -119,11 +117,8 @@ function PagPerfil() {
         <div className='lado-direito'>
           {cadeirasRecentes.length > 0 && (
             <>
-                      <h2 className='Titulo'>Vistos recentemente:</h2>
-                      {/* <ScrollComponent /> */}
-            {cadeirasRecentes.map((cadeira) => (
-              <Cadeirinha key={cadeira.id} id={cadeira.id} nomeCadeira={cadeira.nome} precoCadeira={cadeira.preco} />
-            ))}
+                <h2 className='Titulo'>Vistos recentemente:</h2>
+                <ScrollComponent cadeiras={cadeirasRecentes}/>
             </>
           )}
         </div>
