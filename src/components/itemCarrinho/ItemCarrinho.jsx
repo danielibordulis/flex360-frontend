@@ -27,8 +27,8 @@ function ItemCarrinho({item}) {
                 <ControleQuantidade />
             </div>
             <div className='container-top-bottom'>
-                {item.cores && item.cores.length > 0 && (
-                  <PaletaCor cores={item.cores} />
+                {item.cores_disponiveis && item.cores_disponiveis.length > 0 && (
+                  <PaletaCor cores={item.cores_disponiveis} />
                   )}
                 <span className='item-preco'>R$1500.00</span>
             </div>
