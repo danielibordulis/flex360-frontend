@@ -3,15 +3,18 @@ import './CadeiraHome.css'
 import { useNavigate } from 'react-router-dom'
 
 
-function CadeiraHome({ foto_cadeira, nome,preco}) {
+function CadeiraHome({id, foto_cadeira, nome,preco}) {
   
-    const navigate = useNavigate();
 
-    function irPara() {
+  const navigate = useNavigate()
 
-      navigate(`/cadeiraIndividual`)
+    function navegarParaCadeiraIndividual() {
 
-  }
+        navigate("/cadeiraIndividual", {
+            state: { cadeiraId: id },
+        });
+
+    }
   return (
     <>
       <div className='container-cadeiraHome'>
@@ -19,7 +22,7 @@ function CadeiraHome({ foto_cadeira, nome,preco}) {
         <h2 className='cadeiraHome-titulo'>{nome}</h2>
         <h1 className='valor-cadeiraHome'>R$ {preco}</h1>
 
-        <button onClick={irPara} className='cadeiraHome-botao'>Ver mais</button>
+        <button onClick={navegarParaCadeiraIndividual} className='cadeiraHome-botao'>Ver mais</button>
       </div>
     </>
   )

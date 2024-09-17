@@ -39,7 +39,7 @@ function PagHome() {
             <div className='elementosBody'>
                 <div className='cadeiraHome-div'>
                   {
-                    cadeiras.map((cadeira,index) => <CadeiraHome  key={cadeira.id} foto_cadeira={cadeira.foto_cadeira} nome={cadeira.nome} preco={cadeira.preco}/>)
+                    cadeiras.map((cadeira,index) => <CadeiraHome  key={cadeira.id} id={cadeira.id} foto_cadeira={cadeira.foto_cadeira} nome={cadeira.nome} preco={cadeira.preco}/>)
                   }
                  
                   
