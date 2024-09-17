@@ -1,24 +1,15 @@
 import React, { useEffect, useState } from 'react'
 import "./PagHome.css"
 import Header from '../../components/header/Header'
-import Nav from '../../components/nav/Nav'
 import Footer from '../../components/footer/Footer'
 import CadeiraHome from '../../components/cadeiraHome/CadeiraHome'
 import cadeiraJson from '../../utils/json/cadeira.json'
 
-
-
-
-
-
 function PagHome() {
   const [cadeiras, setCadeiras] = useState([]);
   
-
-
   // Função para buscar as cadeiras e selecionar algumas aleatoriamente
   const fetchRandomCadeiras = () => {
-
 
     const shuffled = [...cadeiraJson].sort(() => 0.5 - Math.random()); // Embaralha o array
     const selected = shuffled.slice(0, 4); // Seleciona as primeiras 4 cadeiras aleatoriamente
