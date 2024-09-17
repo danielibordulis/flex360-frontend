@@ -58,6 +58,17 @@ function ServicoCarrinho() {
         return carrinho
     }
 
+    function aumentaItem(idItem) {
+        let indiceBusca = carrinho.findIndex(itemBuscar => itemBuscar.id == itemAdd.id)
+        if (indiceBusca !== -1) {
+            carrinho[indiceBusca].quantidade++
+
+            console.log("Item aumentado")
+        }
+
+        return carrinho
+    }
+
     function removeItem(idItem) {
         carrinho = carrinho.filter(item => item.id !== idItem)
 
@@ -72,6 +83,7 @@ function ServicoCarrinho() {
         pegaPrecoTotalItem,
         pegaQuantidadeItem,
         adicionaItem,
+        aumentaItem,
         reduzItem,
         removeItem
     }
