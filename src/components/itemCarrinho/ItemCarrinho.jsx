@@ -4,6 +4,8 @@ import ControleQuantidade from '../controleQuantidade/ControleQuantidade'
 import PaletaCor from '../paletaCor/PaletaCor'
 
 function ItemCarrinho({item}) {
+  
+  if(!item) return null
   return (
     <div className='item-container'>
       <div className='container-img-carrinho'>

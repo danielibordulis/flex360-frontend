@@ -3,26 +3,26 @@ function ServicoCarrinho() {
     
     function adicionaItem(itemAdd) {
     let indiceBusca = carrinho.findIndex(itemBuscar => itemBuscar.id == itemAdd.id)
-        if(indiceBusca !==0) {
+        if(indiceBusca !==-1) {
             carrinho[indiceBusca].quantidade += itemAdd.quantidade
         }
         else carrinho.push(itemAdd)
 
-        console.log("Item adicionado:", carrinho)
+        console.log("Item adicionado")
         return carrinho
     }
 
 
     function reduzItem(idItem) {
         let indiceBusca = carrinho.findIndex(itemBuscar => itemBuscar.id == itemAdd.id)
-            if(indiceBusca !==0) {
+            if(indiceBusca !== -1) {
                 carrinho[indiceBusca].quantidade--
 
                 if(carrinho[indiceBusca].quantidade <= 0) {
                     carrinho.splice(indiceBusca, 1)
                 }
 
-                console.log("Item reduzido", carrinho)
+                console.log("Item reduzido")
             }
 
             return carrinho
@@ -33,7 +33,7 @@ function ServicoCarrinho() {
         carrinho = carrinho.filter(item => item.id !== idItem)
 
 
-        console.log("Item removido.", carrinho)
+        console.log("Item removido.")
         return carrinho
     }
 
