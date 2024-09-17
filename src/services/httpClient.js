@@ -1,10 +1,14 @@
 import axios from "axios";
+import { useContext } from "react";
+import { GlobalContext } from "../contexts/GlobalContext.jsx"
 
 export default function httpClient() {
 
+    const { setIsLoading } = useContext(GlobalContext)
+
     async function get(rota, jwt) {
 
-        // setLoading(true)
+        setIsLoading(true)
 
         let config = {}
 
@@ -19,7 +23,7 @@ export default function httpClient() {
         return await axios.get(rota, config)
             .then((response) => {
 
-                // setLoading(false)
+                setIsLoading(false)
 
                 return response
             })
@@ -33,7 +37,7 @@ export default function httpClient() {
 
     async function post(rota, data, jwt) {
 
-        // setLoading(true)
+        setIsLoading(true)
 
         let config = {}
 
@@ -50,7 +54,7 @@ export default function httpClient() {
         return await axios.post(rota, jsonData, config)
             .then((response) => {
 
-                // setLoading(false)
+                setIsLoading(false)
 
                 return response
             })
@@ -63,7 +67,7 @@ export default function httpClient() {
 
     async function put(rota, data, jwt) {
 
-        // setLoading(true)
+        setIsLoading(true)
 
         let config = {}
 
@@ -85,7 +89,7 @@ export default function httpClient() {
         return await axios.put(rota, jsonData, config)
             .then((response) => {
 
-                // setLoading(false)
+                setIsLoading(false)
 
                 return response
             })
@@ -99,7 +103,7 @@ export default function httpClient() {
 
     async function deleteOne(rota, jwt) {
 
-        // setLoading(true)
+        setIsLoading(true)
 
         let config = {}
 
@@ -114,7 +118,7 @@ export default function httpClient() {
         return await axios.delete(rota, config)
             .then((response) => {
 
-                // setLoading(false)
+                setIsLoading(false)
 
                 return response
             })
