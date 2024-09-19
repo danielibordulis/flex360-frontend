@@ -1,6 +1,6 @@
 
 .container-controle-quantidade {
-    height: 50px;
+    height: 50px !important;
     display: flex;
     align-items: center;
     justify-content: center;
