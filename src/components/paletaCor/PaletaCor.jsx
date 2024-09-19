@@ -4,6 +4,7 @@ import "./PaletaCor.css"
 function PaletaCor({cores}) {
  
   const [corSelecionada, setCorSelecionada] = useState(cores[0])
+  console.log(corSelecionada)
 
   const handleClick = (cor) => {
     setCorSelecionada(cor);

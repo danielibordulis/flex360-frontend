@@ -1,85 +1,89 @@
-import React from 'react'
-import "./PagCadeiraIndividual.css"
-import Header from '../../components/header/Header'
-import PaletaCor from '../../components/paletaCor/PaletaCor'
-import ControleQuantidade from '../../components/controleQuantidade/ControleQuantidade'
-import { useLocation } from 'react-router-dom'
+import React, { useEffect, useState } from 'react';
+import "./PagCadeiraIndividual.css";
+import Header from '../../components/header/Header';
+import PaletaCor from '../../components/paletaCor/PaletaCor';
+import ControleQuantidade from '../../components/controleQuantidade/ControleQuantidade';
+import { useLocation } from 'react-router-dom';
+import cadeiras from '../../utils/json/cadeira.json'; 
 
 function PagCadeiraIndividual() {
+  const location = useLocation();
+  const { cadeiraId, corPreferida } = location.state || {};
 
-    const location = useLocation();
-    const { cadeiraId, corPreferida } = location.state || {}
-    
+  // Estado para armazenar os detalhes da cadeira
+  const [cadeira, setCadeira] = useState(null);
+
+  // Função que será chamada ao carregar a página
+  useEffect(() => {
+    if (cadeiraId) {
+      // Busca a cadeira no JSON usando o id
+      const cadeiraSelecionada = cadeiras.find(c => c.id === cadeiraId);
+      setCadeira(cadeiraSelecionada);
+
+    }
+  }, [cadeiraId]);
+
+
   return (
     <>
-        <Header />
-        <section className='body'>
-            <div className='sub-containers'>
+      <Header />
+      <section className='body'>
+        <div className='sub-containers'>
+          <h1 className='nome-cadeira'>{cadeira?.nome || 'Nome da cadeira'}</h1>
 
-                <h1 className='nome-cadeira'>Nome da cadeira</h1>
+          <div className='container-selo-abnt'>
+            <img src="./selo.png" alt="Selo" />
+            <h2>Certificação pela norma ABNT</h2>
+          </div>
 
-                <div className='container-selo-abnt'>
-                    <img src="./selo.png" alt="Selo"/>
-                    <h2>Certificação pela norma ABNT</h2>
+          <p className='texto-info'>{cadeira?.informacoes || ""}</p>
+
+          <div className='container-dimensoes-prod'>
+            <h3>Dimensões do produto</h3>
+        <img src={cadeira?.foto_dimensoes || " "} alt="" />
+          </div>
+        </div>
+
+        <div className='sub-containers'>
+          <div className='img-top' />
+
+          <div className='container-info-cadeira'>
+            <div className='container-top'>
+              <div className='box-foto-cadeira'>
+                <img src= {cadeira?.foto_cadeira} alt="" className='foto-cadeira-p' />
+              </div>
+
+              <div className='desc-cadeira'>
+                <div className='descricao'>
+                  <p>{cadeira?.descricao || 'Descrição da cadeira'}</p>
+                  <span>5 anos de garantia*</span>
                 </div>
 
-                <p className='texto-info'>Desenvolvida pelos renomados designers Baldanzi & Novelli, a cadeira LED possui um design particular marcado pelas linhas retas, além de proporcionar ao usuário conforto e liberdade de movimentos.</p>
-
-                <div className='container-dimensoes-prod'>
-                    <h3>Dimensões do produto</h3>
-
-                    <img src="./dimensao-ex-cadeira.png" alt="" />
+                <div className='container-preco'>
+                  <span>R$ {cadeira?.preco?.toFixed(2) || 'Preço'}</span>
+                  <div className='box-quant'>
+                    <ControleQuantidade />
+                  </div>
                 </div>
-
+              </div>
             </div>
 
-            <div className='sub-containers'>
+            <div className='container-bottom'>
+              <div className='left-side'>
+              {cadeira?.cores_disponiveis && cadeira.cores_disponiveis.length > 0 && (
+                  <PaletaCor cores={cadeira.cores_disponiveis} />
+                  )}
+              </div>
 
-                <div className='img-top'/>
-
-                <div className='container-info-cadeira'>
-
-                    <div className='container-top'>   
-
-                        <div className='box-foto-cadeira'>
-                            <img src="./cadeira-ex.png" alt="" className='foto-cadeira-p'/>
-                        </div>
-
-                        <div className='desc-cadeira'>
-                            <div className='descricao'>
-                                <p>Cadeira Led Shadow Black / Flexform
-                                Tela na cor preto. Assento revetido na cor vermelho. Apoia braços na cor preto e base Carbon Grey (Grafite).</p>
-                                <span>5 anos de garantia*</span>
-                            </div>
-                            
-                            <div className='container-preco'>
-                                <span>R$ 1500.00</span>
-                                <div className='box-quant'>
-                                    <ControleQuantidade />
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-
-                    <div className='container-bottom'>
-
-                        <div className='left-side'>
-                            <PaletaCor cores={[{name: "Marrom", cod: "#a52a2a", id: ""},{name: "Preto", cod: "#1E0303", id: ""},{name: "Roxo", cod: "#7C1FF1", id: ""}]}/>
-                        </div>
-
-                        <div className='right-side'>
-                            <button>Adicionar ao Carrinho</button>
-                        </div>
-
-                    </div>
-
-                </div>
-
+              <div className='right-side'>
+                <button>Adicionar ao Carrinho</button>
+              </div>
             </div>
-        </section>
+          </div>
+        </div>
+      </section>
     </>
-  )
+  );
 }
 
-export default PagCadeiraIndividual
+export default PagCadeiraIndividual;
