@@ -21,7 +21,7 @@ function PagCarrinho() {
 
             const novoCarrinho = [
                 {
-                    "id": "fnbefyihaef-aeofjaeum9f-oe97fhae7809fh",
+                    "id": "fnbefyihaef-aeofjaeum934f-oe97fhae7809fh",
                     "nome": "Cadeira Tecton",
                     "preco": 1000.34,
                     "cores_disponiveis": [
@@ -40,7 +40,7 @@ function PagCarrinho() {
                     "quantidade": 1
                 },
                 {
-                    "id": "fnbefyih3f3-aeoghaeum9f-oe97f56e7809fh",
+                    "id": "fnbefy23ih3f3-aeoghaeum9f-oe97f56e7809fh",
                     "nome": "Cadeira Tecton 2",
                     "preco": 1000.56,
                     "cores_disponiveis": [
@@ -59,7 +59,7 @@ function PagCarrinho() {
                     "quantidade": 1
                 },
                 {
-                    "id": "fnsdfyihaef-aeosdaeum9f-oe97sdae7809fh",
+                    "id": "fnsdfyihaef-aeosdaeum9f-oe97sdae347809fh",
                     "nome": "Cadeira Tecton 3",
                     "preco": 1000.21,
                     "cores_disponiveis": [
@@ -78,21 +78,21 @@ function PagCarrinho() {
                     "quantidade": 1
                 },
                 {
-                    "id": "efhmef9767hf-a9e7fh9e7mfhae-a9e7fhngae97f",
+                    "id": "efhme56f9767hf-a9e7fh9e7mfhae-a9e7fhngae97f",
                     "nome": "Carregador por indução 1",
                     "foto": "./rodinha-acessorios.png",
                     "preco": 13.20,
                     "quantidade": 1
                 },
                 {
-                    "id": "34hmef97aehf-a9e7fh9e7mfhae-a9e7fhngae97f",
+                    "id": "34hmef97aehf-a9e7fh9e7mfhae-a9e787fhngae97f",
                     "nome": "Carregador por indução 2",
                     "foto": "./rodinha-acessorios.png",
                     "preco": 11.40,
                     "quantidade": 1
                 },
                 {
-                    "id": "efhmef23aehf-a9e7fh9e7mfhae-a9e7fhngae97f",
+                    "id": "efhmef2783aehf-a9e7fh9e7mfhae-a9e7fhngae97f",
                     "nome": "Carregador por indução 3",
                     "foto": "./rodinha-acessorios.png",
                     "preco": 8.40,
@@ -117,7 +117,7 @@ function PagCarrinho() {
                 <div className='container-carrinho'>
                     <div className='carrinho'>
                         {itensCarrinho.map((item => (
-                            <ItemCarrinho key={item.id} item={item} />
+                            <ItemCarrinho key={item.id} item={item}/>
                         )))}
 
                     </div>

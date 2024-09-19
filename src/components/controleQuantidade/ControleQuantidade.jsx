@@ -2,9 +2,9 @@ import React, { useState } from 'react'
 import "./ControleQuantidade.css"
 import ServicoCarrinho from '../../services/servico-carrinho'
 
-function ControleQuantidade({id}) {
+function ControleQuantidade({id, quantidade}) {
 
-  const[quantidadeItem, setQuantidadeItem] = useState(ServicoCarrinho.pegaQuantidadeItem(id))
+  const[quantidadeItem, setQuantidadeItem] = useState(quantidade)
 
   function aumentaQuantidade() {
     setQuantidadeItem(ServicoCarrinho.aumentaQuantidade(id))
