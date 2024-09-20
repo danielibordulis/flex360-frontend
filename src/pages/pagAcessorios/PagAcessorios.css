@@ -12,3 +12,11 @@
   padding-top: 20px;
   padding-bottom: 20px;
 }
+
+.mensagem{
+  font-size: 18px;
+  color: var(--cor-1); /* Se quiser usar a cor principal que já definiu */
+  text-align: center;
+  padding: 20px;
+  font-family: var(--font-1); /* Se quiser manter a mesma fonte do projeto */
+}
