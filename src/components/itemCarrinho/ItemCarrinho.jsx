@@ -2,31 +2,45 @@ import React from 'react'
 import "./ItemCarrinho.css"
 import ControleQuantidade from '../controleQuantidade/ControleQuantidade'
 import PaletaCor from '../paletaCor/PaletaCor'
+import ServicoCarrinho from '../../services/servico-carrinho'
 
-function ItemCarrinho() {
+function ItemCarrinho({item}) {
+  
+  if(!item) return null
+
+
+  function deletaItem() {
+    if(ServicoCarrinho.removeItem(item.id)) {
+      item = undefined
+    }
+  }
+
+  
   return (
     <div className='item-container'>
       <div className='container-img-carrinho'>
-        <img src="./cadeira-ex.png" alt="" />
+        <img src={item.foto_cadeira? item.foto_cadeira : item.foto} alt="" />
       </div>
       <div className='container-info-item'>
 
             <div className='container-top-item'>
                 <div className='container-nome-item'>
-                    <h2>Nome do produto</h2>
+                    <h2>{item.nome}</h2>
                 </div>
                 <div className='container-deletar-item'>
-                    <button>
+                    <button onClick={deletaItem}>
                         <img src="botao-deletar.png" alt="" />
                     </button>
                 </div>
             </div>
             <div className='container-middle-item'>
-                <ControleQuantidade />
+                <ControleQuantidade id={item.id} quantidade={item.quantidade}/>
             </div>
             <div className='container-top-bottom'>
-                <PaletaCor cores={[{name: "Marrom", cod: "#a52a2a", id: ""},{name: "Preto", cod: "#1E0303", id: ""},{name: "Roxo", cod: "#7C1FF1", id: ""}]}/>
-                <span className='item-preco'>R$1500.00</span>
+                {item.cores_disponiveis && item.cores_disponiveis.length > 0 && (
+                  <PaletaCor cores={item.cores_disponiveis} />
+                  )}
+                <span className='item-preco'>R$ {Number(item.preco).toLocaleString('pt-BR')}</span>
             </div>
 
       </div>
