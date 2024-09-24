@@ -5,6 +5,7 @@ import Footer from '../../components/footer/Footer'
 import CadeiraHome from '../../components/cadeiraHome/CadeiraHome'
 import cadeiraJson from '../../utils/json/cadeira.json'
 
+
 function PagHome() {
   const [cadeiras, setCadeiras] = useState([]);
   

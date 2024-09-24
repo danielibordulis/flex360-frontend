@@ -1,13 +1,17 @@
 import React from 'react'
 import "./Footer.css"
+import { HiOutlineMail } from "react-icons/hi";
+import { BsInstagram } from "react-icons/bs";
+import { SiGooglemaps } from "react-icons/si";
+import { AiOutlineMail } from "react-icons/ai";
 
 function Footer() {
   return (
     <div className='fimDaPagina'>
       <div className='icones'>
-        <button className='estiloBotoes'><img src="./localizacao.png" alt="icone de localização"/></button>
-        <button className='estiloBotoes'><img src="./emailicon.png" alt="icone de email"/></button>
-        <button className='estiloBotoes'><img className= "imgInsta" src="./instagramicon.png" alt="icone do instagram"/></button>
+      <span className='emailFooter'><AiOutlineMail /></span>
+      <BsInstagram />
+      <SiGooglemaps />
       </div>
     </div>
   )
