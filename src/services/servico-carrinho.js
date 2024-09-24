@@ -72,11 +72,16 @@ function ServicoCarrinho() {
     }
 
     function removeItem(idItem) {
-        carrinho = carrinho.filter(item => item.id !== idItem)
+        let indiceBusca = carrinho.findIndex(item => item.id === idItem)
 
 
-        console.log("Item removido.")
-        return carrinho
+        if(indiceBusca !== -1) {
+            carrinho.splice(indiceBusca)
+            return true
+        }
+
+        return false
+
     }
 
     return {

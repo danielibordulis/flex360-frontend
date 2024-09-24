@@ -23,7 +23,7 @@ function ControleQuantidade({id, quantidade}) {
 
       <span>{quantidadeItem}</span>
 
-      <button onClick={reduzQuantidade}>
+      <button onClick={reduzQuantidade} disabled={quantidadeItem === 1}>
         <img src="./icon-menos.png" alt="" />
       </button>
     </div>

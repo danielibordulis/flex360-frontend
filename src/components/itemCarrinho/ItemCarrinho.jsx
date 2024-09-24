@@ -2,10 +2,20 @@ import React from 'react'
 import "./ItemCarrinho.css"
 import ControleQuantidade from '../controleQuantidade/ControleQuantidade'
 import PaletaCor from '../paletaCor/PaletaCor'
+import ServicoCarrinho from '../../services/servico-carrinho'
 
 function ItemCarrinho({item}) {
   
   if(!item) return null
+
+
+  function deletaItem() {
+    if(ServicoCarrinho.removeItem(item.id)) {
+      item = undefined
+    }
+  }
+
+  
   return (
     <div className='item-container'>
       <div className='container-img-carrinho'>
@@ -18,7 +28,7 @@ function ItemCarrinho({item}) {
                     <h2>{item.nome}</h2>
                 </div>
                 <div className='container-deletar-item'>
-                    <button>
+                    <button onClick={deletaItem}>
                         <img src="botao-deletar.png" alt="" />
                     </button>
                 </div>
