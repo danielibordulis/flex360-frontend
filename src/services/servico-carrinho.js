@@ -44,7 +44,7 @@ function ServicoCarrinho() {
     }
 
     function reduzQuantidade(idItem) {
-        let indiceBusca = carrinho.findIndex(itemBuscar => itemBuscar.id == itemAdd.id)
+        let indiceBusca = carrinho.findIndex(itemBuscar => itemBuscar.id == idItem)
         if (indiceBusca !== -1) {
             carrinho[indiceBusca].quantidade--
 
@@ -60,7 +60,7 @@ function ServicoCarrinho() {
     }
 
     function aumentaQuantidade(idItem) {
-        let indiceBusca = carrinho.findIndex(itemBuscar => itemBuscar.id == itemAdd.id)
+        let indiceBusca = carrinho.findIndex(itemBuscar => itemBuscar.id == idItem)
         if (indiceBusca !== -1) {
             carrinho[indiceBusca].quantidade++
 

@@ -17,7 +17,8 @@ function PagCarrinho() {
 
 
     useEffect(() => {
-        if (itensCarrinho.length == 0) {
+        console.log("Use effect chamado")
+        if (ServicoCarrinho.pegaItens().length === 0) {
 
             const novoCarrinho = [
                 {
