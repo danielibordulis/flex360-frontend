@@ -6,7 +6,7 @@ import ItemCarrinho from '../../components/itemCarrinho/ItemCarrinho.jsx'
 import { CarrinhoContext } from '../../contexts/CarrinhoContext.jsx'
 
 function PagCarrinho() {
-
+    
     const {carrinho, adicionaItem, removeItem, pegaItens, pegaPrecoTotal } = useContext(CarrinhoContext)
 
 

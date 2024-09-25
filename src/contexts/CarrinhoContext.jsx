@@ -55,7 +55,7 @@ export function CarrinhoProvider({ children }) {
     function reduzQuantidade(idItem) {
         let indiceBusca = carrinho.findIndex(itemBuscar => itemBuscar.id == idItem)
         if (indiceBusca !== -1) {
-            let novoCarrinho = carrinho
+            let novoCarrinho = [...carrinho]
             novoCarrinho[indiceBusca].quantidade--
             if (novoCarrinho[indiceBusca].quantidade <= 0) {
                 novoCarrinho.splice(indiceBusca, 1)
@@ -86,18 +86,8 @@ export function CarrinhoProvider({ children }) {
     }
 
     function removeItem(idItem) {
-        let indiceBusca = carrinho.findIndex(item => item.id === idItem)
-
-
-        if (indiceBusca !== -1) {
-            let novoCarrinho = carrinho
-            novoCarrinho.splice(indiceBusca)
-            setCarrinho(novoCarrinho)
+        setCarrinho(prevCarrinho => prevCarrinho.filter(item => item.id !== idItem))
             return true
-        }
-
-        return false
-
     }
 
     return (

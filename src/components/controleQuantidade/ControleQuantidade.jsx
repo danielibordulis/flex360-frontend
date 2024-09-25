@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react'
 import "./ControleQuantidade.css"
-import {CarrinhoContext} from '../../contexts/CarrinhoContext'
+import {CarrinhoContext} from '../../contexts/CarrinhoContext.jsx'
 
 function ControleQuantidade({id, quantidade}) {
 
