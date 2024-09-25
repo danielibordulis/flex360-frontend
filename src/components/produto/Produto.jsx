@@ -1,4 +1,3 @@
-
 import React from 'react';
 import './Produto.css';
 import servicoCarrinho from '../../services/servico-carrinho';
@@ -24,10 +23,12 @@ export default function Produto({ id, nome, foto, preco }) {
       </div>
 
       <div className="container-preco-prod">
+        <span className="produto-preco">R$ {preco.toFixed(2)}</span> 
+        
+       
         <button className="botao-carrinho" onClick={adicionarAoCarrinho}>
           <img src="public/botaoCarrinho.png" alt="Carrinho" />
         </button>
-        <span className="produto-preco">R$ {preco.toFixed(2)}</span>
       </div>
     </div>
   );
