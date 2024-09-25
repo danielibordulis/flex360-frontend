@@ -28,10 +28,7 @@
   height: 25%;
 }
 
-.container-controle-quantidade {
-  height: 20%;
-  justify-content: flex-start !important;
-}
+
 
 .container-preco-prod {
   height: 20%;
@@ -50,29 +47,7 @@
   text-align: center;
 }
 
-.controle-quantidade {
-  display: flex;
-  align-items: center;
-  margin: 10px 0;
-}
 
-.botao-quantidade {
-  background-color: #DA1C1C;
-  color: black; /* Mantém o descritivo interno em preto */
-  border: none;
-  font-family: 'Inter', sans-serif;
-  font-weight: bold;
-  font-size: 20px; /* Diminui o tamanho dos botões vermelhos */
-  padding: 5px 8px; /* Ajusta o padding para o tamanho menor */
-}
-
-.numero-quantidade {
-  font-family: 'Inter', sans-serif;
-  font-weight: bold;
-  font-size: 25px;
-  color: #DA1C1C;
-  margin: 0 10px;
-}
 
 .botao-carrinho {
   width: 100px;
