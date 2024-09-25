@@ -1,5 +1,10 @@
-function ServicoCarrinho() {
-    let carrinho = []
+import { createContext, useState } from "react";
+
+export const CarrinhoContext = createContext()
+
+export function CarrinhoProvider({ children }) {
+    const [carrinho, setCarrinho] = useState([])
+
 
     function pegaPrecoTotal() {
         let valorTotal = 0.0
@@ -35,25 +40,31 @@ function ServicoCarrinho() {
     function adicionaItem(itemAdd) {
         let indiceBusca = carrinho.findIndex(itemBuscar => itemBuscar.id == itemAdd.id)
         if (indiceBusca !== -1) {
-            carrinho[indiceBusca].quantidade += itemAdd.quantidade
-        }
-        else carrinho.push(itemAdd)
 
-        console.log("Item adicionado")
+            let novoCarrinho = carrinho
+            novoCarrinho[indiceBusca].quantidade += itemAdd.quantidade
+            setCarrinho(novoCarrinho)
+        } else {
+            setCarrinho(prevCarrinho => ([...prevCarrinho, itemAdd]))
+        }
+
+        console.log("Item adicionado xd")
         return carrinho
     }
 
     function reduzQuantidade(idItem) {
         let indiceBusca = carrinho.findIndex(itemBuscar => itemBuscar.id == idItem)
         if (indiceBusca !== -1) {
-            carrinho[indiceBusca].quantidade--
-
-            if (carrinho[indiceBusca].quantidade <= 0) {
-                carrinho.splice(indiceBusca, 1)
+            let novoCarrinho = carrinho
+            novoCarrinho[indiceBusca].quantidade--
+            if (novoCarrinho[indiceBusca].quantidade <= 0) {
+                novoCarrinho.splice(indiceBusca, 1)
+                setCarrinho(novoCarrinho)
                 return 0
             }
 
-            return carrinho[indiceBusca].quantidade
+            setCarrinho(novoCarrinho)
+            return novoCarrinho[indiceBusca].quantidade
         }
 
         return 0
@@ -62,10 +73,13 @@ function ServicoCarrinho() {
     function aumentaQuantidade(idItem) {
         let indiceBusca = carrinho.findIndex(itemBuscar => itemBuscar.id == idItem)
         if (indiceBusca !== -1) {
-            carrinho[indiceBusca].quantidade++
+
+            let novoCarrinho = carrinho
+            novoCarrinho[indiceBusca].quantidade++
 
             console.log("Item aumentado")
-            return carrinho[indiceBusca].quantidade
+            setCarrinho(novoCarrinho)
+            return novoCarrinho[indiceBusca].quantidade
         }
 
         return 0
@@ -75,8 +89,10 @@ function ServicoCarrinho() {
         let indiceBusca = carrinho.findIndex(item => item.id === idItem)
 
 
-        if(indiceBusca !== -1) {
-            carrinho.splice(indiceBusca)
+        if (indiceBusca !== -1) {
+            let novoCarrinho = carrinho
+            novoCarrinho.splice(indiceBusca)
+            setCarrinho(novoCarrinho)
             return true
         }
 
@@ -84,17 +100,9 @@ function ServicoCarrinho() {
 
     }
 
-    return {
-        pegaItens,
-        pegaPrecoTotal,
-        pegaPrecoTotalItem,
-        pegaQuantidadeItem,
-        adicionaItem,
-        aumentaQuantidade,
-        reduzQuantidade,
-        removeItem
-    }
+    return (
+        <CarrinhoContext.Provider value={{ carrinho, setCarrinho, adicionaItem, aumentaQuantidade, pegaItens, pegaPrecoTotal, pegaPrecoTotalItem, pegaQuantidadeItem, reduzQuantidade, removeItem }}>
+            {children}
+        </CarrinhoContext.Provider>
+    )
 }
-
-
-export default ServicoCarrinho()
