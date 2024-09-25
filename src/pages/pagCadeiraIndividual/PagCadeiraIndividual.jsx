@@ -9,6 +9,7 @@ import servicoCarrinho from '../../services/servico-carrinho';
 
 function PagCadeiraIndividual() {
   const location = useLocation();
+  const navigate = useNavigate();
   const { cadeiraId, corPreferida } = location.state || {};
 
   // Estado para armazenar os detalhes da cadeira
