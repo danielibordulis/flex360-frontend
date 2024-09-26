@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import { useContext } from 'react'
 import "./ItemCarrinho.css"
 import ControleQuantidade from '../controleQuantidade/ControleQuantidade'
 import PaletaCor from '../paletaCor/PaletaCor'
@@ -25,7 +25,7 @@ function ItemCarrinho({ item }) {
           </div>
           <div className='container-deletar-item'>
             <button onClick={() => removeItem(item.id)}>
-              <img src="botao-deletar.png" alt="Deletar" />
+              <img src="botao-deletar.png" alt="Remover do carrinho" />
             </button>
           </div>
         </div>
@@ -33,10 +33,10 @@ function ItemCarrinho({ item }) {
           <ControleQuantidade id={item.id} quantidade={item.quantidade} />
         </div>
         <div className='container-top-bottom'>
-          {item.cores_disponiveis && item.cores_disponiveis.length > 0 && (
+          {item.cores_disponiveis && (
             <PaletaCor cores={item.cores_disponiveis} />
           )}
-          <span className='item-preco'>R$ {Number(item.preco).toLocaleString('pt-BR')}</span>
+          <span className='item-preco'>{Number(item.preco).toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})}</span>
         </div>
 
       </div>

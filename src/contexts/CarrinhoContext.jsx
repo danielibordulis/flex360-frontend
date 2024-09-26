@@ -13,7 +13,7 @@ export function CarrinhoProvider({ children }) {
             valorTotal += (Number(obj.quantidade) * Number(obj.preco))
         }
 
-        return valorTotal.toLocaleString('pt-BR')
+        return valorTotal
     }
 
     function pegaItens() {

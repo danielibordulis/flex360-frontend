@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react'
+import { useContext, useEffect } from 'react'
 import "./PagCarrinho.css"
 
 import Header from '../../components/header/Header'
@@ -16,7 +16,6 @@ function finalizaCompra() {
 }
 
     useEffect(() => {
-        console.log("Use effect chamado")
         if (pegaItens().length === 0) {
 
             const novoCarrinho = [
@@ -108,10 +107,6 @@ adicionaItem(obj)
 
     }, [])
 
-    useEffect(() => {
-        console.log(carrinho)
-    }, [carrinho])
-
 
     return (
         <>
@@ -136,7 +131,7 @@ adicionaItem(obj)
 
                             <h2>Valor Total</h2>
 
-                            <span>R$ {pegaPrecoTotal()}</span>
+                            <span>{pegaPrecoTotal().toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})}</span>
 
                             <button onClick={finalizaCompra}>Finalizar Compra</button>
 

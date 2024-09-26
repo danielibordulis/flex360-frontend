@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import { useContext, useState } from 'react'
 import "./ControleQuantidade.css"
 import {CarrinhoContext} from '../../contexts/CarrinhoContext.jsx'
 
@@ -11,13 +11,13 @@ function ControleQuantidade({id, quantidade}) {
   return (
     <div className='container-controle-quantidade'>
       <button onClick={() => setQuantidadeItem(aumentaQuantidade(id))}>
-        <img src="./icon-mais.png" alt="" />
+        <img src="./icon-mais.png" alt="Aumentar quantidade" />
       </button>
 
-      <span>{quantidadeItem}</span>
+      <span aria-live='polite'>{quantidadeItem}</span>
 
       <button onClick={() => setQuantidadeItem(reduzQuantidade(id))} disabled={quantidadeItem === 1}>
-        <img src="./icon-menos.png" alt="" />
+        <img src="./icon-menos.png" alt="Diminuir quantidade" />
       </button>
     </div>
   )
