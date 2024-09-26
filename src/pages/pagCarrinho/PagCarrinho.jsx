@@ -7,9 +7,13 @@ import { CarrinhoContext } from '../../contexts/CarrinhoContext.jsx'
 
 function PagCarrinho() {
     
-    const {carrinho, adicionaItem, removeItem, pegaItens, pegaPrecoTotal } = useContext(CarrinhoContext)
+    const {carrinho, adicionaItem, removeItem, pegaItens, pegaPrecoTotal, limpaCarrinho } = useContext(CarrinhoContext)
 
+function finalizaCompra() {
 
+    limpaCarrinho()
+    alert("Compra finalizada!")
+}
 
     useEffect(() => {
         console.log("Use effect chamado")
@@ -134,7 +138,7 @@ adicionaItem(obj)
 
                             <span>R$ {pegaPrecoTotal()}</span>
 
-                            <button>Finalizar Compra</button>
+                            <button onClick={finalizaCompra}>Finalizar Compra</button>
 
                         </div>
 

@@ -37,6 +37,10 @@ export function CarrinhoProvider({ children }) {
         return 0
     }
 
+    function limpaCarrinho() {
+        setCarrinho(prevCarrinho => [])
+    }
+
     function adicionaItem(itemAdd) {
 
         setCarrinho(prevCarrinho => {
@@ -58,20 +62,20 @@ export function CarrinhoProvider({ children }) {
         let quantidadeAtualizada = 0
 
         const novoCarrinho = carrinho.map(item => {
-            if(item.id === idItem) {
-                quantidadeAtualizada = item.quantidade -1
+            if (item.id === idItem) {
+                quantidadeAtualizada = item.quantidade - 1
 
-                if(quantidadeAtualizada <=0) {
+                if (quantidadeAtualizada <= 0) {
                     return null
                 }
 
-                return {...item, quantidade: quantidadeAtualizada}
+                return { ...item, quantidade: quantidadeAtualizada }
             }
 
             return item
-        }).filter(item => item!== null)
+        }).filter(item => item !== null)
 
-setCarrinho(novoCarrinho)
+        setCarrinho(novoCarrinho)
         return quantidadeAtualizada
     }
 
@@ -80,9 +84,9 @@ setCarrinho(novoCarrinho)
         let quantidadeAtualizada = 0
 
         const novoCarrinho = carrinho.map(item => {
-            if(item.id === idItem) {
+            if (item.id === idItem) {
                 quantidadeAtualizada = item.quantidade + 1
-                return {...item, quantidade: quantidadeAtualizada}
+                return { ...item, quantidade: quantidadeAtualizada }
             }
             return item
         })
@@ -98,7 +102,7 @@ setCarrinho(novoCarrinho)
     }
 
     return (
-        <CarrinhoContext.Provider value={{ carrinho, setCarrinho, adicionaItem, aumentaQuantidade, pegaItens, pegaPrecoTotal, pegaPrecoTotalItem, pegaQuantidadeItem, reduzQuantidade, removeItem }}>
+        <CarrinhoContext.Provider value={{ carrinho, setCarrinho, adicionaItem, aumentaQuantidade, pegaItens, pegaPrecoTotal, pegaPrecoTotalItem, pegaQuantidadeItem, reduzQuantidade, removeItem, limpaCarrinho }}>
             {children}
         </CarrinhoContext.Provider>
     )
