@@ -38,56 +38,63 @@ export function CarrinhoProvider({ children }) {
     }
 
     function adicionaItem(itemAdd) {
-        let indiceBusca = carrinho.findIndex(itemBuscar => itemBuscar.id == itemAdd.id)
-        if (indiceBusca !== -1) {
 
-            let novoCarrinho = carrinho
-            novoCarrinho[indiceBusca].quantidade += itemAdd.quantidade
-            setCarrinho(novoCarrinho)
-        } else {
-            setCarrinho(prevCarrinho => ([...prevCarrinho, itemAdd]))
-        }
+        setCarrinho(prevCarrinho => {
+            const indiceBusca = prevCarrinho.findIndex(itemBuscar => itemBuscar.id === itemAdd.id)
 
-        console.log("Item adicionado xd")
-        return carrinho
+            if (indiceBusca !== -1) {
+                const novoCarrinho = [...prevCarrinho]
+                novoCarrinho[indiceBusca].quantidade += itemAdd.quantidade
+                return novoCarrinho
+            } else {
+                return [...prevCarrinho, itemAdd]
+            }
+        })
+
     }
 
     function reduzQuantidade(idItem) {
-        let indiceBusca = carrinho.findIndex(itemBuscar => itemBuscar.id == idItem)
-        if (indiceBusca !== -1) {
-            let novoCarrinho = [...carrinho]
-            novoCarrinho[indiceBusca].quantidade--
-            if (novoCarrinho[indiceBusca].quantidade <= 0) {
-                novoCarrinho.splice(indiceBusca, 1)
-                setCarrinho(novoCarrinho)
-                return 0
+
+        let quantidadeAtualizada = 0
+
+        const novoCarrinho = carrinho.map(item => {
+            if(item.id === idItem) {
+                quantidadeAtualizada = item.quantidade -1
+
+                if(quantidadeAtualizada <=0) {
+                    return null
+                }
+
+                return {...item, quantidade: quantidadeAtualizada}
             }
 
-            setCarrinho(novoCarrinho)
-            return novoCarrinho[indiceBusca].quantidade
-        }
+            return item
+        }).filter(item => item!== null)
 
-        return 0
+setCarrinho(novoCarrinho)
+        return quantidadeAtualizada
     }
 
     function aumentaQuantidade(idItem) {
-        let indiceBusca = carrinho.findIndex(itemBuscar => itemBuscar.id == idItem)
-        if (indiceBusca !== -1) {
 
-            let novoCarrinho = carrinho
-            novoCarrinho[indiceBusca].quantidade++
+        let quantidadeAtualizada = 0
 
-            console.log("Item aumentado")
-            setCarrinho(novoCarrinho)
-            return novoCarrinho[indiceBusca].quantidade
-        }
+        const novoCarrinho = carrinho.map(item => {
+            if(item.id === idItem) {
+                quantidadeAtualizada = item.quantidade + 1
+                return {...item, quantidade: quantidadeAtualizada}
+            }
+            return item
+        })
 
-        return 0
+        setCarrinho(novoCarrinho)
+
+        return quantidadeAtualizada
     }
 
     function removeItem(idItem) {
         setCarrinho(prevCarrinho => prevCarrinho.filter(item => item.id !== idItem))
-            return true
+        return true
     }
 
     return (
