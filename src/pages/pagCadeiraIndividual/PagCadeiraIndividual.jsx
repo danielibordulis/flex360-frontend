@@ -5,7 +5,6 @@ import PaletaCor from '../../components/paletaCor/PaletaCor';
 import { useLocation } from 'react-router-dom';
 import cadeiras from '../../utils/json/cadeira.json'; 
 import { useNavigate} from 'react-router-dom';
-import servicoCarrinho from '../../services/servico-carrinho';
 
 function PagCadeiraIndividual() {
   const location = useLocation();
@@ -85,7 +84,7 @@ function PagCadeiraIndividual() {
                   )}
               </div>
 
-              <div className='right-side'>
+              <div className='right-side-ind'>
                 <button onClick={adicionarAoCarrinho}>Adicionar ao Carrinho</button>
               </div>
             </div>

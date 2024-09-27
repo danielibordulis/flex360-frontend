@@ -1,3 +1,5 @@
+import "./Erro.css"
+
 function Erro({mensagem}) {
     if(!mensagem) return null
   return (

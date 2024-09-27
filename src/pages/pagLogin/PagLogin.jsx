@@ -2,11 +2,14 @@ import './PagLogin.css';
 import { validarCampo, pegaEValidaTokenLogin } from '../../utils/validation-user'
 import Erro from '../../components/erro/Erro'
 import { useEffect, useState } from 'react';
+import { TiHome } from "react-icons/ti";
+import { useNavigate } from 'react-router-dom';
 
 export default function PagLogin() {
   const [erros, setErros] = useState({})
   const [emailINPT, setEmailINPT] = useState("")
   const [senha, setSenha] = useState("")
+  const navigate = useNavigate()
 
 
 
@@ -86,7 +89,7 @@ export default function PagLogin() {
           </form>
           <div className='cadastro'>
             <p>Não possui cadastro?</p>
-            <button className='btn-cadastrar' >Cadastrar</button>
+            <button className='btn-cadastrar' onClick={() => navigate('/cadastro')}>Cadastrar</button>
           </div>
         </div>
 
@@ -94,6 +97,10 @@ export default function PagLogin() {
       <div className='imagem-login'>
 
       </div>
+
+      <button className='botao-nav-home' onClick={() => navigate('/')}>
+        <TiHome />
+      </button>
     </section>
   );
 }

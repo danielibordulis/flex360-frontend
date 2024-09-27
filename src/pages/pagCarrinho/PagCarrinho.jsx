@@ -6,14 +6,14 @@ import ItemCarrinho from '../../components/itemCarrinho/ItemCarrinho.jsx'
 import { CarrinhoContext } from '../../contexts/CarrinhoContext.jsx'
 
 function PagCarrinho() {
-    
-    const {carrinho, adicionaItem, removeItem, pegaItens, pegaPrecoTotal, limpaCarrinho } = useContext(CarrinhoContext)
 
-function finalizaCompra() {
+    const { carrinho, adicionaItem, removeItem, pegaItens, pegaPrecoTotal, limpaCarrinho } = useContext(CarrinhoContext)
 
-    limpaCarrinho()
-    alert("Compra finalizada!")
-}
+    function finalizaCompra() {
+
+        limpaCarrinho()
+        alert("Compra finalizada!")
+    }
 
     useEffect(() => {
         if (pegaItens().length === 0) {
@@ -100,7 +100,7 @@ function finalizaCompra() {
             ]
 
             for (let obj of novoCarrinho) {
-adicionaItem(obj)
+                adicionaItem(obj)
             }
 
         }
@@ -131,7 +131,7 @@ adicionaItem(obj)
 
                             <h2>Valor Total</h2>
 
-                            <span>{pegaPrecoTotal().toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})}</span>
+                            <span>{pegaPrecoTotal().toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</span>
 
                             <button onClick={finalizaCompra}>Finalizar Compra</button>
 

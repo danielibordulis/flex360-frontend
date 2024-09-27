@@ -1,6 +1,5 @@
 import React from 'react';
 import './Produto.css';
-import servicoCarrinho from '../../services/servico-carrinho';
 import { useNavigate } from 'react-router-dom';
 
 export default function Produto({ id, nome, foto, preco }) {

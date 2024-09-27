@@ -38,6 +38,15 @@
     display: flex; /* Os itens dentro do formulário serão dispostos em coluna */
     flex-direction: column; /* Garante que os itens dentro do formulário sejam alinhados verticalmente */
     align-items: center; /* Centraliza os itens horizontalmente no formulário */
+    justify-content: center;
+  }
+
+  .form-ergonomia div {
+    display: flex;
+    flex-direction: column;
+    
+    width: 300px;
+  
   }
   
   /* Estiliza o rótulo (label) do formulário */
@@ -45,13 +54,12 @@
     margin-bottom: 5px; /* Espaço abaixo dos rótulos */
     font-size: 18px; /* Ajusta o tamanho da fonte dos rótulos */
     color: var(--cor-1); /* Cor do texto dos rótulos */
-    margin-right: 115px;
-    
+   
   }
   
   /* Estiliza os campos de entrada (input) do formulário */
-  .form-ergonomia input {
-      width: 30%; /* Reduz a largura dos inputs */
+  .form-ergonomia div > input {
+      width: 100%; /* Reduz a largura dos inputs */
       height: 30px; /* Reduz a altura dos inputs */
       background-color: var(--cor-2); /* Mantém a cor de fundo */
       border: none; /* Mantém as bordas removidas */
@@ -96,7 +104,7 @@
   
   /* Estiliza o botão de "Encontrar" */
   .botao-encontrar {
-    width: 15%; 
+    width: 100px; 
     height: 35px; 
     background-color: var(--cor-1); /* Mantém a cor de fundo */
     color: white; /* Mantém a cor do texto */

@@ -4,11 +4,11 @@ import { GlobalContext } from "../contexts/GlobalContext.jsx"
 
 export default function httpClient() {
 
-    const { setIsLoading } = useContext(GlobalContext)
+    const { setIsLoadingForTrue, setIsLoadingForFalse } = useContext(GlobalContext)
 
     async function get(rota, jwt) {
 
-        setIsLoading(true)
+        setIsLoadingForTrue()
 
         let config = {}
 
@@ -23,13 +23,13 @@ export default function httpClient() {
         return await axios.get(rota, config)
             .then((response) => {
 
-                setIsLoading(false)
+                setIsLoadingForFalse()
 
                 return response
             })
             .catch((err) => {
 
-                setIsLoading(false);
+                setIsLoadingForFalse();
 
                 // tratar o erro
 
@@ -39,7 +39,7 @@ export default function httpClient() {
 
     async function post(rota, data, jwt) {
 
-        setIsLoading(true)
+        setIsLoadingForTrue()
 
         let config = {}
 
@@ -56,13 +56,13 @@ export default function httpClient() {
         return await axios.post(rota, jsonData, config)
             .then((response) => {
 
-                setIsLoading(false)
+                setIsLoadingForFalse()
 
                 return response
             })
             .catch((err) => {
 
-                setIsLoading(false);
+                setIsLoadingForFalse();
 
                 // tratar o erro
 
@@ -71,7 +71,7 @@ export default function httpClient() {
 
     async function put(rota, data, jwt) {
 
-        setIsLoading(true)
+        setIsLoadingForTrue()
 
         let config = {}
 
@@ -93,13 +93,13 @@ export default function httpClient() {
         return await axios.put(rota, jsonData, config)
             .then((response) => {
 
-                setIsLoading(false)
+                setIsLoadingForFalse()
 
                 return response
             })
             .catch((err) => {
 
-                setIsLoading(false);
+                setIsLoadingForFalse();
 
                 // tratar o erro
 
@@ -109,7 +109,7 @@ export default function httpClient() {
 
     async function deleteOne(rota, jwt) {
 
-        setIsLoading(true)
+        setIsLoadingForTrue()
 
         let config = {}
 
@@ -124,13 +124,13 @@ export default function httpClient() {
         return await axios.delete(rota, config)
             .then((response) => {
 
-                setIsLoading(false)
+                setIsLoadingForFalse()
 
                 return response
             })
             .catch((err) => {
 
-                setIsLoading(false);
+                setIsLoadingForFalse();
 
                 // tratar o erro
 
@@ -139,7 +139,7 @@ export default function httpClient() {
     }
 
     async function patch(rota, data, jwt) {
-        setIsLoading(true);
+        setIsLoadingForTrue();
 
         let config = {};
 
@@ -155,12 +155,12 @@ export default function httpClient() {
 
         return await axios.patch(rota, jsonData, config)
             .then((response) => {
-                setIsLoading(false);
+                setIsLoadingForFalse();
                 return response;
             })
             .catch((err) => {
 
-                setIsLoading(false);
+                setIsLoadingForFalse();
 
                 // tratar o erro
                 

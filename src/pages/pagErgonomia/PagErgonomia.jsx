@@ -15,12 +15,16 @@ export default function PagErgonomia() {
 
           <form className="form-ergonomia">
 
-            <label className="form-label" for="altura">Sua altura:</label>
-            <input id="altura" type="text" placeholder="Digite sua altura" />
-
-            <label className="form-label" for="peso">Seu peso:</label>
-            <input id="peso" type="text" placeholder="Digite seu peso" />
-
+            <div>
+              <label className="form-label" for="altura">Sua altura:</label>
+              <input id="altura" type="text" placeholder="Digite sua altura" />
+            </div>
+            
+            <div>
+              <label className="form-label" for="peso">Seu peso:</label>
+              <input id="peso" type="text" placeholder="Digite seu peso" />
+            </div>
+            
           </form>
 
           <h2 className="titulo-ergonomia">Estilos De Design:</h2>

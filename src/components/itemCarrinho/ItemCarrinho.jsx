@@ -36,7 +36,7 @@ function ItemCarrinho({ item }) {
           {item.cores_disponiveis && (
             <PaletaCor cores={item.cores_disponiveis} />
           )}
-          <span className='item-preco'>{Number(item.preco).toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})}</span>
+          <span className={`item-preco ${!item.cores_disponiveis ? "isAcessorio" : ""}`} >{Number(item.preco).toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})}</span>
         </div>
 
       </div>

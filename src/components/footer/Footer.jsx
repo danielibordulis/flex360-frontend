@@ -9,9 +9,9 @@ function Footer() {
   return (
     <div className='fimDaPagina'>
       <div className='icones'>
-      <span className='emailFooter'><AiOutlineMail /></span>
-      <BsInstagram />
-      <SiGooglemaps />
+        <span className='emailFooter'><AiOutlineMail /></span>
+        <BsInstagram />
+        <SiGooglemaps />
       </div>
     </div>
   )

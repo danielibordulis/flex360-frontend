@@ -1,35 +1,57 @@
-.container-cadeiraHome{
+.container-cadeiraHome {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     padding: 10px;
     gap: 15px;
+    width: 250px; /* Define uma largura fixa para cada produto */
+    box-sizing: border-box;
 }
-.cadeiraHome-titulo{
-    font-family: var(--font-1) , Arial, Helvetica, sans-serif;
+
+.cadeiraHome-titulo {
+    font-family: var(--font-1), Arial, Helvetica, sans-serif;
     font-size: 20px;
 }
-.cadeiraHome-img{
-    width: 250px;
-    height: auto;    
+
+.cadeiraHome-img {
+    width: 100%; /* Ajusta a imagem ao tamanho da div */
+    height: auto;
     box-shadow: 2px 2px 10px rgba(1, 1, 1, 0.1);
     padding: 40px;
-      
 }
-.cadeiraHome-botao{
-    width: 150px; 
-    height: 50px; 
-    background-color: var(--cor-1); /* Mantém a cor de fundo */
-    color: white; /* Mantém a cor do texto */
-    font-family: var(--font-1), sans-serif; /* Mantém a fonte do texto */
-    font-size: 15px; /* Mantém o tamanho da fonte */
-    border: none; /* Mantém as bordas removidas */
-    cursor: pointer; /* Mantém o cursor como uma mãozinha */
-    border-radius: 20px; /* Adiciona bordas levemente arredondadas */
-    text-align: center; /* Centraliza o texto dentro do botão */
+
+.cadeiraHome-botao {
+    width: 150px;
+    height: 50px;
+    background-color: var(--cor-1);
+    color: white;
+    font-family: var(--font-1), sans-serif;
+    font-size: 15px;
+    border: none;
+    cursor: pointer;
+    border-radius: 20px;
+    text-align: center;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 10px; /* Ajusta o espaço acima do botão para movê-lo para cima */
+    margin-top: 10px;
+}
+
+@media (max-width: 1300px) {
+    .container-cadeiraHome:nth-child(n+4) {
+        display: none;
+    }
+}
+
+@media (max-width: 950px) {
+    .container-cadeiraHome:nth-child(n+3) {
+        display: none;
+    }
+}
+
+@media (max-width: 600px) {
+    .container-cadeiraHome:nth-child(n+2) {
+        display: none; 
+    }
 }
