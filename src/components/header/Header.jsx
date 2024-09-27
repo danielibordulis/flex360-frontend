@@ -42,10 +42,10 @@ function Header() {
             {menuVisivel && (
               <div className='menu-perfil'>
                 {!usuarioLogado ? (
-                  <button onClick={() => alert('Entrar')}>Entrar</button>
+                  <button onClick={() => navigate('/entrar')}>Entrar</button>
                 ) : (
                   <>
-                    <button onClick={() => alert('Meu Perfil')}>Meu Perfil</button>
+                    <button onClick={() => navigate('/perfil')}>Meu Perfil</button>
                     <button onClick={() => setUsuarioLogado(false)}>Sair</button>
                   </>
                 )}
