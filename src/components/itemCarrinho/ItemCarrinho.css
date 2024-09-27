@@ -108,3 +108,8 @@
 .container-deletar-item button > img {
     width: 100%;
 }
+
+.isAcessorio {
+    width: 100%;
+    text-align: end;
+}
