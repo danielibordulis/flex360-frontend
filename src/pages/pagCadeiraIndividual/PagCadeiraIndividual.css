@@ -154,7 +154,7 @@
     
 }
 
-.right-side {
+.right-side-ind {
     width: 60%;
     height: 100%;
     justify-content: center;
@@ -162,7 +162,7 @@
     padding-top: 10px;
 }
 
-.right-side button {
+.right-side-ind button {
     padding: 10px 15px 10px 15px;
     background-color: var(--cor-2);
     color: black;
@@ -174,7 +174,7 @@
     
 }
 
-.right-side button:hover {
+.right-side-ind button:hover {
     transform: scale(1.1);
     background-color: var(--cor-1);
     color: white;

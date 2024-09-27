@@ -84,7 +84,7 @@ function PagCadeiraIndividual() {
                   )}
               </div>
 
-              <div className='right-side'>
+              <div className='right-side-ind'>
                 <button onClick={adicionarAoCarrinho}>Adicionar ao Carrinho</button>
               </div>
             </div>
