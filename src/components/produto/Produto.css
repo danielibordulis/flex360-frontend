@@ -28,13 +28,13 @@
   height: 25%;
 }
 
-
-
 .container-preco-prod {
   height: 20%;
-  justify-content: space-between !important;
+  display: flex;
+  flex-direction: column; /* Organiza o conteúdo em coluna */
+  justify-content: center; /* Centraliza verticalmente */
+  align-items: center; /* Centraliza horizontalmente */
 }
-
 
 .produto-imagem {
   width: 50%;
@@ -45,19 +45,20 @@
   color: #000000;
   font-size: 20px;
   text-align: center;
+  margin-bottom: 15px; /* Aumente esse valor para adicionar mais espaço */
 }
 
-
-
+/* Ajustando o botão do carrinho para ser menor */
 .botao-carrinho {
-  width: 100px;
-  height: 50px;
+  width: 80px; /* Diminuindo a largura do botão */
+  height: 40px; /* Diminuindo a altura do botão */
   border-radius: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
   border: 0;
   cursor: pointer;
+  margin-top: 10px; /* Espaço entre o preço e o botão */
 }
 
 .botao-carrinho:hover {
@@ -72,6 +73,6 @@
   font-family: 'Lemonada', sans-serif;
   font-size: 20px;
   color: #000000;
-  margin-top: 5px;
+  margin-bottom: 5px; /* Espaço abaixo do preço */
   text-align: center; /* Centraliza o preço */
 }
