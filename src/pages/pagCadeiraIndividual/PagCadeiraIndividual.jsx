@@ -2,12 +2,14 @@ import React, { useEffect, useState } from 'react';
 import "./PagCadeiraIndividual.css";
 import Header from '../../components/header/Header';
 import PaletaCor from '../../components/paletaCor/PaletaCor';
-import ControleQuantidade from '../../components/controleQuantidade/ControleQuantidade';
 import { useLocation } from 'react-router-dom';
 import cadeiras from '../../utils/json/cadeira.json'; 
+import { useNavigate} from 'react-router-dom';
+import servicoCarrinho from '../../services/servico-carrinho';
 
 function PagCadeiraIndividual() {
   const location = useLocation();
+  const navigate = useNavigate();
   const { cadeiraId, corPreferida } = location.state || {};
 
   // Estado para armazenar os detalhes da cadeira
@@ -22,6 +24,14 @@ function PagCadeiraIndividual() {
 
     }
   }, [cadeiraId]);
+
+   // Função para adicionar a cadeira ao carrinho e navegar para a página do carrinho
+   const adicionarAoCarrinho = () => {
+
+    servicoCarrinho.adicionaItem(cadeira)
+
+    navigate('/carrinho'); // Redireciona para a página do carrinho e passa a cadeira no estado
+  };
 
 
   return (
@@ -62,7 +72,7 @@ function PagCadeiraIndividual() {
                 <div className='container-preco'>
                   <span>R$ {cadeira?.preco?.toFixed(2) || 'Preço'}</span>
                   <div className='box-quant'>
-                    <ControleQuantidade />
+                
                   </div>
                 </div>
               </div>
@@ -76,7 +86,7 @@ function PagCadeiraIndividual() {
               </div>
 
               <div className='right-side'>
-                <button>Adicionar ao Carrinho</button>
+                <button onClick={adicionarAoCarrinho}>Adicionar ao Carrinho</button>
               </div>
             </div>
           </div>
