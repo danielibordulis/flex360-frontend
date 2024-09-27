@@ -2,6 +2,8 @@ import { useEffect, useRef, useState } from 'react';
 import './PagCadastro.css';
 import { validarCampo } from '../../utils/validation-user'
 import Erro from '../../components/erro/Erro'
+import { useNavigate } from 'react-router-dom';
+import { TiHome } from 'react-icons/ti';
 
 export default function PagCadastro() {
 
@@ -15,6 +17,7 @@ export default function PagCadastro() {
   const senhaRef = useRef(null)
   const repetirSenhaRef = useRef(null)
   const emailRef = useRef(null)
+  const navigate = useNavigate()
 
 
   useEffect(() => {
@@ -24,18 +27,22 @@ export default function PagCadastro() {
 
       const elementoId = e.target.id
       console.log(erros)
-      setErros(prevState =>({...prevState, [elementoId]: ""}))
+      setErros(prevState => ({ ...prevState, [elementoId]: "" }))
 
     }
 
-campos.forEach(elemento => {
-  elemento.current.addEventListener("keydown", trataEvento)
-  })
+    campos.forEach(elemento => {
+      elemento.current.addEventListener("keydown", trataEvento)
+    })
 
     return () => {
 
       for (let obj of campos) {
+
+        if (!obj.current) continue
+
         obj.current.removeEventListener("keydown", trataEvento)
+
       }
 
     }
@@ -59,12 +66,12 @@ campos.forEach(elemento => {
   return (
     <section className='body-cadastro'>
 
-     
+
       <div className='imagem-cadastro' />
 
       <div className='container-cadastro'>
 
-       
+
         <div className='formulario-cadastro'>
           <h1 className='titulo'>Cadastrar</h1>
 
@@ -91,11 +98,15 @@ campos.forEach(elemento => {
             </div>
             <button className='btn-cadastrar' type='submit'>Cadastrar</button>
           </form>
-          <button className="btn-login">
+          <button className="btn-login" onClick={() => navigate('/entrar')}>
             Já possuo cadastro
           </button>
         </div>
       </div>
+
+      <button className='botao-nav-home-cadastro' onClick={() => navigate('/')}>
+        <TiHome />
+      </button>
     </section>
   );
 }
