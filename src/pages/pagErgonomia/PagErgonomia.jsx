@@ -1,6 +1,7 @@
 import React from 'react';
 import Header from '../../components/header/Header'
 import './PagErgonomia.css';
+import Footer from '../../components/footer/Footer'
 
 export default function PagErgonomia() {
   return (
@@ -36,6 +37,7 @@ export default function PagErgonomia() {
         <div className="container-direita" />
           
       </section>
+      <Footer/>
     </>
   );
 }

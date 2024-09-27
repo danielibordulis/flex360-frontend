@@ -3,6 +3,7 @@ import Header from '../../components/header/Header'
 import "./PagCadeiras.css"
 import Cadeira from '../../components/cadeira/Cadeira'
 import cadeirasJson from '../../utils/json/cadeira.json'
+import Footer from '../../components/footer/Footer'
 
 function PagCadeiras() {
 
@@ -95,6 +96,7 @@ function PagCadeiras() {
             </div>
 
         </section>
+        <Footer/>
     </>
   )
 }

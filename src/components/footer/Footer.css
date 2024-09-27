@@ -8,15 +8,22 @@
 }
 
 .icones{
-    padding: 25px;
+    padding: 30px;
     display: flex;
     justify-content: center;
-    gap: 15px;
+    gap: 20px;
+    font-size: 30px;
+    align-items: center;
+  
    
 }
 .icones img {
-    width: 25px; 
-    height: 25px; 
+    width: 35px; 
+    height: 35px; 
+  }
+  .emailFooter{
+    font-size: 35px;
+    padding-top: 10px;
   }
 .estiloBotoes{
     background-color: white;
