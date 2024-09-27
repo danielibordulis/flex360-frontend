@@ -1,47 +1,43 @@
-import React from 'react'
+import { useContext } from 'react'
 import "./ItemCarrinho.css"
 import ControleQuantidade from '../controleQuantidade/ControleQuantidade'
 import PaletaCor from '../paletaCor/PaletaCor'
-import ServicoCarrinho from '../../services/servico-carrinho'
+import { CarrinhoContext } from '../../contexts/CarrinhoContext'
 
-function ItemCarrinho({item}) {
-  
-  if(!item) return null
+function ItemCarrinho({ item }) {
+
+  if (!item) return null
 
 
-  function deletaItem() {
-    if(ServicoCarrinho.removeItem(item.id)) {
-      item = undefined
-    }
-  }
+  const { removeItem } = useContext(CarrinhoContext)
 
-  
+
   return (
     <div className='item-container'>
       <div className='container-img-carrinho'>
-        <img src={item.foto_cadeira? item.foto_cadeira : item.foto} alt="" />
+        <img src={item.foto_cadeira ? item.foto_cadeira : item.foto} alt="" />
       </div>
       <div className='container-info-item'>
 
-            <div className='container-top-item'>
-                <div className='container-nome-item'>
-                    <h2>{item.nome}</h2>
-                </div>
-                <div className='container-deletar-item'>
-                    <button onClick={deletaItem}>
-                        <img src="botao-deletar.png" alt="" />
-                    </button>
-                </div>
-            </div>
-            <div className='container-middle-item'>
-                <ControleQuantidade id={item.id} quantidade={item.quantidade}/>
-            </div>
-            <div className='container-top-bottom'>
-                {item.cores_disponiveis && item.cores_disponiveis.length > 0 && (
-                  <PaletaCor cores={item.cores_disponiveis} />
-                  )}
-                <span className='item-preco'>R$ {Number(item.preco).toLocaleString('pt-BR')}</span>
-            </div>
+        <div className='container-top-item'>
+          <div className='container-nome-item'>
+            <h2>{item.nome}</h2>
+          </div>
+          <div className='container-deletar-item'>
+            <button onClick={() => removeItem(item.id)}>
+              <img src="botao-deletar.png" alt="Remover do carrinho" />
+            </button>
+          </div>
+        </div>
+        <div className='container-middle-item'>
+          <ControleQuantidade id={item.id} quantidade={item.quantidade} />
+        </div>
+        <div className='container-top-bottom'>
+          {item.cores_disponiveis && (
+            <PaletaCor cores={item.cores_disponiveis} />
+          )}
+          <span className='item-preco'>{Number(item.preco).toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})}</span>
+        </div>
 
       </div>
     </div>
