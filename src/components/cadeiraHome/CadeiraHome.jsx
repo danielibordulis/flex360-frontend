@@ -18,7 +18,7 @@ function CadeiraHome({id, foto_cadeira, nome,preco}) {
   return (
     <>
       <div className='container-cadeiraHome'>
-        <img  className='cadeiraHome-img' src={foto_cadeira}/>
+        <img  className='cadeiraHome-img' src={foto_cadeira} alt='Descrição da imagem cadeira'/>
         <h2 className='cadeiraHome-titulo'>{nome}</h2>
         <h1 className='valor-cadeiraHome'>R$ {preco}</h1>
 
