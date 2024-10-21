@@ -26,7 +26,7 @@ export default function Produto({ id, nome, foto, preco }) {
         
        
         <button className="botao-carrinho" onClick={adicionarAoCarrinho}>
-          <img src="public/botaoCarrinho.png" alt="Carrinho" />
+          <img src="./botaoCarrinho.png" alt="Adicionar ao carrinho" />
         </button>
       </div>
     </div>
