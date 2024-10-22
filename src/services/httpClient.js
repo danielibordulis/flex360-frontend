@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "http://localhost:8080", // Exemplo: URL do backend
+  baseURL: "http://localhost:8081", // Exemplo: URL do backend
 });
 
 export default function httpClient() {
@@ -71,7 +71,7 @@ export default function httpClient() {
   // Função para tratamento de erros
   function tratarErro(error) {
     if (error.response) {
-      console.error(`Erro: ${error.response.status} - ${error.response.data}`);
+      console.error(`Erro: ${error.response.status} - ${JSON.stringify(error.response.data)}`);
     } else if (error.request) {
       console.error("Nenhuma resposta recebida:", error.request);
     } else {
