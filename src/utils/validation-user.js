@@ -33,9 +33,9 @@ export function validarCampo(campo, campo2 = null) {
                 return "A senha deve ter no máximo 50 caracteres."
             }
 
-            if (!/^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/.test(campo.value)) {
-                return "A senha deve ter no mínimo 8 caracteres, ao menos um número, um caractere especial e uma letra maiúscula."
-            }
+            // if (!/^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{5,}$/.test(campo.value)) {
+            //     return "A senha deve ter no mínimo 5 caracteres, ao menos um número, um caractere especial e uma letra maiúscula."
+            // }
             break
         case "repetirSenhaCadastro":
             if (campo.value !== campo2.value) {

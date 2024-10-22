@@ -4,6 +4,7 @@ import { validarCampo } from '../../utils/validation-user'
 import Erro from '../../components/erro/Erro'
 import { useNavigate } from 'react-router-dom';
 import { TiHome } from 'react-icons/ti';
+import httpClient from '../../services/httpClient';
 
 export default function PagCadastro() {
 
@@ -60,6 +61,23 @@ export default function PagCadastro() {
     }
 
     setErros(listaErros)
+
+    const dadosUsuario = {
+      nome:inputNome,
+      email:inputEmail,
+      password:inputSenha,
+    }
+
+    httpClient().post('/auth/register', dadosUsuario)
+      .then(() => {
+
+        navigate('/entrar')
+
+      })
+      .catch(() => {
+        alert("erro")
+      })
+
   }
 
 

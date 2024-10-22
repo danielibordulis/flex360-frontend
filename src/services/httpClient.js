@@ -1,178 +1,90 @@
 import axios from "axios";
-import { useContext } from "react";
-import { GlobalContext } from "../contexts/GlobalContext.jsx"
+
+const api = axios.create({
+  baseURL: "http://localhost:8081", // Exemplo: URL do backend
+});
 
 export default function httpClient() {
+  // Função auxiliar para configurar os headers
+  function criarConfig(jwt) {
+    const headers = {
+      "Content-Type": "application/json",
+    };
 
-    const { setIsLoadingForTrue, setIsLoadingForFalse } = useContext(GlobalContext)
-
-    async function get(rota, jwt) {
-
-        setIsLoadingForTrue()
-
-        let config = {}
-
-        if (jwt) {
-            config = {
-                headers: {
-                    Authorization: `Bearer ${jwt}`,
-                },
-            }
-        }
-
-        return await axios.get(rota, config)
-            .then((response) => {
-
-                setIsLoadingForFalse()
-
-                return response
-            })
-            .catch((err) => {
-
-                setIsLoadingForFalse();
-
-                // tratar o erro
-
-            })
-
+    if (jwt) {
+      headers.Authorization = `Bearer ${jwt}`;
     }
 
-    async function post(rota, data, jwt) {
+    return { headers };
+  }
 
-        setIsLoadingForTrue()
-
-        let config = {}
-
-        if (jwt) {
-            config = {
-                headers: {
-                    Authorization: `Bearer ${jwt}`,
-                },
-            }
-        }
-
-        const jsonData = JSON.stringify(data)
-
-        return await axios.post(rota, jsonData, config)
-            .then((response) => {
-
-                setIsLoadingForFalse()
-
-                return response
-            })
-            .catch((err) => {
-
-                setIsLoadingForFalse();
-
-                // tratar o erro
-
-            })
+  async function get(rota, jwt) {
+    try {
+      const config = criarConfig(jwt);
+      const response = await api.get(rota, config);
+      return response.data; // Retorna diretamente os dados
+    } catch (error) {
+      tratarErro(error);
     }
+  }
 
-    async function put(rota, data, jwt) {
-
-        setIsLoadingForTrue()
-
-        let config = {}
-
-        if (jwt) {
-            config = {
-                headers: {
-                    Authorization: `Bearer ${jwt}`,
-                },
-            }
-        }
-
-        let jsonData = {}
-
-        if (data) {
-            jsonData = JSON.stringify(data)
-
-        }
-        
-        return await axios.put(rota, jsonData, config)
-            .then((response) => {
-
-                setIsLoadingForFalse()
-
-                return response
-            })
-            .catch((err) => {
-
-                setIsLoadingForFalse();
-
-                // tratar o erro
-
-            })
-        
+  async function post(rota, data, jwt) {
+    try {
+      const config = criarConfig(jwt);
+      const response = await api.post(rota, data, config);
+      return response.data;
+    } catch (error) {
+      tratarErro(error);
     }
+  }
 
-    async function deleteOne(rota, jwt) {
-
-        setIsLoadingForTrue()
-
-        let config = {}
-
-        if (jwt) {
-            config = {
-                headers: {
-                    Authorization: `Bearer ${jwt}`,
-                },
-            }
-        }
-
-        return await axios.delete(rota, config)
-            .then((response) => {
-
-                setIsLoadingForFalse()
-
-                return response
-            })
-            .catch((err) => {
-
-                setIsLoadingForFalse();
-
-                // tratar o erro
-
-            })
-
+  async function put(rota, data, jwt) {
+    try {
+      const config = criarConfig(jwt);
+      const response = await api.put(rota, data, config);
+      return response.data;
+    } catch (error) {
+      tratarErro(error);
     }
+  }
 
-    async function patch(rota, data, jwt) {
-        setIsLoadingForTrue();
-
-        let config = {};
-
-        if (jwt) {
-            config = {
-                headers: {
-                    Authorization: `Bearer ${jwt}`,
-                },
-            };
-        }
-
-        const jsonData = JSON.stringify(data);
-
-        return await axios.patch(rota, jsonData, config)
-            .then((response) => {
-                setIsLoadingForFalse();
-                return response;
-            })
-            .catch((err) => {
-
-                setIsLoadingForFalse();
-
-                // tratar o erro
-                
-            });
+  async function patch(rota, data, jwt) {
+    try {
+      const config = criarConfig(jwt);
+      const response = await api.patch(rota, data, config);
+      return response.data;
+    } catch (error) {
+      tratarErro(error);
     }
+  }
 
-    return {
-        get,
-        post,
-        put,
-        patch,
-        deleteOne
+  async function deleteOne(rota, jwt) {
+    try {
+      const config = criarConfig(jwt);
+      const response = await api.delete(rota, config);
+      return response.data;
+    } catch (error) {
+      tratarErro(error);
     }
+  }
 
+  // Função para tratamento de erros
+  function tratarErro(error) {
+    if (error.response) {
+      console.error(`Erro: ${error.response.status} - ${JSON.stringify(error.response.data)}`);
+    } else if (error.request) {
+      console.error("Nenhuma resposta recebida:", error.request);
+    } else {
+      console.error("Erro ao configurar a requisição:", error.message);
+    }
+    throw error; // Propaga o erro para ser tratado onde necessário
+  }
+
+  return {
+    get,
+    post,
+    put,
+    patch,
+    deleteOne,
+  };
 }

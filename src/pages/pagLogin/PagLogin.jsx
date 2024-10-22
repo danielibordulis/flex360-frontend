@@ -1,9 +1,10 @@
 import './PagLogin.css';
-import { validarCampo, pegaEValidaTokenLogin } from '../../utils/validation-user'
+import { validarCampo } from '../../utils/validation-user'
 import Erro from '../../components/erro/Erro'
 import { useEffect, useState } from 'react';
 import { TiHome } from "react-icons/ti";
 import { useNavigate } from 'react-router-dom';
+import httpClient from '../../services/httpClient';
 
 export default function PagLogin() {
   const [erros, setErros] = useState({})
@@ -55,7 +56,28 @@ export default function PagLogin() {
       return
     }
 
-    let resultado = await pegaEValidaTokenLogin()
+    //let resultado = await pegaEValidaTokenLogin()
+
+    const dadosUsuario = {
+      email: emailINPT,
+      password: senha
+
+    }
+
+    httpClient().post('/auth/login', dadosUsuario)
+    .then((response) => {
+
+    const token = response.token
+    localStorage.setItem("token", token)
+
+      navigate('/')
+
+    })
+    .catch((e) => {
+
+      console.log(e)
+    })
+
   }
 
 
