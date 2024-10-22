@@ -20,7 +20,7 @@ function Cadeira({cadeiraData}) {
         <div className='container-cadeira'>
 
             <div className='container-foto-cadeira'>
-                <img className='foto-cadeira' src='./cadeira-ex.png'/>
+                <img className='foto-cadeira' src='./cadeira-ex.png' alt='Descrição imagem cadeira'/>
             </div>
             
             <div className='container-paleta-de-cor'>
@@ -34,40 +34,39 @@ function Cadeira({cadeiraData}) {
             <Line />
 
             <div className='container-descricao'>
-                <img src="./encosto-icon.png" alt="Icone de encosto" style={{width: "50px"}}/>
+                <img src="./encosto-icon.png" aria-hidden='true' style={{width: "50px"}}/>
                 <p>{cadeiraData.desc_encosto}</p>
             </div>
 
             <Line />
 
             <div className='container-descricao'>
-                <img src="./apoio-icon.png" alt="Icone de apoio" style={{width: "80px"}}/>
+                <img src="./apoio-icon.png" aria-hidden='true' style={{width: "80px"}}/>
                 <p>{cadeiraData.desc_apoio}</p>
             </div>
 
             <Line />
 
             <div className='container-descricao'>
-                <img src="./rodizio-icon.png" alt="Icone de rodizio" style={{width: "80px"}}/>
+                <img src="./rodizio-icon.png" aria-hidden='true' style={{width: "80px"}}/>
                 <p>{cadeiraData.desc_rodinha}</p>
             </div>
 
             <Line />
 
             <div className='container-descricao'>
-                <img src="./ajuste-altura-icon.png" alt="Icone de ajuste e altura" style={{width: "80px"}}/>
+                <img src="./ajuste-altura-icon.png" aria-hidden='true' style={{width: "80px"}}/>
                 <p>{cadeiraData.desc_ajuste_altura}</p>
             </div>
 
             <Line />
 
             <div className='container-descricao'>
-                <img src="./revestimento-icon.png" alt="Icone de revestimento" style={{width: "80px"}}/>
+                <img src="./revestimento-icon.png" aria-hidden='true' style={{width: "80px"}}/>
                 <p>{cadeiraData.desc_revestimento}</p>
             </div>
 
             <Line />
-
 
             <div className='container-btn-comprar'>
                 <button className='btn-comprar' onClick={comprar}>Comprar</button>

@@ -17,14 +17,14 @@ function Nav() {
     <nav className={dropDown ? "dropDownNav" : ""}>
         <button 
           className='button-menu'
-          onClick={() => {setDropDown(!dropDown)}} 
+          onClick={() => {setDropDown(!dropDown)}}
+          aria-expanded={dropDown}
         >
-          <img src={dropDown ? './x.png' : './hamb.png'} alt='Botão Menu' style={{width: dropDown ? "27px" : "35px"}}/>
+          <img src={dropDown ? './x.png' : './hamb.png'} alt='Menu' style={{width: dropDown ? "27px" : "35px"}}/>
         </button>
         <button className={dropDown ? "dropDownButton" : ""} onClick={() => irPara("")}>Home</button>
         <button className={dropDown ? "dropDownButton" : ""} onClick={() => irPara("cadeiras")}>Cadeiras</button>
         <button className={dropDown ? "dropDownButton" : ""} onClick={() => irPara("ergonomia")}>Sugestão Ergonômica</button>
-        <button className={dropDown ? "dropDownButton" : ""} onClick={() => irPara("")}>Botão</button>
     </nav>
   )
 }

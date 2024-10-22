@@ -21,8 +21,8 @@ function PaletaCor({ cores }) {
               key={cor.id}
               style={{ backgroundColor: cor.codigo }}
               onClick={() => { handleClick(cor) }}
-              aria-label='Trocar cor do item'
-            />
+              aria-label={cor.nome} aria-current={corSelecionada.nome === cor.nome}>
+              </button>
 
           ))
         }

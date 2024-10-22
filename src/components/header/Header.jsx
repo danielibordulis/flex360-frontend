@@ -4,12 +4,10 @@ import { useNavigate } from 'react-router-dom'
 import Nav from '../nav/Nav'
 
 function Header() {
-  // Estado para controlar se o menu está visível e se o usuário está logado
   const [menuVisivel, setMenuVisivel] = useState(false);
   const [usuarioLogado, setUsuarioLogado] = useState(false); // Defina como true se o usuário estiver logado
   const navigate = useNavigate();
   
-  // Função para alternar a visibilidade do menu
   const alternarMenu = () => {
     setMenuVisivel(!menuVisivel);
   };
@@ -24,21 +22,20 @@ function Header() {
     <>
         <header>
             <div className='container-logo'>
-                <img className='imagem-logo' alt='Logo' src='./logo-grande.png'/>
+                <img className='imagem-logo' src='./logo-grande.png' alt='Logo FLEX360. O logo mostra um bonequinho da cor preta sentado em uma cadeira, com a palavra "Flex360" escrita à direita, em vermelho.'/>
             </div>
             <div className='container-search-input'>
                 <input placeholder='O que você procura?...'/>
             </div>
             <div className='container-botao-nav'>
 
-                <button onClick={alternarMenu}>
-                    <img alt='Imagem do botão perfil' src='./perfil.png' className='botao-perfil'/>
+                <button onClick={alternarMenu} aria-expanded={menuVisivel}>
+                    <img alt='Perfil' src='./perfil.png' className='botao-perfil'/>
                 </button>
                 <button onClick={() => irPara("carrinho")}>
-                    <img alt='Imagem do botão carrinho' src='./carrinho.png' className='botao-carrinho-header'/>
+                    <img alt='Visualizar carrinho' src='./carrinho.png' className='botao-carrinho-header'/>
                 </button>
             </div>
-            {/* Menu que aparece ao clicar no botão de perfil */}
             {menuVisivel && (
               <div className='menu-perfil'>
                 {!usuarioLogado ? (
