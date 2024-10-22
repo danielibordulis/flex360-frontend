@@ -60,21 +60,22 @@ export default function PagLogin() {
 
     const dadosUsuario = {
       email: emailINPT,
-      senha: senha
+      password: senha
 
     }
 
     httpClient().post('/auth/login', dadosUsuario)
     .then((response) => {
 
-    const token = response.data.token
+    const token = response.token
     localStorage.setItem("token", token)
 
-      navigate('/home')
+      navigate('/')
 
     })
-    .catch(() => {
-      alert("erro")
+    .catch((e) => {
+
+      console.log(e)
     })
 
   }
