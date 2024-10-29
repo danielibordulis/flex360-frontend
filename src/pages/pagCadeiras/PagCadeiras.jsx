@@ -15,7 +15,7 @@ function PagCadeiras() {
     let todasCadeiras
 
     const resultado = await httpClient().get('/cadeira/buscarTodas', false)
-    console.log(resultado)
+    
     if (resultado) {
       todasCadeiras = resultado
     }
