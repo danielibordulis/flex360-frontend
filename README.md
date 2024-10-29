@@ -6,17 +6,14 @@ O Flex360 é um e-commerce especializado em cadeiras ergonômicas, com foco em o
 
 ## Capturas de Tela
 
-### Tela Home
-![Tela Home](./path/to/Captura_de_tela_2024-09-25_144401.png)
+### Telas
+![Telas ](./public/telas2.png)
+![Telas ](./public/tela3.png)
+![Telas ](./public/telas.png)
 
-### Tela de Login
-![Tela de Login](./path/to/Captura_de_tela_2024-09-25_144448.png)
 
-### Tela do Carrinho
-![Tela do Carrinho](./path/to/Captura_de_tela_2024-09-25_carrinho.png)
 
-### Tela de Cadeiras
-![Tela de Cadeiras](./path/to/Captura_de_tela_2024-09-25_cadeiras.png)
+
 
 ## Requisitos Funcionais
 
