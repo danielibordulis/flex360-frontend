@@ -28,7 +28,7 @@ function Cadeira({ cadeiraData }) {
 
     function comprar() {
         navigate("/cadeiraIndividual", {
-            state: { cadeiraId: cadeiraData.id },
+            state: { cadeiraId: cadeiraData.id, corId: corSelecionada.id },
         });
     }
 
