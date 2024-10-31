@@ -4,12 +4,20 @@ import { useNavigate } from 'react-router-dom'
 import Nav from '../nav/Nav'
 
 function Header() {
-  const [menuVisivel, setMenuVisivel] = useState(false);
-  const [usuarioLogado, setUsuarioLogado] = useState(false); // Defina como true se o usuário estiver logado
   const navigate = useNavigate();
   
   const alternarMenu = () => {
-    setMenuVisivel(!menuVisivel);
+
+    const token = localStorage.getItem('token')
+
+    // se for preciso, validar o token aqui
+
+    if (token) {
+      navigate("/perfil")
+    } else {
+      navigate("/entrar")
+    }
+  
   };
   
   function irPara(destino) {
@@ -29,25 +37,13 @@ function Header() {
             </div>
             <div className='container-botao-nav'>
 
-                <button onClick={alternarMenu} aria-expanded={menuVisivel}>
+                <button onClick={alternarMenu}>
                     <img alt='Perfil' src='./perfil.png' className='botao-perfil'/>
                 </button>
                 <button onClick={() => irPara("carrinho")}>
                     <img alt='Visualizar carrinho' src='./carrinho.png' className='botao-carrinho-header'/>
                 </button>
             </div>
-            {menuVisivel && (
-              <div className='menu-perfil'>
-                {!usuarioLogado ? (
-                  <button onClick={() => navigate('/entrar')}>Entrar</button>
-                ) : (
-                  <>
-                    <button onClick={() => navigate('/perfil')}>Meu Perfil</button>
-                    <button onClick={() => setUsuarioLogado(false)}>Sair</button>
-                  </>
-                )}
-              </div>
-            )}
         </header>
         <Nav />
     </>
