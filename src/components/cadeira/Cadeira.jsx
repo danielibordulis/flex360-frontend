@@ -35,6 +35,8 @@ function Cadeira({ cadeiraData }) {
     return (
         <div className='container-cadeira'>
 
+            <h1>{cadeiraData.nome}</h1>
+
             <div className='container-foto-cadeira'>
                 <img className='foto-cadeira' src={corSelecionada.foto_cadeira} alt='Descrição imagem cadeira' />
             </div>
@@ -63,8 +65,6 @@ function Cadeira({ cadeiraData }) {
                     <span>{corSelecionada.name}</span>
                 </div>
             </div>
-
-            <h1>{cadeiraData.nome}</h1>
 
             <span className='preco-cadeira'>R$ {cadeiraData.preco}</span>
 
