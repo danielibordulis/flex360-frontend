@@ -43,6 +43,7 @@ function PagCadeiraIndividual() {
       // Busca a cadeira no JSON usando o id
 
       const cadeiraSelecionada = await httpClient().get(`/cadeira/buscarPorId/${cadeiraId}`, false)
+      console.log(cadeiraSelecionada)
       setCadeira(cadeiraSelecionada);
 
       const corEncontrada = cadeiraSelecionada.cores_disponiveis.find(obj => obj.id === corId)
@@ -78,7 +79,7 @@ function PagCadeiraIndividual() {
 
           <div className='container-dimensoes-prod'>
             <h3>Dimensões do produto</h3>
-            <img src={cadeira?.foto_dimensoes || " "} alt="" />
+            <img src={cadeira?.foto_dimencoes || " "} alt={cadeira?.dimencoes} />
           </div>
         </div>
 

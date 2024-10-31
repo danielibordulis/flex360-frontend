@@ -11,7 +11,7 @@ function CadeiraHome({id, cor, nome,preco}) {
     function navegarParaCadeiraIndividual() {
 
         navigate("/cadeiraIndividual", {
-            state: { cadeiraId: id, corSelecionada: cor.id },
+            state: { cadeiraId: id, corId: cor.id },
         });
 
     }
