@@ -1,10 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import "./PagCadeiraIndividual.css";
 import Header from '../../components/header/Header';
 import PaletaCor from '../../components/paletaCor/PaletaCor';
 import { useLocation } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import httpClient from '../../services/httpClient'
+import { CarrinhoContext } from '../../contexts/CarrinhoContext';
 
 function PagCadeiraIndividual() {
   const location = useLocation();
@@ -16,6 +17,8 @@ function PagCadeiraIndividual() {
 
   // Estado para armazenar os detalhes da cadeira
   const [cadeira, setCadeira] = useState(null);
+
+  const { adicionaItem } = useContext(CarrinhoContext)
 
   // Função que será chamada ao carregar a página
   useEffect(() => {
@@ -54,9 +57,9 @@ function PagCadeiraIndividual() {
   }
 
   // Função para adicionar a cadeira ao carrinho e navegar para a página do carrinho
-  const adicionarAoCarrinho = () => {
+  const adicionarAoCarrinho = async () => {
 
-    servicoCarrinho.adicionaItem(cadeira)
+    await adicionaItem(cadeira)
 
     navigate('/carrinho'); // Redireciona para a página do carrinho e passa a cadeira no estado
   };

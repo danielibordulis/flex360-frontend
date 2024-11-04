@@ -7,6 +7,12 @@ export const CarrinhoContext = createContext()
 export function CarrinhoProvider({ children }) {
     const [carrinho, setCarrinho] = useState([])
 
+    function formataCarrinho(result) {
+        
+        const carrinhoFormatado = [...result.produtosDTO.cadeiras, ...result.produtosDTO.acessorios]
+        setCarrinho(carrinhoFormatado)
+        return carrinhoFormatado
+    }
 
     function pegaPrecoTotal() {
         let valorTotal = 0.0
@@ -21,9 +27,8 @@ export function CarrinhoProvider({ children }) {
     async function pegaItens() {
 
         const result = await httpClient().get('/carrinho/buscar', pegaEValidaTokenLogin())
-        const carrinhoFormatado = [...result.produtosDTO.cadeiras, ...result.produtosDTO.acessorios]
+        const carrinhoFormatado = formataCarrinho(result)
         setCarrinho(carrinhoFormatado)
-        console.log(carrinhoFormatado)
         return carrinhoFormatado
     }
 
@@ -48,20 +53,16 @@ export function CarrinhoProvider({ children }) {
         setCarrinho(prevCarrinho => [])
     }
 
-    function adicionaItem(itemAdd) {
+    async function adicionaItem(itemAdd) {
 
-        setCarrinho(prevCarrinho => {
-            const indiceBusca = prevCarrinho.findIndex(itemBuscar => itemBuscar.id === itemAdd.id)
+        const result = await httpClient().post("/carrinho/adiciona", {
+                id: itemAdd.id,
+                quantidade: 1
+            }, pegaEValidaTokenLogin()
+        )
 
-            if (indiceBusca !== -1) {
-                const novoCarrinho = [...prevCarrinho]
-                novoCarrinho[indiceBusca].quantidade += itemAdd.quantidade
-                return novoCarrinho
-            } else {
-                return [...prevCarrinho, itemAdd]
-            }
-        })
-
+        setCarrinho(formataCarrinho(result))
+        
     }
 
     function reduzQuantidade(idItem) {
