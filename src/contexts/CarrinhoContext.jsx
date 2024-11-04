@@ -61,8 +61,10 @@ export function CarrinhoProvider({ children }) {
             }, pegaEValidaTokenLogin()
         )
 
-        setCarrinho(formataCarrinho(result))
+        const carrinhoFormatado = formataCarrinho(result)
+        setCarrinho(carrinhoFormatado)
         
+        return carrinhoFormatado
     }
 
     function reduzQuantidade(idItem) {
@@ -87,21 +89,9 @@ export function CarrinhoProvider({ children }) {
         return quantidadeAtualizada
     }
 
-    function aumentaQuantidade(idItem) {
+    async function aumentaQuantidade(idItem) {
 
-        let quantidadeAtualizada = 0
-
-        const novoCarrinho = carrinho.map(item => {
-            if (item.id === idItem) {
-                quantidadeAtualizada = item.quantidade + 1
-                return { ...item, quantidade: quantidadeAtualizada }
-            }
-            return item
-        })
-
-        setCarrinho(novoCarrinho)
-
-        return quantidadeAtualizada
+        const atualiza = adicionaItem({id: idItem, quantidade: 1})
     }
 
     function removeItem(idItem) {
