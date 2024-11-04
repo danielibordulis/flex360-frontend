@@ -4,21 +4,31 @@ import Header from '../../components/header/Header'
 import Footer from '../../components/footer/Footer'
 import CadeiraHome from '../../components/cadeiraHome/CadeiraHome'
 import cadeiraJson from '../../utils/json/cadeira.json'
+import httpClient from '../../services/httpClient'
 
 
 function PagHome() {
   const [cadeiras, setCadeiras] = useState([]);
   
   // Função para buscar as cadeiras e selecionar algumas aleatoriamente
-  const fetchRandomCadeiras = () => {
+  const fetchRandomCadeiras = async () => {
 
-    const shuffled = [...cadeiraJson].sort(() => 0.5 - Math.random()); // Embaralha o array
-    const selected = shuffled.slice(0, 4); // Seleciona as primeiras 4 cadeiras aleatoriamente
+    let todasCadeiras
+
+    const resultado = await httpClient().get('/cadeira/buscarTodas', false)
+    
+    if (resultado) {
+      todasCadeiras = resultado
+    }
+
+    const shuffled = [...todasCadeiras].sort(() => 0.5 - Math.random());
+    const selected = shuffled.slice(0, 4);
+
     setCadeiras(selected);
   };
 
   useEffect(() => {
-    fetchRandomCadeiras(); // Chama a função ao montar o componente
+    fetchRandomCadeiras();
   }, []);
 
   return (
@@ -31,7 +41,7 @@ function PagHome() {
             <div className='elementosBody'>
                 <div className='cadeiraHome-div'>
                   {
-                    cadeiras.map((cadeira,index) => <CadeiraHome  key={cadeira.id} id={cadeira.id} foto_cadeira={cadeira.foto_cadeira} nome={cadeira.nome} preco={cadeira.preco}/>)
+                    cadeiras.map((cadeira,index) => <CadeiraHome  key={cadeira.id} id={cadeira.id} cor={cadeira.cores_disponiveis[0]} nome={cadeira.nome} preco={cadeira.preco}/>)
                   }
                  
                   

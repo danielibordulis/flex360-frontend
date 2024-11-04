@@ -3,35 +3,65 @@ import "./PagCadeiraIndividual.css";
 import Header from '../../components/header/Header';
 import PaletaCor from '../../components/paletaCor/PaletaCor';
 import { useLocation } from 'react-router-dom';
-import cadeiras from '../../utils/json/cadeira.json'; 
-import { useNavigate} from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import httpClient from '../../services/httpClient'
 
 function PagCadeiraIndividual() {
   const location = useLocation();
   const navigate = useNavigate();
-  const { cadeiraId, corPreferida } = location.state || {};
+  const { cadeiraId, corId } = location.state || {};
+  const [corSelecionada, setCorSelecionada] = useState({});
+  const [imagemCarregada, setImagemCarregada] = useState(true);
+
 
   // Estado para armazenar os detalhes da cadeira
   const [cadeira, setCadeira] = useState(null);
 
   // Função que será chamada ao carregar a página
   useEffect(() => {
-    if (cadeiraId) {
-      // Busca a cadeira no JSON usando o id
-      const cadeiraSelecionada = cadeiras.find(c => c.id === cadeiraId);
-      setCadeira(cadeiraSelecionada);
-
-    }
+    carregaCadeira();
   }, [cadeiraId]);
 
-   // Função para adicionar a cadeira ao carrinho e navegar para a página do carrinho
-   const adicionarAoCarrinho = () => {
+  useEffect(() => {
+
+    if (cadeira) {
+      cadeira.cores_disponiveis.forEach((cor) => {
+        const img = new Image();
+        img.src = cor.foto_cadeira;
+      });
+    }
+  }, [cadeira?.cores_disponiveis]);
+
+
+  const handleClick = (cor) => {
+    setImagemCarregada(false);
+    setCorSelecionada(cor);
+};
+
+  async function carregaCadeira() {
+    if (cadeiraId) {
+      // Busca a cadeira no JSON usando o id
+
+      const cadeiraSelecionada = await httpClient().get(`/cadeira/buscarPorId/${cadeiraId}`, false)
+      console.log(cadeiraSelecionada)
+      setCadeira(cadeiraSelecionada);
+
+      const corEncontrada = cadeiraSelecionada.cores_disponiveis.find(obj => obj.id === corId)
+      setCorSelecionada(corEncontrada)
+
+    }
+
+  }
+
+  // Função para adicionar a cadeira ao carrinho e navegar para a página do carrinho
+  const adicionarAoCarrinho = () => {
 
     servicoCarrinho.adicionaItem(cadeira)
 
     navigate('/carrinho'); // Redireciona para a página do carrinho e passa a cadeira no estado
   };
 
+  if(!cadeira) return null
 
   return (
     <>
@@ -49,7 +79,7 @@ function PagCadeiraIndividual() {
 
           <div className='container-dimensoes-prod'>
             <h3>Dimensões do produto</h3>
-        <img src={cadeira?.foto_dimensoes || " "} alt="" />
+            <img src={cadeira?.foto_dimencoes || " "} alt={cadeira?.dimencoes} />
           </div>
         </div>
 
@@ -59,7 +89,7 @@ function PagCadeiraIndividual() {
           <div className='container-info-cadeira'>
             <div className='container-top'>
               <div className='box-foto-cadeira'>
-                <img src= {cadeira?.foto_cadeira} alt="" className='foto-cadeira-p' />
+                <img src={corSelecionada.foto_cadeira} alt="" className='foto-cadeira-p' />
               </div>
 
               <div className='desc-cadeira'>
@@ -71,7 +101,7 @@ function PagCadeiraIndividual() {
                 <div className='container-preco'>
                   <span>R$ {cadeira?.preco?.toFixed(2) || 'Preço'}</span>
                   <div className='box-quant'>
-                
+
                   </div>
                 </div>
               </div>
@@ -79,9 +109,30 @@ function PagCadeiraIndividual() {
 
             <div className='container-bottom'>
               <div className='left-side'>
-              {cadeira?.cores_disponiveis && cadeira.cores_disponiveis.length > 0 && (
-                  <PaletaCor cores={cadeira.cores_disponiveis} />
-                  )}
+                <div className='container-paleta-de-cor'>
+
+                  <div className='paleta'>
+                    <div className='container-paleta'>
+
+                      {
+                        cadeira.cores_disponiveis.length > 0 && cadeira.cores_disponiveis.map((cor) => (
+
+                          <button
+                            className={`btn-cor ${corSelecionada.codigo === cor.codigo ? 'cor-selecionada' : ''}`}
+                            key={cor.id}
+                            style={{ backgroundColor: cor.codigo }}
+                            onClick={() => { handleClick(cor) }}
+                            aria-label={cor.name} aria-current={corSelecionada.name === cor.name}>
+                          </button>
+
+                        ))
+                      }
+
+                    </div>
+
+                    <span>{corSelecionada.name}</span>
+                  </div>
+                </div>
               </div>
 
               <div className='right-side-ind'>

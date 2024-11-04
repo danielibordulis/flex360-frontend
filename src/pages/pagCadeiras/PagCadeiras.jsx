@@ -2,17 +2,24 @@ import React, { useEffect, useState } from 'react'
 import Header from '../../components/header/Header'
 import "./PagCadeiras.css"
 import Cadeira from '../../components/cadeira/Cadeira'
-import cadeirasJson from '../../utils/json/cadeira.json'
 import Footer from '../../components/footer/Footer'
+import httpClient from '../../services/httpClient'
 
 function PagCadeiras() {
 
   const [grupoAmostra, setGrupoAmostra] = useState(1)
   const [grupoCadeiras, setGrupoCadeiras] = useState([])
 
-  function pegarCadeiras() {
+  async function pegarCadeiras() {
 
-    const todasCadeiras = cadeirasJson
+    let todasCadeiras
+
+    const resultado = await httpClient().get('/cadeira/buscarTodas', false)
+    
+    if (resultado) {
+      todasCadeiras = resultado
+    }
+
     const grupos = [[]]
     let index = 0
 
@@ -66,37 +73,37 @@ function PagCadeiras() {
 
   return (
     <>
-        <Header />
-        <section className='body-cadeiras'>
-            
-            <div className='container-numero-cadeira'>
-              <button onClick={voltarCadeiras}>
-                <img src="./flecha-esquerda.svg" alt="Voltar" />
-              </button>
-              <span>{grupoAmostra}</span>
-              <button onClick={proxCadeiras}>
-                <img src="./flecha-direita.svg" alt="Próximo" />
-              </button>
-            </div>
+      <Header />
+      <section className='body-cadeiras'>
 
-            <section className='container-cadeiras'>
-              {
-                grupoCadeiras[grupoAmostra - 1] && grupoCadeiras[grupoAmostra - 1].map((cadeira) => <Cadeira key={cadeira.id} cadeiraData={cadeira}/>)
-              }
-            </section>
+        <div className='container-numero-cadeira'>
+          <button onClick={voltarCadeiras}>
+            <img src="./flecha-esquerda.svg" alt="Voltar" />
+          </button>
+          <span>{grupoAmostra}</span>
+          <button onClick={proxCadeiras}>
+            <img src="./flecha-direita.svg" alt="Próximo" />
+          </button>
+        </div>
 
-            <div className='container-numero-cadeira'>
-              <button onClick={voltarCadeiras}>
-                <img src="./flecha-esquerda.svg" alt="Voltar" />
-              </button>
-              <span>{grupoAmostra}</span>
-              <button onClick={proxCadeiras}>
-                <img src="./flecha-direita.svg" alt="Próximo" />
-              </button>
-            </div>
-
+        <section className='container-cadeiras'>
+          {
+            grupoCadeiras[grupoAmostra - 1] && grupoCadeiras[grupoAmostra - 1].map((cadeira) => <Cadeira key={cadeira.id} cadeiraData={cadeira} />)
+          }
         </section>
-        <Footer/>
+
+        <div className='container-numero-cadeira'>
+          <button onClick={voltarCadeiras}>
+            <img src="./flecha-esquerda.svg" alt="Voltar" />
+          </button>
+          <span>{grupoAmostra}</span>
+          <button onClick={proxCadeiras}>
+            <img src="./flecha-direita.svg" alt="Próximo" />
+          </button>
+        </div>
+
+      </section>
+      <Footer />
     </>
   )
 }
