@@ -1,4 +1,6 @@
 import { createContext, useState } from "react";
+import httpClient from '../services/httpClient'
+import { pegaEValidaTokenLogin } from '../utils/validation-user.js'
 
 export const CarrinhoContext = createContext()
 
@@ -16,8 +18,13 @@ export function CarrinhoProvider({ children }) {
         return valorTotal
     }
 
-    function pegaItens() {
-        return carrinho
+    async function pegaItens() {
+
+        const result = await httpClient().get('/carrinho/buscar', pegaEValidaTokenLogin())
+        const carrinhoFormatado = [...result.produtosDTO.cadeiras, ...result.produtosDTO.acessorios]
+        setCarrinho(carrinhoFormatado)
+        console.log(carrinhoFormatado)
+        return carrinhoFormatado
     }
 
     function pegaQuantidadeItem(id) {
