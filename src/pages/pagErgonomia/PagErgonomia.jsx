@@ -1,22 +1,22 @@
-import  { useState } from 'react';
+import { useState } from 'react';
 import Header from '../../components/header/Header';
 import './PagErgonomia.css';
 import Footer from '../../components/footer/Footer';
 import httpClient from '../../services/httpClient';
 
 export default function PagErgonomia() {
-  // Estados para capturar a altura, peso e a sugestão retornada
   const [altura, setAltura] = useState("");
   const [peso, setPeso] = useState("");
   const [sugestao, setSugestao] = useState("");
+  const [opcaoDesign, setOpcaoDesign] = useState(""); // Agora apenas uma opção de design será armazenada
 
-  // Função para lidar com a submissão do formulário e enviar os dados para o back-end
   function encontrarSugestao(e) {
     e.preventDefault();
 
     const dadosErgonomia = {
       altura: parseFloat(altura),
       peso: parseFloat(peso),
+      design: opcaoDesign, // Envia apenas uma opção de design
     };
 
     httpClient.post('/api/ergonomia/sugestao', dadosErgonomia)
@@ -28,9 +28,13 @@ export default function PagErgonomia() {
       });
   }
 
+  function handleRadioChange(e) {
+    setOpcaoDesign(e.target.value);
+  }
+
   return (
     <>
-      <Header /> 
+      <Header />
       <section className="body-ergonomia">
         <div className="container-esquerda">
           <img className="imagem-certificacao" src="./foto-certificacao.png" alt="Certificação" />
@@ -59,18 +63,44 @@ export default function PagErgonomia() {
               />
             </div>
             
+            <h2 className="titulo-ergonomia">Estilos De Design:</h2>
+            <div className="design-opcoes">
+              <label className="opcao-design">
+                <input 
+                  type="radio" 
+                  name="design" 
+                  value="contemporaneo" 
+                  checked={opcaoDesign === "contemporaneo"}
+                  onChange={handleRadioChange}
+                />
+                Contemporâneo
+              </label>
+              <label className="opcao-design">
+                <input 
+                  type="radio" 
+                  name="design" 
+                  value="minimalista" 
+                  checked={opcaoDesign === "minimalista"}
+                  onChange={handleRadioChange}
+                />
+                Minimalista
+              </label>
+              <label className="opcao-design">
+                <input 
+                  type="radio" 
+                  name="design" 
+                  value="classico" 
+                  checked={opcaoDesign === "classico"}
+                  onChange={handleRadioChange}
+                />
+                Clássico
+              </label>
+            </div> 
+            
             <button type="submit" className="botao-encontrar">Encontrar</button>
           </form>
 
-          {/* Exibe a sugestão recebida do back-end */}
           {sugestao && <p className="sugestao-resultado">Sugestão: {sugestao}</p>}
-
-          <h2 className="titulo-ergonomia">Estilos De Design:</h2>
-          <div className="design-opcoes">
-            <p className="opcao-design">Contemporâneo?</p>
-            <p className="opcao-design">Minimalista?</p>
-            <p className="opcao-design">Clássico?</p>
-          </div>
         </div>
         <div className="container-direita" />
       </section>
