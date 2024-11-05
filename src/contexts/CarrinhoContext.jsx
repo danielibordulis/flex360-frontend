@@ -67,35 +67,37 @@ export function CarrinhoProvider({ children }) {
         return carrinhoFormatado
     }
 
-    function reduzQuantidade(idItem) {
+    async function reduzQuantidade(idItem) {
 
-        let quantidadeAtualizada = 0
 
-        const novoCarrinho = carrinho.map(item => {
-            if (item.id === idItem) {
-                quantidadeAtualizada = item.quantidade - 1
+        const result = await httpClient().put("/carrinho/remove", {
+            id: idItem,
+            quantidade: 1
+        }, pegaEValidaTokenLogin()
+    )
 
-                if (quantidadeAtualizada <= 0) {
-                    return null
-                }
+    const carrinhoFormatado = formataCarrinho(result)
+    setCarrinho(carrinhoFormatado)
+    
+        const buscandoItem = carrinhoFormatado.find(obj => obj.id === idItem)
 
-                return { ...item, quantidade: quantidadeAtualizada }
-            }
+        if(buscandoItem) return buscandoItem.quantidade
+        return null
 
-            return item
-        }).filter(item => item !== null)
-
-        setCarrinho(novoCarrinho)
-        return quantidadeAtualizada
     }
 
     async function aumentaQuantidade(idItem) {
 
-        const atualiza = adicionaItem({id: idItem, quantidade: 1})
+        const atualiza = await adicionaItem({id: idItem, quantidade: 1})
+
+        const buscandoItem = atualiza.find(obj => obj.id === idItem)
+
+        if(buscandoItem) return buscandoItem.quantidade
+        return 0
     }
 
-    function removeItem(idItem) {
-        setCarrinho(prevCarrinho => prevCarrinho.filter(item => item.id !== idItem))
+    async function removeItem(idItem) {
+        await httpClient().deleteOne(`/carrinho/deleta/produto/${idItem}`, pegaEValidaTokenLogin())
         return true
     }
 

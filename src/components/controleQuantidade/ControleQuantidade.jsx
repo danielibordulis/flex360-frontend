@@ -10,13 +10,14 @@ function ControleQuantidade({id, quantidade}) {
 
   return (
     <div className='container-controle-quantidade'>
-      <button onClick={() => setQuantidadeItem(aumentaQuantidade(id))}>
+      <button onClick={async() => setQuantidadeItem(await aumentaQuantidade(id))
+      }>
         <img src="./icon-mais.png" alt="Aumentar quantidade" />
       </button>
 
       <span aria-live='polite'>{quantidadeItem}</span>
 
-      <button onClick={() => setQuantidadeItem(reduzQuantidade(id))} disabled={quantidadeItem === 1}>
+      <button onClick={ async() => setQuantidadeItem(await reduzQuantidade(id))} disabled={quantidadeItem === 1}>
         <img src="./icon-menos.png" alt="Diminuir quantidade" />
       </button>
     </div>
