@@ -2,8 +2,21 @@ import React from 'react';
 import Header from '../../components/header/Header'
 import './PagErgonomia.css';
 import Footer from '../../components/footer/Footer'
+import Alerta from '../../components/alerta/Alerta'
+import { useState } from 'react';
 
 export default function PagErgonomia() {
+
+  const [showAlert, setShowAlert] = useState(false);
+
+  const handleFindClick = () => {
+    setShowAlert(true);
+  };
+
+  const handleCloseAlert = () => {
+    setShowAlert(false);
+  };
+
   return (
     <>
       <Header /> 
@@ -35,7 +48,12 @@ export default function PagErgonomia() {
             <p className="opcao-design">Clássico?</p>
           </div>
 
-          <button className="botao-encontrar">Encontrar</button>
+          <button className="botao-encontrar"  onClick={handleFindClick}>Encontrar</button>
+
+          {showAlert && (
+            <Alerta message="Procurando a cadeira certa pra você..." onClose={handleCloseAlert} />
+          )}
+
         </div>
 
         <div className="container-direita" />
