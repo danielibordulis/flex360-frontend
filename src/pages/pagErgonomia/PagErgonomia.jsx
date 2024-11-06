@@ -8,15 +8,33 @@ export default function PagErgonomia() {
   const [altura, setAltura] = useState("");
   const [peso, setPeso] = useState("");
   const [sugestao, setSugestao] = useState("");
-  const [opcaoDesign, setOpcaoDesign] = useState(""); // Agora apenas uma opção de design será armazenada
+  const [opcaoDesign, setOpcaoDesign] = useState(""); 
+  const [error, setError] = useState("");
 
   function encontrarSugestao(e) {
     e.preventDefault();
 
+   
+    const alturaFloat = parseFloat(altura.replace(',', '.'));
+    const pesoFloat = parseFloat(peso.replace(',', '.'));
+
+    
+    if (alturaFloat < 1.4 || alturaFloat > 2.0) {
+      setError("A altura deve estar entre 1,4 m e 2,0 m para uma postura ergonômica.");
+      return;
+    }
+    if (pesoFloat < 40 || pesoFloat > 150) {
+      setError("O peso deve estar entre 40 kg e 150 kg para uma postura ergonômica.");
+      return;
+    }
+    
+    
+    setError("");
+
     const dadosErgonomia = {
-      altura: parseFloat(altura),
-      peso: parseFloat(peso),
-      design: opcaoDesign, // Envia apenas uma opção de design
+      altura: alturaFloat,
+      peso: pesoFloat,
+      design: opcaoDesign, 
     };
 
     httpClient.post('/cadeira/sugestaoErgonomica', dadosErgonomia)
@@ -46,7 +64,7 @@ export default function PagErgonomia() {
               <input 
                 id="altura" 
                 type="text" 
-                placeholder="Digite sua altura" 
+                placeholder="Digite sua altura em metros" 
                 value={altura}
                 onChange={e => setAltura(e.target.value)}
               />
@@ -57,11 +75,13 @@ export default function PagErgonomia() {
               <input 
                 id="peso" 
                 type="text" 
-                placeholder="Digite seu peso" 
+                placeholder="Digite seu peso em kg" 
                 value={peso}
                 onChange={e => setPeso(e.target.value)}
               />
             </div>
+            
+            {error && <p className="error-message">{error}</p>}
             
             <h2 className="titulo-ergonomia">Estilos De Design:</h2>
             <div className="design-opcoes">
