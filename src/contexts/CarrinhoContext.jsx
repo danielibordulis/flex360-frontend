@@ -98,7 +98,7 @@ export function CarrinhoProvider({ children }) {
 
     async function removeItem(idItem) {
         await httpClient().deleteOne(`/carrinho/deleta/produto/${idItem}`, pegaEValidaTokenLogin())
-        return true
+        setCarrinho(await pegaItens())
     }
 
     return (
