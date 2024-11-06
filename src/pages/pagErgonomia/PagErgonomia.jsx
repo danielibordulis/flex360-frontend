@@ -39,7 +39,7 @@ export default function PagErgonomia() {
 
     httpClient.post('/cadeira/sugestaoErgonomica', dadosErgonomia)
       .then(response => {
-        setSugestao(response.data);
+        setSugestao(response);
       })
       .catch(() => {
         alert("Erro ao buscar sugestão");
