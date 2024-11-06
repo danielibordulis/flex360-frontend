@@ -24,7 +24,7 @@ function ItemCarrinho({ item }) {
             <h2>{item.nome}</h2>
           </div>
           <div className='container-deletar-item'>
-            <button onClick={() => removeItem(item.id)}>
+            <button onClick={ async() => await removeItem(item.id)}>
               <img src="botao-deletar.png" alt="Remover do carrinho" />
             </button>
           </div>
