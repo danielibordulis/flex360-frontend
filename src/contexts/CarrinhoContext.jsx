@@ -49,7 +49,9 @@ export function CarrinhoProvider({ children }) {
         return 0
     }
 
-    function limpaCarrinho() {
+    async function limpaCarrinho() {
+
+        await httpClient().deleteOne("/carrinho/limparCarrinho", pegaEValidaTokenLogin());
         setCarrinho(prevCarrinho => [])
     }
 

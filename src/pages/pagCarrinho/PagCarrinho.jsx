@@ -9,9 +9,9 @@ function PagCarrinho() {
 
     const { carrinho, adicionaItem, removeItem, pegaItens, pegaPrecoTotal, limpaCarrinho } = useContext(CarrinhoContext)
 
-    function finalizaCompra() {
+    async function finalizaCompra() {
 
-        limpaCarrinho()
+        await limpaCarrinho()
         alert("Compra finalizada!")
     }
 
@@ -45,7 +45,7 @@ function PagCarrinho() {
 
                             <span>{pegaPrecoTotal().toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</span>
 
-                            <button onClick={finalizaCompra}>Finalizar Compra</button>
+                            <button onClick={ async() => await finalizaCompra()}>Finalizar Compra</button>
 
                         </div>
 
