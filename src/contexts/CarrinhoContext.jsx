@@ -1,10 +1,18 @@
 import { createContext, useState } from "react";
+import httpClient from '../services/httpClient'
+import { pegaEValidaTokenLogin } from '../utils/validation-user.js'
 
 export const CarrinhoContext = createContext()
 
 export function CarrinhoProvider({ children }) {
     const [carrinho, setCarrinho] = useState([])
 
+    function formataCarrinho(result) {
+        
+        const carrinhoFormatado = [...result.produtosDTO.cadeiras, ...result.produtosDTO.acessorios]
+        setCarrinho(carrinhoFormatado)
+        return carrinhoFormatado
+    }
 
     function pegaPrecoTotal() {
         let valorTotal = 0.0
@@ -16,8 +24,12 @@ export function CarrinhoProvider({ children }) {
         return valorTotal
     }
 
-    function pegaItens() {
-        return carrinho
+    async function pegaItens() {
+
+        const result = await httpClient().get('/carrinho/buscar', pegaEValidaTokenLogin())
+        const carrinhoFormatado = formataCarrinho(result)
+        setCarrinho(carrinhoFormatado)
+        return carrinhoFormatado
     }
 
     function pegaQuantidadeItem(id) {
@@ -37,68 +49,58 @@ export function CarrinhoProvider({ children }) {
         return 0
     }
 
-    function limpaCarrinho() {
+    async function limpaCarrinho() {
+
+        await httpClient().deleteOne("/carrinho/limparCarrinho", pegaEValidaTokenLogin());
         setCarrinho(prevCarrinho => [])
     }
 
-    function adicionaItem(itemAdd) {
+    async function adicionaItem(itemAdd) {
 
-        setCarrinho(prevCarrinho => {
-            const indiceBusca = prevCarrinho.findIndex(itemBuscar => itemBuscar.id === itemAdd.id)
+        const result = await httpClient().post("/carrinho/adiciona", {
+                id: itemAdd.id,
+                quantidade: 1
+            }, pegaEValidaTokenLogin()
+        )
 
-            if (indiceBusca !== -1) {
-                const novoCarrinho = [...prevCarrinho]
-                novoCarrinho[indiceBusca].quantidade += itemAdd.quantidade
-                return novoCarrinho
-            } else {
-                return [...prevCarrinho, itemAdd]
-            }
-        })
+        const carrinhoFormatado = formataCarrinho(result)
+        setCarrinho(carrinhoFormatado)
+        
+        return carrinhoFormatado
+    }
+
+    async function reduzQuantidade(idItem) {
+
+
+        const result = await httpClient().put("/carrinho/remove", {
+            id: idItem,
+            quantidade: 1
+        }, pegaEValidaTokenLogin()
+    )
+
+    const carrinhoFormatado = formataCarrinho(result)
+    setCarrinho(carrinhoFormatado)
+    
+        const buscandoItem = carrinhoFormatado.find(obj => obj.id === idItem)
+
+        if(buscandoItem) return buscandoItem.quantidade
+        return null
 
     }
 
-    function reduzQuantidade(idItem) {
+    async function aumentaQuantidade(idItem) {
 
-        let quantidadeAtualizada = 0
+        const atualiza = await adicionaItem({id: idItem, quantidade: 1})
 
-        const novoCarrinho = carrinho.map(item => {
-            if (item.id === idItem) {
-                quantidadeAtualizada = item.quantidade - 1
+        const buscandoItem = atualiza.find(obj => obj.id === idItem)
 
-                if (quantidadeAtualizada <= 0) {
-                    return null
-                }
-
-                return { ...item, quantidade: quantidadeAtualizada }
-            }
-
-            return item
-        }).filter(item => item !== null)
-
-        setCarrinho(novoCarrinho)
-        return quantidadeAtualizada
+        if(buscandoItem) return buscandoItem.quantidade
+        return 0
     }
 
-    function aumentaQuantidade(idItem) {
-
-        let quantidadeAtualizada = 0
-
-        const novoCarrinho = carrinho.map(item => {
-            if (item.id === idItem) {
-                quantidadeAtualizada = item.quantidade + 1
-                return { ...item, quantidade: quantidadeAtualizada }
-            }
-            return item
-        })
-
-        setCarrinho(novoCarrinho)
-
-        return quantidadeAtualizada
-    }
-
-    function removeItem(idItem) {
-        setCarrinho(prevCarrinho => prevCarrinho.filter(item => item.id !== idItem))
-        return true
+    async function removeItem(idItem) {
+        await httpClient().deleteOne(`/carrinho/deleta/produto/${idItem}`, pegaEValidaTokenLogin())
+        setCarrinho(await pegaItens())
     }
 
     return (

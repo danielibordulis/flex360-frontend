@@ -1,10 +1,8 @@
 export function pegaEValidaTokenLogin() {
-    let tokenSalvo = localStorage.getItem("tokenLogin")
-    if(tokenSalvo == null) return false // Nenhum token salvo
+    let tokenSalvo = localStorage.getItem("token")
+    if(tokenSalvo == null) return "" // Nenhum token salvo
 
-    //Enviar o token para consultar no banco
-
-    return true
+    return tokenSalvo
 }
 
 export function validarCampo(campo, campo2 = null) {
