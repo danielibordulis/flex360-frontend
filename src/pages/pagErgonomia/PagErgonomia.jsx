@@ -19,7 +19,7 @@ export default function PagErgonomia() {
       peso: parseFloat(peso),
     };
 
-    httpClient.post('/api/ergonomia/sugestao', dadosErgonomia)
+    httpClient.post('/cadeira/sugestaoErgonomica', dadosErgonomia)
       .then(response => {
         setSugestao(response.data);
       })
