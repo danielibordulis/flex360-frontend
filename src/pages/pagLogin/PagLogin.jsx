@@ -103,11 +103,9 @@ export default function PagLogin() {
               <input type='password' name='senha' id='senha' onChange={(e) => setSenha(e.target.value)} value={senha} className='campo' />
               <Erro mensagem={erros.senha} />
             </div>
-            <div className='grupo-checkbox'>
-              <input type='checkbox' id='lembrar' />
-              <label htmlFor='lembrar' className='btn-lembrar-de-mim'>Lembrar de mim</label>
+            <div style={{textAlign: "center", marginTop: "40px"}}>
+              <button className='btn-entrar' type='submit'>Entrar</button>
             </div>
-            <button className='btn-entrar' type='submit'>Entrar</button>
           </form>
           <div className='cadastro'>
             <p>Não possui cadastro?</p>
