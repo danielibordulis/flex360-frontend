@@ -24,6 +24,7 @@ function Nav() {
         </button>
         <button className={dropDown ? "dropDownButton" : ""} onClick={() => irPara("")}>Home</button>
         <button className={dropDown ? "dropDownButton" : ""} onClick={() => irPara("cadeiras")}>Cadeiras</button>
+        <button className={dropDown ? "dropDownButton" : ""} onClick={() => irPara("acessorios")}>Acessorios</button>
         <button className={dropDown ? "dropDownButton" : ""} onClick={() => irPara("ergonomia")}>Sugestão Ergonômica</button>
     </nav>
   )

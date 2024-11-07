@@ -1,47 +1,27 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Header from '../../components/header/Header';
+import Footer from  '../../components/footer/Footer'
 import Produto from '../../components/produto/Produto';
+import httpClient from '../../services/httpClient'
 import './PagAcessorios.css';
 
 export default function PagAcessorios() {
-  const [produtos] = useState([
-    {
-      id: "efhmef97aehf-a9e7fh9e7mfhae-a9e7fhngae97f",
-      nome: "Carregador por indução",
-      foto: "./rodinha-acessorios.png",
-      preco: 13.40
-    },
-    {
-      id: "efhmef97aehf-a9e7fh9e7mfhae-a9e7fhngae97f",
-      nome: "Pistão á gás para cadeiras até 150 Kilos",
-      foto: "./rodinha-acessorios.png",
-      preco: 12.40
-    },
-    {
-      id: "efhmef97aehf-a9e7fh9e7mfhae-a9e7fhngae97f",
-      nome: "Rodizio em gel c/ capa preta",
-      foto: "./rodinha-acessorios.png",
-      preco: 11.40
-    },
-    {
-      id: "efhmef97aehf-a9e7fh9e7mfhae-a9e7fhngae97f",
-      nome: "Suporte para monitor",
-      foto: "./rodinha-acessorios.png",
-      preco: 10.40
-    },
-    {
-      id: "efhmef97aehf-a9e7fh9e7mfhae-a9e7fhngae97f",
-      nome: "Suporte para notebook",
-      foto: "./rodinha-acessorios.png",
-      preco: 17.40
-    },
-    {
-      id: "efhmef97aehf-a9e7fh9e7mfhae-a9e7fhngae97f",
-      nome: "Apoio de pé ergonômico e ajustável",
-      foto: "./rodinha-acessorios.png",
-      preco: 18.40
-    }
-  ]);
+  const [produtos, setProdutos] = useState([]);
+
+  useEffect(() => {
+
+    httpClient().get('/acessorio/buscarTodos')
+      .then(response => {
+
+        setProdutos(response)
+
+      })
+      .catch((e) => {
+        alert("erro")
+        console.error("Erro: " + e)
+      })
+
+  }, [])
 
   return (
     <>
@@ -61,6 +41,7 @@ export default function PagAcessorios() {
           <p className='mensagem'>Carregando acessórios...</p>
         )}
       </section>
+      <Footer />
     </>
   );
 }
