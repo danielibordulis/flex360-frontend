@@ -41,7 +41,7 @@ function PagCarrinho() {
 
                         <div className='preco-total'>
 
-                            <h2>Valor Total</h2>
+                            <h3>Valor total</h3>
 
                             <span>{pegaPrecoTotal().toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</span>
 
