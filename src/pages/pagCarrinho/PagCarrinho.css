@@ -68,7 +68,7 @@
 
 .preco-total > h2, span, button {
     color: white;
-    font-family: var(--font-1), Arial, Helvetica, sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 .preco-total > button {
@@ -99,7 +99,7 @@
 
 .container-text p {
     color: red;
-    font-family: var(--font-1), Arial, Helvetica, sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 1.3em;
     width: 80%;
     max-width: 400px;

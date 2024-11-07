@@ -41,7 +41,7 @@
 /* Estilo do título "Entrar" */
 .titulo {
   font-size: 40px;  /* Tamanho da fonte */
-  font-family: var(--font-1) ,Arial, Helvetica, sans-serif;  /* Fonte utilizada */
+  font-family: var(--font-1), Arial, Helvetica, sans-serif;  /* Fonte utilizada */
   font-weight: bold;  /* Negrito */
   color: var(--cor-1);  /* Cor do texto */
   margin-bottom: 30px;  /* Espaço abaixo do título */
@@ -55,7 +55,7 @@
 
 .grupo-input label {
   display: block;  /* Faz com que o label ocupe a largura total, ficando em cima do input */
-  font-family: var(--font-1) ,Arial, Helvetica, sans-serif;  /* Fonte do label */
+  font-family: Arial, Helvetica, sans-serif;  /* Fonte do label */
   font-size: 20px;  /* Tamanho da fonte do label */
   font-weight: regular;  /* Peso da fonte (normal) */
   color: var(--cor-1);  /* Cor do texto do label */
@@ -67,7 +67,7 @@
   height: 40px;  /* Altura do input */
   padding: 10px;  /* Espaçamento interno */
   font-size: 20px;  /* Tamanho da fonte */
-  font-family: var(--font-1) ,Arial, Helvetica, sans-serif;  /* Fonte utilizada */
+  font-family: Arial, Helvetica, sans-serif;  /* Fonte utilizada */
   border: 1px solid #D9D9D9;  /* Borda do input */
   border-radius: 10px;  /* Bordas arredondadas */
 }
@@ -80,7 +80,7 @@
 }
 
 .grupo-checkbox label {
-  font-family: var(--font-1) ,Arial, Helvetica, sans-serif;  /* Fonte do label */
+  font-family: Arial, Helvetica, sans-serif;  /* Fonte do label */
   font-size: 17px;  /* Tamanho da fonte */
   font-weight: regular;  /* Peso da fonte (normal) */
   color: var(--cor-1);  /* Cor do texto */
@@ -92,7 +92,7 @@
   width: 100px;  /* Largura do botão */
   height: 40px;  /* Altura do botão */
   font-size: 20px;  /* Tamanho da fonte */
-  font-family: var(--font-1) ,Arial, Helvetica, sans-serif;  /* Fonte utilizada */
+  font-family: Arial, Helvetica, sans-serif;  /* Fonte utilizada */
   color: #fff;  /* Cor do texto (branco) */
   background-color: var(--cor-1);  /* Cor de fundo do botão */
   border: none;  /* Sem borda */
@@ -111,7 +111,7 @@
 }
 
 .cadastro p {
-  font-family: var(--font-1) ,Arial, Helvetica, sans-serif;  /* Fonte do texto */
+  font-family: Arial, Helvetica, sans-serif;  /* Fonte do texto */
   font-size: 1.2em;  /* Tamanho da fonte */
   font-weight: bold;  /* Fonte em semi-negrito */
   color: var(--cor-1);  /* Cor do texto */
@@ -124,7 +124,7 @@
   width: 140px;  /* Largura do botão de cadastro */
   height: 40px;  /* Altura do botão de cadastro */
   font-size: 20px;  /* Tamanho da fonte */
-  font-family: var(--font-1) ,Arial, Helvetica, sans-serif;  /* Fonte utilizada */
+  font-family: Arial, Helvetica, sans-serif;  /* Fonte utilizada */
   color: #fff;  /* Cor do texto (branco) */
   background-color: var(--cor-1);  /* Cor de fundo do botão */
   border: none;  /* Sem borda */
