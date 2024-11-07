@@ -3,13 +3,14 @@ import Header from '../../components/header/Header';
 import './PagErgonomia.css';
 import Footer from '../../components/footer/Footer';
 import httpClient from '../../services/httpClient';
+import { useNavigate } from 'react-router-dom';
 
 export default function PagErgonomia() {
   const [altura, setAltura] = useState("");
   const [peso, setPeso] = useState("");
-  const [sugestao, setSugestao] = useState("");
   const [opcaoDesign, setOpcaoDesign] = useState(""); 
   const [error, setError] = useState("");
+  const navigate = useNavigate()
 
   function encontrarSugestao(e) {
     e.preventDefault();
@@ -34,14 +35,22 @@ export default function PagErgonomia() {
     const dadosErgonomia = {
       altura: alturaFloat,
       peso: pesoFloat,
-      design: opcaoDesign, 
+      categoria: [opcaoDesign], 
     };
 
-    httpClient.post('/cadeira/sugestaoErgonomica', dadosErgonomia)
+    const token = localStorage.getItem('token')
+
+    httpClient().post('/cadeira/sugestaoErgonomica', dadosErgonomia, token)
       .then(response => {
-        setSugestao(response);
+
+        navigate("/cadeiraIndividual", {
+          state: { cadeiraId: response.id, corId: response.cores_disponiveis[0].id },
+      });
+
+
       })
-      .catch(() => {
+      .catch((e) => {
+        console.error("erro: " + e)
         alert("Erro ao buscar sugestão");
       });
   }
@@ -89,8 +98,8 @@ export default function PagErgonomia() {
                 <input 
                   type="radio" 
                   name="design" 
-                  value="contemporaneo" 
-                  checked={opcaoDesign === "contemporaneo"}
+                  value="Contemporânea" 
+                  checked={opcaoDesign === "Contemporânea"}
                   onChange={handleRadioChange}
                 />
                 Contemporâneo
@@ -99,8 +108,8 @@ export default function PagErgonomia() {
                 <input 
                   type="radio" 
                   name="design" 
-                  value="minimalista" 
-                  checked={opcaoDesign === "minimalista"}
+                  value="Minimalista" 
+                  checked={opcaoDesign === "Minimalista"}
                   onChange={handleRadioChange}
                 />
                 Minimalista
@@ -109,8 +118,8 @@ export default function PagErgonomia() {
                 <input 
                   type="radio" 
                   name="design" 
-                  value="classico" 
-                  checked={opcaoDesign === "classico"}
+                  value="Clássica" 
+                  checked={opcaoDesign === "Clássica"}
                   onChange={handleRadioChange}
                 />
                 Clássico
@@ -119,8 +128,6 @@ export default function PagErgonomia() {
             
             <button type="submit" className="botao-encontrar">Encontrar</button>
           </form>
-
-          {sugestao && <p className="sugestao-resultado">Sugestão: {sugestao}</p>}
         </div>
         <div className="container-direita" />
       </section>
