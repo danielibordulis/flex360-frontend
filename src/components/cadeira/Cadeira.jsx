@@ -35,10 +35,10 @@ function Cadeira({ cadeiraData }) {
     return (
         <div className='container-cadeira'>
 
-            <h1>{cadeiraData.nome}</h1>
+            <h2>{cadeiraData.nome}</h2>
 
             <div className='container-foto-cadeira'>
-                <img className='foto-cadeira' src={corSelecionada.foto_cadeira} alt='Descrição imagem cadeira' />
+                <img className='foto-cadeira' src={corSelecionada.foto_cadeira} alt='' />
             </div>
 
             <div className='container-paleta-de-cor'>
