@@ -18,9 +18,9 @@ function CadeiraHome({id, cor, nome,preco}) {
   return (
     <>
       <div className='container-cadeiraHome'>
-        <img  className='cadeiraHome-img' src={cor.foto_cadeira} alt='Descrição da imagem cadeira'/>
+        <img  className='cadeiraHome-img' src={cor.foto_cadeira} alt=''/>
         <h2 className='cadeiraHome-titulo'>{nome}</h2>
-        <h1 className='valor-cadeiraHome'>R$ {preco}</h1>
+        <h3 className='valor-cadeiraHome'>R$ {preco}</h3>
 
         <button onClick={navegarParaCadeiraIndividual} className='cadeiraHome-botao'>Ver mais</button>
       </div>

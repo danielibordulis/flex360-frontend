@@ -76,3 +76,23 @@
     overflow: hidden;
     justify-content: center;
 }
+.imagens-secao {
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    gap: 20px; 
+    margin: 20px auto; /* adiciona espaçamento superior e centraliza a seção */
+    padding: 0 20px; /* adiciona espaçamento interno nas laterais */
+    max-width: 1200px; /* define um limite de largura para a seção */
+    margin-top: 80px;
+  }
+  
+  .imagemEstilo {
+    width: 350px; /* tamanho das imagens */
+    height: auto;
+    border-radius: 15px;
+    object-fit: cover;
+  }
+  .tituloCadeira{
+    font-size: 30px;
+  }

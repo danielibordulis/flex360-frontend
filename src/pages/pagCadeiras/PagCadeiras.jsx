@@ -15,7 +15,7 @@ function PagCadeiras() {
     let todasCadeiras
 
     const resultado = await httpClient().get('/cadeira/buscarTodas', false)
-    
+
     if (resultado) {
       todasCadeiras = resultado
     }
@@ -76,13 +76,14 @@ function PagCadeiras() {
       <Header />
       <section className='body-cadeiras'>
 
+        <h1>Cadeiras</h1>
         <div className='container-numero-cadeira'>
           <button onClick={voltarCadeiras}>
-            <img src="./flecha-esquerda.svg" alt="Voltar" />
+            <img src="./flecha-esquerda.svg" alt="Catálogo anterior" />
           </button>
           <span>{grupoAmostra}</span>
           <button onClick={proxCadeiras}>
-            <img src="./flecha-direita.svg" alt="Próximo" />
+            <img src="./flecha-direita.svg" alt="Próximo catálogo" />
           </button>
         </div>
 
@@ -94,11 +95,11 @@ function PagCadeiras() {
 
         <div className='container-numero-cadeira'>
           <button onClick={voltarCadeiras}>
-            <img src="./flecha-esquerda.svg" alt="Voltar" />
+            <img src="./flecha-esquerda.svg" alt="Catálogo anterior" />
           </button>
           <span>{grupoAmostra}</span>
           <button onClick={proxCadeiras}>
-            <img src="./flecha-direita.svg" alt="Próximo" />
+            <img src="./flecha-direita.svg" alt="Próximo catálogo" />
           </button>
         </div>
 

@@ -71,17 +71,17 @@ function PagCadeiraIndividual() {
       <Header />
       <section className='body'>
         <div className='sub-containers'>
-          <h1 className='nome-cadeira'>{cadeira?.nome || 'Nome da cadeira'}</h1>
+          <h2 className='nome-cadeira'>{cadeira?.nome || 'Nome da cadeira'}</h2>
 
           <div className='container-selo-abnt'>
             <img src="./selo.png" alt="Selo" />
-            <h2>Certificação pela norma ABNT</h2>
+            <h3>Certificação pela norma ABNT</h3>
           </div>
 
           <p className='texto-info'>{cadeira?.informacoes || ""}</p>
 
           <div className='container-dimensoes-prod'>
-            <h3>Dimensões do produto</h3>
+            <h4>Dimensões do produto</h4>
             <img src={cadeira?.foto_dimencoes || " "} alt={cadeira?.dimencoes} />
           </div>
         </div>

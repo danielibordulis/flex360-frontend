@@ -41,7 +41,7 @@
   
 .grupo-input label {
     display: block;  /* Faz com que o label ocupe a largura total, ficando em cima do input */
-    font-family: var(--font-1), sans-serif;  /* Fonte do label */
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 20px;  /* Tamanho da fonte do label */
     font-weight: regular;  /* Peso da fonte (normal) */
     color: var(--cor-1);  /* Cor do texto do label */
@@ -53,7 +53,7 @@
     height: 40px;  /* Altura do input */
     padding: 10px;  /* Espaçamento interno */
     font-size: 20px;  /* Tamanho da fonte */
-    font-family: var(--font-1), sans-serif;  /* Fonte utilizada */
+    font-family: Arial, Helvetica, sans-serif;
     border: 1px solid  var(--cor-2);  /* Borda do input */
     border-radius: 10px;  /* Bordas arredondadas */
 }
@@ -63,7 +63,7 @@
     width: 150px;  /* Aumentando a largura do botão */
     height: 40px;  /* Altura do botão */
     font-size: 20px;  /* Tamanho da fonte */
-    font-family: var(--font-1), sans-serif;  /* Fonte utilizada */
+    font-family: Arial, Helvetica, sans-serif;  /* Fonte utilizada */
     font-weight: semiBold;  /* Fonte em semi-negrito */
     color: #fff;  /* Cor do texto (branco) */
     background-color: var(--cor-1);  /* Cor de fundo do botão */
@@ -91,7 +91,7 @@
 
 .btn-login {
     margin-top: 20px; /* Espaçamento acima da frase */
-    font-family: var(--font-1), Arial, Helvetica, sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
     color: var(--cor-1); /* Cor do texto */
     background: none; /* Remove cor de fundo */
     border: none; /* Remove a borda */
