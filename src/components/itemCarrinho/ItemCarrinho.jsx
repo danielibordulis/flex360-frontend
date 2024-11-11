@@ -1,4 +1,4 @@
-import { useContext } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import "./ItemCarrinho.css"
 import ControleQuantidade from '../controleQuantidade/ControleQuantidade'
 import PaletaCor from '../paletaCor/PaletaCor'
@@ -10,12 +10,25 @@ function ItemCarrinho({ item }) {
 
 
   const { removeItem } = useContext(CarrinhoContext)
+  const [fotoCorCadeira, setFotoCorCadeira] = useState(item.coresDisponiveis[0].foto_cadeira);
 
+  useEffect(() => {
+    
+    const corSelecionada = item.coresDisponiveis.find(obj => obj.id === item.corSelecionada.id);
 
+    setFotoCorCadeira(corSelecionada.foto_cadeira)
+
+    console.log(item.corSelecionada)
+    console.log(item.coresDisponiveis)
+    console.log(fotoCorCadeira)
+  
+  }, [])
+  
+ 
   return (
     <div className='item-container'>
       <div className='container-img-carrinho'>
-        <img src={item.foto_cadeira ? item.foto_cadeira : item.foto} alt="" />
+        <img src={fotoCorCadeira ?  fotoCorCadeira : item.foto} alt="" />
       </div>
       <div className='container-info-item'>
 

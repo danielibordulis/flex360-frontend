@@ -59,7 +59,8 @@ export function CarrinhoProvider({ children }) {
 
         const result = await httpClient().post("/carrinho/adiciona", {
                 id: itemAdd.id,
-                quantidade: 1
+                quantidade: 1,
+                idCorSelecionada: itemAdd.corSelecionada
             }, pegaEValidaTokenLogin()
         )
 

@@ -46,7 +46,7 @@ function PagCadeiraIndividual() {
       // Busca a cadeira no JSON usando o id
 
       const cadeiraSelecionada = await httpClient().get(`/cadeira/buscarPorId/${cadeiraId}`, false)
-      console.log(cadeiraSelecionada)
+      
       setCadeira(cadeiraSelecionada);
 
       const corEncontrada = cadeiraSelecionada.cores_disponiveis.find(obj => obj.id === corId)
@@ -59,9 +59,15 @@ function PagCadeiraIndividual() {
   // Função para adicionar a cadeira ao carrinho e navegar para a página do carrinho
   const adicionarAoCarrinho = async () => {
 
+    cadeira.corSelecionada = corSelecionada.id
+
     await adicionaItem(cadeira)
 
-    navigate('/carrinho'); // Redireciona para a página do carrinho e passa a cadeira no estado
+    navigate('/carrinho', {
+      state: {
+        corId: corId
+      }
+    }); // Redireciona para a página do carrinho e passa a cadeira no estado
   };
 
   if(!cadeira) return null
