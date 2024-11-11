@@ -11,6 +11,10 @@ export default function PagLogin() {
   const [emailINPT, setEmailINPT] = useState("")
   const [senha, setSenha] = useState("")
   const navigate = useNavigate()
+  const [errorMenssage, setErrorMessage]=useState("")
+
+  const [showAlert, setShowAlert] = useState(false);
+
 
 
 
@@ -74,8 +78,10 @@ export default function PagLogin() {
 
     })
     .catch((e) => {
-
-      console.log(e)
+     
+      setShowAlert(true)
+      setErrorMessage(e.message)
+      console.error(e)
     })
 
   }
@@ -110,8 +116,9 @@ export default function PagLogin() {
             <button className='btn-entrar' type='submit'>Entrar</button>
           </form>
           <div className='cadastro'>
-            <p>Não possui cadastro?</p>
-            <button className='btn-cadastrar' onClick={() => navigate('/cadastro')}>Cadastrar</button>
+          <button className="btn-login" onClick={() => navigate('/cadastro')}>
+            Não possui cadastro? 
+          </button>
           </div>
         </div>
 
@@ -123,6 +130,10 @@ export default function PagLogin() {
       <button className='botao-nav-home' onClick={() => navigate('/')}>
         <TiHome />
       </button>
+
+      {showAlert && (
+        <Alerta message={errorMenssage} onClose={handleCloseAlert} />
+      )}
     </section>
   );
 }

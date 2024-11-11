@@ -20,6 +20,10 @@ export default function PagCadastro() {
   const emailRef = useRef(null)
   const navigate = useNavigate()
 
+  const [errorMessage, setErrorMessage]=useState("")
+
+  const [showAlert, setShowAlert] = useState(false);
+
 
   useEffect(() => {
     const campos = [nomeRef, senhaRef, repetirSenhaRef, emailRef]
@@ -75,7 +79,8 @@ export default function PagCadastro() {
 
       })
       .catch(() => {
-        alert("erro")
+        setShowAlert(true)
+        setErrorMessage(e.message)
       })
 
   }
@@ -115,6 +120,7 @@ export default function PagCadastro() {
               <Erro mensagem={erros.email} />
             </div>
             <button className='btn-cadastrar' type='submit'>Cadastrar</button>
+
           </form>
           <button className="btn-login" onClick={() => navigate('/entrar')}>
             Já possuo cadastro
@@ -125,6 +131,10 @@ export default function PagCadastro() {
       <button className='botao-nav-home-cadastro' onClick={() => navigate('/')}>
         <TiHome />
       </button>
+      
+      {showAlert && (
+        <Alerta message={errorMessage} onClose={handleCloseAlert} />
+      )}
     </section>
   );
 }
