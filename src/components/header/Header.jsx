@@ -5,7 +5,22 @@ import Nav from '../nav/Nav'
 
 function Header() {
   const navigate = useNavigate();
+  const [campoBusca, setCampoBusca] = useState("")
   
+  function fazerBusca(e) {
+    if(e.charCode === 13) {
+      
+      if(campoBusca != '') {
+        
+        const valorBusca = campoBusca
+        setCampoBusca('')
+
+        navigate('/cadeiras', {
+          state: { busca: valorBusca}})
+      }
+    }
+  }
+
   const alternarMenu = () => {
 
     const token = localStorage.getItem('token')
@@ -33,7 +48,7 @@ function Header() {
                 <img className='imagem-logo' src='./logo-grande.png' alt='Logo FLEX360. O logo mostra um bonequinho da cor preta sentado em uma cadeira, com a palavra "Flex360" escrita à direita, em vermelho.'/>
             </div>
             <div className='container-search-input'>
-                <input placeholder='O que você procura?...'/>
+                <input placeholder='O que você procura?...' onChange={e => setCampoBusca(e.target.value)} value={campoBusca} onKeyPress={ fazerBusca} />
             </div>
             <div className='container-botao-nav'>
 
