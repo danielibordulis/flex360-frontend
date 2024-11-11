@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from 'react'
+import { useLocation } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import Header from '../../components/header/Header'
 import "./PagCadeiras.css"
 import Cadeira from '../../components/cadeira/Cadeira'
@@ -7,6 +9,10 @@ import httpClient from '../../services/httpClient'
 
 function PagCadeiras() {
 
+  const location = useLocation();
+  const navigate = useNavigate();
+  const { busca } = location.state || {};
+
   const [grupoAmostra, setGrupoAmostra] = useState(1)
   const [grupoCadeiras, setGrupoCadeiras] = useState([])
 
@@ -14,7 +20,9 @@ function PagCadeiras() {
 
     let todasCadeiras
 
-    const resultado = await httpClient().get('/cadeira/buscarTodas', false)
+    const rotaUsar = '/cadeira/' + (busca? 'buscarPorNome/' + busca: 'buscarTodas')
+
+    const resultado = await httpClient().get(rotaUsar, false)
 
     if (resultado) {
       todasCadeiras = resultado
@@ -69,6 +77,10 @@ function PagCadeiras() {
     pegarCadeiras()
 
   }, [])
+
+  useEffect(() => {
+    pegarCadeiras()
+  }, [busca])
 
 
   return (

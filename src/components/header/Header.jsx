@@ -10,6 +10,14 @@ function Header() {
   function fazerBusca(e) {
     if(e.charCode === 13) {
       
+      if(campoBusca != '') {
+        
+        const valorBusca = campoBusca
+        setCampoBusca('')
+
+        navigate('/cadeiras', {
+          state: { busca: valorBusca}})
+      }
     }
   }
 
