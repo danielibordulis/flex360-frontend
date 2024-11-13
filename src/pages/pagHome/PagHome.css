@@ -95,4 +95,9 @@
   }
   .tituloCadeira{
     font-size: 30px;
+    font-family: var(--font-1);
+  }
+  .tituloBemVindo{
+    font-size: 20px;
+    font-family: var(--font-2);
   }

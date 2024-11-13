@@ -18,8 +18,8 @@ function Cadeirinha({ id, nomeCadeira, precoCadeira }) {
           <img src="./cadeirinha.png" alt="cadeirinha" />
         </div>
         <div className='texto'>
-          <p className='nomeCadeira'> {nomeCadeira}</p>
-          <p className='preço'>R$ {Number(precoCadeira).toLocaleString('pt-BR')}</p>
+          <p className='nomeCadeirinha'> {nomeCadeira}</p>
+          <p className='preçoCadeirinha'>R$ {Number(precoCadeira).toLocaleString('pt-BR')}</p>
         </div>
       </div>
     </>
