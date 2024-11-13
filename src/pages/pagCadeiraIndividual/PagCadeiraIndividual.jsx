@@ -81,13 +81,13 @@ function PagCadeiraIndividual() {
 
           <div className='container-selo-abnt'>
             <img src="./selo.png" alt="Selo" />
-            <h3>Certificação pela norma ABNT</h3>
+            <h3 className='subtitulo'>Certificação pela norma ABNT</h3>
           </div>
 
           <p className='texto-info'>{cadeira?.informacoes || ""}</p>
 
           <div className='container-dimensoes-prod'>
-            <h4>Dimensões do produto</h4>
+            <h4 className='dimensoesProduct'>Dimensões do produto</h4>
             <img src={cadeira?.foto_dimencoes || " "} alt={cadeira?.dimencoes} />
           </div>
         </div>
@@ -104,7 +104,7 @@ function PagCadeiraIndividual() {
               <div className='desc-cadeira'>
                 <div className='descricao'>
                   <p>{cadeira?.descricao || 'Descrição da cadeira'}</p>
-                  <span>5 anos de garantia*</span>
+                  <span className='garantia'>5 anos de garantia*</span>
                 </div>
 
                 <div className='container-preco'>

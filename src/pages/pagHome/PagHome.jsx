@@ -58,7 +58,7 @@ function PagHome() {
           <div className='quemSomos'>
             <img src="./trabalhador.png.png" alt="Imagem de um homem sentado no escritório com seu notebook" />
             <h3>Quem somos</h3>
-            <p>Bem-vindo à Flex360!
+            <p className='tituloBemVindo'>Bem-vindo à Flex360!
               Cadeiras ergonômicas e consultoria para um ambiente de trabalho saudável.
               Explore nossas soluções: cadeiras ergonômicas, assessoria e consultoria de ergonomia conforme a NR17.</p>
           </div>

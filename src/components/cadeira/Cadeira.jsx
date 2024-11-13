@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import "./Cadeira.css"
-import PaletaCor from '../paletaCor/PaletaCor'
 import Line from '../line/Line'
 import { useNavigate } from 'react-router-dom'
 
@@ -35,7 +34,7 @@ function Cadeira({ cadeiraData }) {
     return (
         <div className='container-cadeira'>
 
-            <h2>{cadeiraData.nome}</h2>
+            <h2 className='nomeCadeira'>{cadeiraData.nome}</h2>
 
             <div className='container-foto-cadeira'>
                 <img className='foto-cadeira' src={corSelecionada.foto_cadeira} alt='' />

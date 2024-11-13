@@ -93,6 +93,7 @@ export default function PagErgonomia() {
             {error && <p className="error-message">{error}</p>}
             
             <h2 className="titulo-ergonomia">Estilos De Design:</h2>
+            <div className='div-pai-opcoes'>
             <div className="design-opcoes">
               <label className="opcao-design">
                 <input 
@@ -124,6 +125,7 @@ export default function PagErgonomia() {
                 />
                 Clássico
               </label>
+              </div>
             </div> 
             
             <button type="submit" className="botao-encontrar">Encontrar</button>

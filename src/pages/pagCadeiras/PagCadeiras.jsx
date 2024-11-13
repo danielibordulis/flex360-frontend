@@ -88,7 +88,7 @@ function PagCadeiras() {
       <Header />
       <section className='body-cadeiras'>
 
-        <h1>Cadeiras</h1>
+        <h1 className='tituloCadeira'>Cadeiras</h1>
         <div className='container-numero-cadeira'>
           <button onClick={voltarCadeiras}>
             <img src="./flecha-esquerda.svg" alt="Catálogo anterior" />
