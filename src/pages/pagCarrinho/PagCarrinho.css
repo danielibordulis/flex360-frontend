@@ -2,6 +2,9 @@
     display: flex;
     width: 100vw;
     height: 74vh !important;
+    justify-content: center;
+    align-items: center;
+
 }
 
 .container-carrinho {
@@ -27,7 +30,7 @@
     flex-direction: column;
     width: 100%;
     height: 100%;
-    border: 5px solid var(--cor-1);
+    border: 5px solid var(--cor-2);
     border-radius: 15px;
     overflow-y: auto;
     gap: 15px;
@@ -42,7 +45,7 @@
 }
 
 .carrinho::-webkit-scrollbar-thumb {
-    background-color: var(--cor-1);
+    background-color: var(--cor-2);
     border-radius: 10px;
     width: 80%;
 }
@@ -58,7 +61,6 @@
 .preco-total {
     width: 70%;
     height: 200px;
-    background-color: var(--cor-1);
     border-radius: 20px;
     display: flex;
     flex-direction: column;
@@ -67,24 +69,25 @@
 }
 
 .preco-total > h2, span, button {
-    color: white;
+    color: black;
     font-family: Arial, Helvetica, sans-serif;
+    font-style: oblique;
 }
 
 .preco-total > button {
     width: 200px;
     height: 50px;
     background-color: white;
-    color: red !important;
+    color: var(--cor-1);
     cursor: pointer;
     border-radius: 10px;
-    border: 0;
+    border-color: var(--cor-1);
     transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 .preco-total > span {
-    font-size: 1.3em;
-    color: white !important;
+    font-size: 1.5em;
+    color: var(--cor-2);
 }
 
 .preco-total > button:hover {
@@ -100,7 +103,7 @@
 .container-text p {
     color: red;
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 1.3em;
+    font-size: 1.5em;
     width: 80%;
     max-width: 400px;
     text-align: center;
