@@ -9,9 +9,15 @@
   src: url(/fonts/lemonada.ttf);
 }
 
+@font-face {
+  font-family: "font-texto";
+  src: url(/fonts/font-texto.ttf);
+}
+
 :root {
   --cor-1: #DA1C1C;
   --cor-2: #D9D9D9;
   --font-1: "lemonada";
+  --font-2:"font-texto";
 
 }
