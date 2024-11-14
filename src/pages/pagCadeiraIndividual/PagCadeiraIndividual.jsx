@@ -6,6 +6,7 @@ import { useLocation } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import httpClient from '../../services/httpClient'
 import { CarrinhoContext } from '../../contexts/CarrinhoContext';
+import { validaToken } from '../../utils/validation-user';
 
 function PagCadeiraIndividual() {
   const location = useLocation();
@@ -14,13 +15,10 @@ function PagCadeiraIndividual() {
   const [corSelecionada, setCorSelecionada] = useState({});
   const [imagemCarregada, setImagemCarregada] = useState(true);
 
-
-  // Estado para armazenar os detalhes da cadeira
   const [cadeira, setCadeira] = useState(null);
 
   const { adicionaItem } = useContext(CarrinhoContext)
 
-  // Função que será chamada ao carregar a página
   useEffect(() => {
     carregaCadeira();
   }, [cadeiraId]);
@@ -58,6 +56,14 @@ function PagCadeiraIndividual() {
 
   // Função para adicionar a cadeira ao carrinho e navegar para a página do carrinho
   const adicionarAoCarrinho = async () => {
+
+    const isAuthenticated = await validaToken()
+
+    if (!isAuthenticated) {
+
+      navigate('/entrar')
+
+    }
 
     cadeira.corSelecionada = corSelecionada.id
 

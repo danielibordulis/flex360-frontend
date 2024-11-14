@@ -70,6 +70,7 @@ export default function httpClient() {
 
   // Função para tratamento de erros
   function tratarErro(error) {
+
     if (error.response) {
       console.error(`Erro: ${error.response.status} - ${JSON.stringify(error.response.data)}`);
     } else if (error.request) {
