@@ -1,13 +1,26 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import './Produto.css';
 import { useNavigate } from 'react-router-dom';
+import { CarrinhoContext } from '../../contexts/CarrinhoContext';
+import { validaToken } from '../../utils/validation-user';
 
 export default function Produto({ id, nome, foto, preco }) {
   const navigate = useNavigate();
+  const { adicionaItem } = useContext(CarrinhoContext)
 
-  const adicionarAoCarrinho = () => {
+  const adicionarAoCarrinho = async () => {
     const produto = { id, nome, foto, preco };
-    servicoCarrinho.adicionaItem(produto);
+
+    const isAuthenticated = await validaToken()
+
+    if (!isAuthenticated) {
+
+      navigate('/entrar')
+      return
+
+    }
+
+    adicionaItem(produto)
     navigate('/carrinho');
   };
 

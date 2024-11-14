@@ -1,8 +1,10 @@
 import { useEffect, useState } from 'react';
-import ServicoUsuario from '../../services/servico-usuario'
 import Header from '../../components/header/Header';
 import './PagPerfil.css';
 import ScrollComponent from '../../components/scroll/ScrollComponent';
+import httpClient from '../../services/httpClient';
+import { validaToken } from '../../utils/validation-user';
+import { useNavigate } from 'react-router-dom';
 
 
 function PagPerfil() {
@@ -11,9 +13,31 @@ function PagPerfil() {
   const [inputNome, setInputNome] = useState("")
   const [inputTelefone, setInputTelefone] = useState("")
   const [inputEmail, setInputEmail] = useState("")
+  const navigate = useNavigate();
 
   const [campoNomeDesabilitado, setCampoNomeDesabilitado] = useState(true)
   const [campoTelefoneDesabilitado, setCampoTelefoneDesabilitado] = useState(true)
+
+  async function getUser() {
+
+    const isAuthenticated = await validaToken()
+
+    if (!isAuthenticated) {
+
+      navigate('/entrar')
+
+    }
+
+    const token = localStorage.getItem("token")
+
+    const usuarioLogado = httpClient().get("/usuario/buscarPerfil", token)
+    if (usuarioLogado) {
+      setInputNome(usuarioLogado.nome)
+      setInputTelefone(usuarioLogado.telefone)
+      setInputEmail(usuarioLogado.email)
+    }
+
+  }
 
   useEffect(() => {
 
@@ -21,45 +45,39 @@ function PagPerfil() {
 
       const jsonCadeiras = [
         {
-        "id": "fnbefyihaef-aeofjaeum9f-oe97fhae7809fh",
-        "nome": "Cadeira Tecton",
-        "informacoes": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla facilisi. Phasellus interdum sem sit ametarcuconsequat, sit amet dignissim felis tincidunt. Vivamus convallis orci ac lectus egestas, non malesuada turpis aliquam.Suspendisse potenti. Cras ut odio nec libero gravida fermentum. Pellentesque habitant morbi tristique senectus et netus etmalesuada fames ac turpis egestas.",
-        "descricao": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla facilisi. Phasellus interdum sem sit ametarcuconsequat, sit amet dignissim felis tincidunt. Vivamus convallis orci ac lectus egestas, non malesuada turpis aliquam.Suspendisse potenti. Cras ut odio nec libero gravida fermentum. Pellentesque habitant morbi tristique senectus et netus etmalesuada fames ac turpis egestas.",
-        "temp_cagarantia": 5,
-        "preco": 1000.34,
-        "cores_disponiveis": [
+          "id": "fnbefyihaef-aeofjaeum9f-oe97fhae7809fh",
+          "nome": "Cadeira Tecton",
+          "informacoes": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla facilisi. Phasellus interdum sem sit ametarcuconsequat, sit amet dignissim felis tincidunt. Vivamus convallis orci ac lectus egestas, non malesuada turpis aliquam.Suspendisse potenti. Cras ut odio nec libero gravida fermentum. Pellentesque habitant morbi tristique senectus et netus etmalesuada fames ac turpis egestas.",
+          "descricao": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla facilisi. Phasellus interdum sem sit ametarcuconsequat, sit amet dignissim felis tincidunt. Vivamus convallis orci ac lectus egestas, non malesuada turpis aliquam.Suspendisse potenti. Cras ut odio nec libero gravida fermentum. Pellentesque habitant morbi tristique senectus et netus etmalesuada fames ac turpis egestas.",
+          "temp_cagarantia": 5,
+          "preco": 1000.34,
+          "cores_disponiveis": [
             {
-                "id": "aiundaiyuwdn -3927hdht28hd-d19872ghd1",
-                "nome": "Marrom",
-                "codigo": "#a52a2a"
+              "id": "aiundaiyuwdn -3927hdht28hd-d19872ghd1",
+              "nome": "Marrom",
+              "codigo": "#a52a2a"
             },
             {
-                "id": "aiundaiyuwdn -3927hdht28hd-d19872ghd1",
-                "nome": "Roxo",
-                "codigo": "#7C1FF1"
+              "id": "aiundaiyuwdn -3927hdht28hd-d19872ghd1",
+              "nome": "Roxo",
+              "codigo": "#7C1FF1"
             }
-        ],
-        "dimensoes": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla facilisi. Phasellus interdum sem sit ametarcuconsequat, sit amet dignissim felis tincidunt. Vivamus convallis orci ac lectus egestas, non malesuada turpis aliquam.",
-        "foto_cadeira": "./cadeira-ex.png",
-        "foto_dimensoes": "./dimensao-ex-cadeira.png",
-        "desc_encosto": "Encosto com estrutura injetada em resina plastica, com regulagem de altura.",
-        "desc_apoio": "Apoia braços  2D, regulável na altura e largura.",
-        "desc_rodinha": "Rodizio especial com freio, suporta alta capacidade de peso",
-        "desc_ajuste_altura": "Mecanismo ajuste de altura do assento. Inclinação do encosto com 4 pontos de parada, possui movimento relax.",
-        "desc_revestimento": "Revestimento em pvc sintético ."
-    },
+          ],
+          "dimensoes": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla facilisi. Phasellus interdum sem sit ametarcuconsequat, sit amet dignissim felis tincidunt. Vivamus convallis orci ac lectus egestas, non malesuada turpis aliquam.",
+          "foto_cadeira": "./cadeira-ex.png",
+          "foto_dimensoes": "./dimensao-ex-cadeira.png",
+          "desc_encosto": "Encosto com estrutura injetada em resina plastica, com regulagem de altura.",
+          "desc_apoio": "Apoia braços  2D, regulável na altura e largura.",
+          "desc_rodinha": "Rodizio especial com freio, suporta alta capacidade de peso",
+          "desc_ajuste_altura": "Mecanismo ajuste de altura do assento. Inclinação do encosto com 4 pontos de parada, possui movimento relax.",
+          "desc_revestimento": "Revestimento em pvc sintético ."
+        },
       ]
 
       setCadeirasRecentes(jsonCadeiras)
     }
 
-
-    const usuarioLogado = ServicoUsuario.pegaUsuarioLogado()
-    if (usuarioLogado) {
-      setInputNome(usuarioLogado.nome)
-      setInputTelefone(usuarioLogado.telefone)
-      setInputEmail(usuarioLogado.email)
-    }
+    getUser()
 
     buscaCadeirasRecentes()
 
@@ -90,7 +108,7 @@ function PagPerfil() {
                   }} /></button>
                 )}
                 {campoNomeDesabilitado && (<button className='lapis' onClick={() => setCampoNomeDesabilitado(false)}><img src="./lapis.png" alt="Edit" /></button>
-              )}
+                )}
               </div>
             </div>
             <div className='alinharBotoes'>
@@ -105,7 +123,7 @@ function PagPerfil() {
                 )}
                 {campoTelefoneDesabilitado && (
                   <button className='lapis' onClick={() => setCampoTelefoneDesabilitado(false)}><img src="./lapis.png" alt="Edit" /></button>
-                  )}
+                )}
               </div>
             </div>
             <div className='alinharBotoes'>
@@ -117,8 +135,8 @@ function PagPerfil() {
         <div className='lado-direito'>
           {cadeirasRecentes.length > 0 && (
             <>
-                <h2 className='Titulo'>Vistos recentemente:</h2>
-                <ScrollComponent cadeiras={cadeirasRecentes}/>
+              <h2 className='Titulo'>Vistos recentemente:</h2>
+              <ScrollComponent cadeiras={cadeirasRecentes} />
             </>
           )}
         </div>

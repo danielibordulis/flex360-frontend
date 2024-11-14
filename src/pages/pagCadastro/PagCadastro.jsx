@@ -27,7 +27,6 @@ export default function PagCadastro() {
     function trataEvento(e) {
 
       const elementoId = e.target.id
-      console.log(erros)
       setErros(prevState => ({ ...prevState, [elementoId]: "" }))
 
     }

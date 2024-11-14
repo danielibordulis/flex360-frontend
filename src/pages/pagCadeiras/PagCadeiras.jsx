@@ -10,7 +10,6 @@ import httpClient from '../../services/httpClient'
 function PagCadeiras() {
 
   const location = useLocation();
-  const navigate = useNavigate();
   const { busca } = location.state || {};
 
   const [grupoAmostra, setGrupoAmostra] = useState(1)
@@ -22,7 +21,7 @@ function PagCadeiras() {
 
     const rotaUsar = '/cadeira/' + (busca? 'buscarPorNome/' + busca: 'buscarTodas')
 
-    const resultado = await httpClient().get(rotaUsar, false)
+    const resultado = await httpClient().get(rotaUsar)
 
     if (resultado) {
       todasCadeiras = resultado
