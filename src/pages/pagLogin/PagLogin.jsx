@@ -107,10 +107,9 @@ export default function PagLogin() {
               <button className='btn-entrar' type='submit'>Entrar</button>
             </div>
           </form>
-          <div className='cadastro'>
-            <p>Não possui cadastro?</p>
-            <button className='btn-cadastrar' onClick={() => navigate('/cadastro')}>Cadastrar</button>
-          </div>
+          <button className="btn-ir-cadastro" onClick={() => navigate('/cadastro')}>
+            Não possuo cadastro
+          </button>
         </div>
 
       </div>
