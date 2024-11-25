@@ -1,16 +1,19 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Header from '../../components/header/Header';
 import './PagErgonomia.css';
 import Footer from '../../components/footer/Footer';
 import httpClient from '../../services/httpClient';
 import { useNavigate } from 'react-router-dom';
+import { validaToken } from '../../utils/validation-user'
 
 export default function PagErgonomia() {
+  const navigate = useNavigate()
+
+
   const [altura, setAltura] = useState("");
   const [peso, setPeso] = useState("");
   const [opcaoDesign, setOpcaoDesign] = useState("");
   const [error, setError] = useState("");
-  const navigate = useNavigate()
 
   function encontrarSugestao(e) {
     e.preventDefault();
@@ -65,6 +68,19 @@ export default function PagErgonomia() {
     setOpcaoDesign(e.target.value);
   }
 
+  async function verificaLogin() {
+    if(!await validaToken()) {
+      navigate('/entrar')
+
+    }
+  }
+
+
+  useEffect(() => {
+    verificaLogin()
+}, [])
+
+
   return (
     <>
       <Header />
@@ -96,7 +112,7 @@ export default function PagErgonomia() {
               />
             </div>
 
-            {error && <p className="error-message">{error}</p>}
+            {error && <p className="error-message" aria-live='assertive'>{error}</p>}
 
             <h2 className="titulo-ergonomia">Estilos De Design:</h2>
             <div className='div-pai-opcoes'>
