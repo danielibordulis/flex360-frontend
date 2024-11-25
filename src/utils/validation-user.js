@@ -2,7 +2,7 @@ import httpClient from "../services/httpClient"
 
 export function pegaEValidaTokenLogin() {
     let tokenSalvo = localStorage.getItem("token")
-    if(tokenSalvo == null) return "" // Nenhum token salvo
+    if(tokenSalvo == null) return ""
 
     return tokenSalvo
 }
@@ -15,8 +15,8 @@ export async function validaToken() {
 
     return await httpClient().get("/usuario/buscarPerfil", tokenSalvo)
     .then((response) => {
-    
-        return response.response.status < 300
+
+        return response.id
         
     })
     .catch(error => {
