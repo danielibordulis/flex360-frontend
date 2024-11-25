@@ -11,7 +11,7 @@ export async function validaToken() {
 
     let tokenSalvo = localStorage.getItem("token")
 
-    if (!tokenSalvo) return false
+    if (tokenSalvo === false) return false
 
     return await httpClient().get("/usuario/buscarPerfil", tokenSalvo)
     .then((response) => {
