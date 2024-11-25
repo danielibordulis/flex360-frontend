@@ -172,3 +172,19 @@ height: 100vh;
 .botao-nav-home:hover {
   transform: scale(1.1);
 }
+
+.btn-ir-cadastro {
+  margin-top: 20px; /* Espaçamento acima da frase */
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--cor-1); /* Cor do texto */
+  background: none; /* Remove cor de fundo */
+  border: none; /* Remove a borda */
+  font-size: 18px; /* Tamanho da fonte */
+  cursor: pointer; /* Cursor de ponteiro ao passar o mouse */
+  text-decoration: underline; /* Sublinha o texto */
+}
+
+.btn-ir-cadastro:hover {
+  text-decoration: none; /* Remove o sublinhado ao passar o mouse */
+  font-weight: bold; /* Negrito ao passar o mouse */
+}

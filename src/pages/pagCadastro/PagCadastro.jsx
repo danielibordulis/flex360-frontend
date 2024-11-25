@@ -62,9 +62,9 @@ export default function PagCadastro() {
     setErros(listaErros)
 
     const dadosUsuario = {
-      nome:inputNome,
-      email:inputEmail,
-      password:inputSenha,
+      nome: inputNome,
+      email: inputEmail,
+      password: inputSenha,
     }
 
     httpClient().post('/auth/register', dadosUsuario)
@@ -94,6 +94,11 @@ export default function PagCadastro() {
 
           <form onSubmit={cadastra} noValidate>
             <div className='grupo-input'>
+              <label htmlFor='email'>E-mail</label>
+              <input type='email' name='email' onChange={e => setInputEmail(e.target.value)} value={inputEmail} id='email' className='campo' ref={emailRef} />
+              <Erro mensagem={erros.email} />
+            </div>
+            <div className='grupo-input'>
               <label htmlFor='nomeCadastro'>Nome</label>
               <input type='text' name='nome' onChange={e => setInputNome(e.target.value)} value={inputNome} id='nomeCadastro' className='campo' ref={nomeRef} />
               <Erro mensagem={erros.nomeCadastro} />
@@ -107,11 +112,6 @@ export default function PagCadastro() {
               <label htmlFor='repetirSenhaCadastro'>Confirmar Senha</label>
               <input type='password' name='confirmarSenha' onChange={e => setInputRepetirSenha(e.target.value)} value={inputRepetirSenha} id='repetirSenhaCadastro' className='campo' ref={repetirSenhaRef} />
               <Erro mensagem={erros.repetirSenhaCadastro} />
-            </div>
-            <div className='grupo-input'>
-              <label htmlFor='email'>E-mail</label>
-              <input type='email' name='email' onChange={e => setInputEmail(e.target.value)} value={inputEmail} id='email' className='campo' ref={emailRef} />
-              <Erro mensagem={erros.email} />
             </div>
             <button className='btn-cadastrar' type='submit'>Cadastrar</button>
           </form>
