@@ -23,13 +23,18 @@ export default function PagErgonomia() {
     const pesoFloat = parseFloat(peso.replace(',', '.'));
 
 
-    if (alturaFloat < 1.4 || alturaFloat > 2.0) {
+    if (isNaN(alturaFloat) || alturaFloat < 1.4 || alturaFloat > 2.0) {
       setError("A altura deve estar entre 1,4 m e 2,0 m para uma postura ergonômica.");
       return;
     }
-    if (pesoFloat < 40 || pesoFloat > 150) {
+    if (isNaN(pesoFloat) || pesoFloat < 40 || pesoFloat > 150) {
       setError("O peso deve estar entre 40 kg e 150 kg para uma postura ergonômica.");
       return;
+    }
+
+    if(opcaoDesign == '') {
+      setError('Você deve selecionar um estilo de design para encontrar uma cadeira ergonômica')
+      return
     }
 
 
@@ -112,7 +117,7 @@ export default function PagErgonomia() {
               />
             </div>
 
-            {error && <p className="error-message" aria-live='assertive'>{error}</p>}
+            {error && <p className="error-message" aria-live='assertive' role='alert'>{error}</p>}
 
             <h2 className="titulo-ergonomia">Estilos De Design:</h2>
             <div className='div-pai-opcoes'>
