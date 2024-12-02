@@ -1,6 +1,7 @@
 import { createContext, useState } from "react";
 import httpClient from '../services/httpClient'
 import { pegaEValidaTokenLogin } from '../utils/validation-user.js'
+import { Bounce, toast } from "react-toastify";
 
 export const CarrinhoContext = createContext()
 
@@ -8,7 +9,7 @@ export function CarrinhoProvider({ children }) {
     const [carrinho, setCarrinho] = useState([])
 
     function formataCarrinho(result) {
-        
+
         const carrinhoFormatado = [...result.produtosDTO.cadeiras, ...result.produtosDTO.acessorios]
         setCarrinho(carrinhoFormatado)
         return carrinhoFormatado
@@ -57,17 +58,51 @@ export function CarrinhoProvider({ children }) {
 
     async function adicionaItem(itemAdd) {
 
-        const result = await httpClient().post("/carrinho/adiciona", {
+        try {
+
+            const result = await httpClient().post("/carrinho/adiciona", {
                 id: itemAdd.id,
                 quantidade: 1,
                 idCorSelecionada: itemAdd.corSelecionada
             }, pegaEValidaTokenLogin()
-        )
+            )
 
-        const carrinhoFormatado = formataCarrinho(result)
-        setCarrinho(carrinhoFormatado)
-        
-        return carrinhoFormatado
+            const carrinhoFormatado = formataCarrinho(result)
+            setCarrinho(carrinhoFormatado)
+
+            toast.success('Adicionado ao carrinho!', {
+                position: "top-right",
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+                transition: Bounce
+            });
+
+            return carrinhoFormatado
+
+        } catch (error) {
+
+            toast.error('Erro em adicionar ao carrinho!', {
+                position: "top-right",
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+                transition: Bounce
+            })
+
+            return null
+
+        }
+
+
     }
 
     async function reduzQuantidade(idItem) {
@@ -77,25 +112,25 @@ export function CarrinhoProvider({ children }) {
             id: idItem,
             quantidade: 1
         }, pegaEValidaTokenLogin()
-    )
+        )
 
-    const carrinhoFormatado = formataCarrinho(result)
-    setCarrinho(carrinhoFormatado)
-    
+        const carrinhoFormatado = formataCarrinho(result)
+        setCarrinho(carrinhoFormatado)
+
         const buscandoItem = carrinhoFormatado.find(obj => obj.id === idItem)
 
-        if(buscandoItem) return buscandoItem.quantidade
+        if (buscandoItem) return buscandoItem.quantidade
         return null
 
     }
 
     async function aumentaQuantidade(idItem) {
 
-        const atualiza = await adicionaItem({id: idItem, quantidade: 1})
+        const atualiza = await adicionaItem({ id: idItem, quantidade: 1 })
 
         const buscandoItem = atualiza.find(obj => obj.id === idItem)
 
-        if(buscandoItem) return buscandoItem.quantidade
+        if (buscandoItem) return buscandoItem.quantidade
         return 0
     }
 
