@@ -6,6 +6,7 @@ import httpClient from '../../services/httpClient';
 import { useNavigate } from 'react-router-dom';
 import { validaToken } from '../../utils/validation-user'
 import { Bounce, toast } from 'react-toastify';
+import Erro from '../../components/erro/Erro';
 
 export default function PagErgonomia() {
   const navigate = useNavigate()
@@ -15,6 +16,9 @@ export default function PagErgonomia() {
   const [peso, setPeso] = useState("");
   const [opcaoDesign, setOpcaoDesign] = useState("");
   const [error, setError] = useState("");
+  const [erroAltura,seterrorAltura]=useState("");
+  const [erroPeso,seterrorPeso]=useState("");
+  const [errorEstilo, setErrorEstilo]=useState("");
 
   function encontrarSugestao(e) {
     e.preventDefault();
@@ -23,21 +27,26 @@ export default function PagErgonomia() {
     const alturaFloat = parseFloat(altura.replace(',', '.'));
     const pesoFloat = parseFloat(peso.replace(',', '.'));
 
+    let isError= false
 
     if (isNaN(alturaFloat) || alturaFloat < 1.4 || alturaFloat > 2.0) {
-      setError("A altura deve estar entre 1,4 m e 2,0 m para uma postura ergonômica.");
-      return;
+      seterrorAltura("A altura deve estar entre 1,4 m e 2,0 m para uma postura ergonômica.");
+     isError=true
     }
     if (isNaN(pesoFloat) || pesoFloat < 40 || pesoFloat > 150) {
-      setError("O peso deve estar entre 40 kg e 150 kg para uma postura ergonômica.");
-      return;
+      seterrorPeso("O peso deve estar entre 40 kg e 150 kg para uma postura ergonômica.");
+      isError=true
     }
 
     if (opcaoDesign == '') {
-      setError('Você deve selecionar um estilo de design para encontrar uma cadeira ergonômica')
-      return
+      setErrorEstilo('Você deve selecionar um estilo de design para encontrar uma cadeira ergonômica')
+      isError=true
     }
 
+    if  (isError){
+      isError= false 
+      return;
+    }
 
     setError("");
 
@@ -139,6 +148,7 @@ export default function PagErgonomia() {
                 value={altura}
                 onChange={e => setAltura(e.target.value)}
               />
+              <Erro mensagem={erroAltura} />
             </div>
 
             <div>
@@ -150,6 +160,7 @@ export default function PagErgonomia() {
                 value={peso}
                 onChange={e => setPeso(e.target.value)}
               />
+              <Erro mensagem={erroPeso} />
             </div>
 
             {error && <p className="error-message" aria-live='assertive' role='alert'>{error}</p>}
@@ -188,6 +199,7 @@ export default function PagErgonomia() {
                   Clássico
                 </label>
               </div>
+              <Erro mensagem={errorEstilo} />
             </div>
 
             <button type="submit" className="botao-encontrar">Encontrar</button>
