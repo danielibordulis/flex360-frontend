@@ -11,12 +11,10 @@ function PagPerfil() {
 
   const [cadeirasRecentes, setCadeirasRecentes] = useState([])
   const [inputNome, setInputNome] = useState("")
-  const [inputTelefone, setInputTelefone] = useState("")
   const [inputEmail, setInputEmail] = useState("")
   const navigate = useNavigate();
 
   const [campoNomeDesabilitado, setCampoNomeDesabilitado] = useState(true)
-  const [campoTelefoneDesabilitado, setCampoTelefoneDesabilitado] = useState(true)
 
   async function getUser() {
 
@@ -30,10 +28,9 @@ function PagPerfil() {
 
     const token = localStorage.getItem("token")
 
-    const usuarioLogado = httpClient().get("/usuario/buscarPerfil", token)
+    const usuarioLogado = await httpClient().get("/usuario/buscarPerfil", token)
     if (usuarioLogado) {
       setInputNome(usuarioLogado.nome)
-      setInputTelefone(usuarioLogado.telefone)
       setInputEmail(usuarioLogado.email)
     }
 
@@ -108,21 +105,6 @@ function PagPerfil() {
                   }} /></button>
                 )}
                 {campoNomeDesabilitado && (<button className='lapis' onClick={() => setCampoNomeDesabilitado(false)}><img src="./lapis.png" alt="Edit" /></button>
-                )}
-              </div>
-            </div>
-            <div className='alinharBotoes'>
-              <p className='nome'>Nº de telefone:</p>
-              <div className='checkEedit'>
-                <input className='inpNome' onChange={e => setInputTelefone(e.target.value)} value={inputTelefone || ""} disabled={campoTelefoneDesabilitado} />
-                {!campoTelefoneDesabilitado && (
-                  <button className='check'><img src="./check.png" alt="Check" onClick={() => {
-                    atualizaPerfil("telefone", inputTelefone)
-                    setCampoTelefoneDesabilitado(true)
-                  }} /></button>
-                )}
-                {campoTelefoneDesabilitado && (
-                  <button className='lapis' onClick={() => setCampoTelefoneDesabilitado(false)}><img src="./lapis.png" alt="Edit" /></button>
                 )}
               </div>
             </div>
