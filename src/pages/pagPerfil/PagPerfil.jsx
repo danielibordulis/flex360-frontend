@@ -16,6 +16,11 @@ function PagPerfil() {
 
   const [campoNomeDesabilitado, setCampoNomeDesabilitado] = useState(true)
 
+  function sair() {
+    localStorage.removeItem('token')
+    navigate('/entrar')
+  }
+
   async function getUser() {
 
     const isAuthenticated = await validaToken()
@@ -123,6 +128,7 @@ function PagPerfil() {
           )}
         </div>
 
+        <button onClick={sair}>Sair</button>
       </section>
     </>
   );
