@@ -37,14 +37,14 @@ function PagCadeiraIndividual() {
   const handleClick = (cor) => {
     setImagemCarregada(false);
     setCorSelecionada(cor);
-};
+  };
 
   async function carregaCadeira() {
     if (cadeiraId) {
       // Busca a cadeira no JSON usando o id
 
       const cadeiraSelecionada = await httpClient().get(`/cadeira/buscarPorId/${cadeiraId}`, false)
-      
+
       setCadeira(cadeiraSelecionada);
 
       const corEncontrada = cadeiraSelecionada.cores_disponiveis.find(obj => obj.id === corId)
@@ -67,16 +67,21 @@ function PagCadeiraIndividual() {
 
     cadeira.corSelecionada = corSelecionada.id
 
-    await adicionaItem(cadeira)
+
+
+    const result = await adicionaItem(cadeira)
+
+    if (result == null) return
 
     navigate('/carrinho', {
       state: {
         corId: corId
       }
-    }); // Redireciona para a página do carrinho e passa a cadeira no estado
+    });
+
   };
 
-  if(!cadeira) return null
+  if (!cadeira) return null
 
   return (
     <>

@@ -5,6 +5,7 @@ import Footer from '../../components/footer/Footer';
 import httpClient from '../../services/httpClient';
 import { useNavigate } from 'react-router-dom';
 import { validaToken } from '../../utils/validation-user'
+import { Bounce, toast } from 'react-toastify';
 
 export default function PagErgonomia() {
   const navigate = useNavigate()
@@ -32,7 +33,7 @@ export default function PagErgonomia() {
       return;
     }
 
-    if(opcaoDesign == '') {
+    if (opcaoDesign == '') {
       setError('Você deve selecionar um estilo de design para encontrar uma cadeira ergonômica')
       return
     }
@@ -51,6 +52,18 @@ export default function PagErgonomia() {
     httpClient().post('/cadeira/sugestaoErgonomica', dadosErgonomia, token)
       .then(response => {
 
+        toast.success('Cadeira encontrada!', {
+          position: "top-right",
+          autoClose: 2000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+          transition: Bounce
+        });
+
         navigate("/cadeiraIndividual", {
           state: { cadeiraId: response.id, corId: response.cores_disponiveis[0].id },
         });
@@ -60,12 +73,34 @@ export default function PagErgonomia() {
 
         if (e.response.status == 401 || e.response.status == 403) {
 
+          toast.info('O login é necessario!', {
+            position: "top-right",
+            autoClose: 2000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+            transition: Bounce
+          })
+
           navigate('/entrar')
           return
-          
+
         }
 
-        alert("Erro ao buscar sugestão");
+        toast.error('Erro ao buscar sugestão', {
+          position: "top-right",
+          autoClose: 2000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+          transition: Bounce
+        })
       });
   }
 
@@ -74,7 +109,7 @@ export default function PagErgonomia() {
   }
 
   async function verificaLogin() {
-    if(!await validaToken()) {
+    if (!await validaToken()) {
       navigate('/entrar')
 
     }
@@ -83,7 +118,7 @@ export default function PagErgonomia() {
 
   useEffect(() => {
     verificaLogin()
-}, [])
+  }, [])
 
 
   return (

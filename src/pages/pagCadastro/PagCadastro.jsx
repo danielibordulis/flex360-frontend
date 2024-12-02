@@ -5,6 +5,7 @@ import Erro from '../../components/erro/Erro'
 import { useNavigate } from 'react-router-dom';
 import { TiHome } from 'react-icons/ti';
 import httpClient from '../../services/httpClient';
+import { Bounce, toast } from 'react-toastify';
 
 export default function PagCadastro() {
 
@@ -70,11 +71,35 @@ export default function PagCadastro() {
     httpClient().post('/auth/register', dadosUsuario)
       .then(() => {
 
+        toast.success('Cadastro efetuado com sucesso!', {
+          position: "top-right",
+          autoClose: 2000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+          transition: Bounce
+        });
+
         navigate('/entrar')
 
       })
       .catch(() => {
-        alert("erro")
+        
+        toast.error('Erro em efetuar o cadastro', {
+          position: "top-right",
+          autoClose: 2000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+          transition: Bounce
+        })
+
       })
 
   }

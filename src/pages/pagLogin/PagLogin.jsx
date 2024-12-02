@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react';
 import { TiHome } from "react-icons/ti";
 import { useNavigate } from 'react-router-dom';
 import httpClient from '../../services/httpClient';
+import { toast, Bounce } from 'react-toastify';
 
 export default function PagLogin() {
   const [erros, setErros] = useState({})
@@ -56,8 +57,6 @@ export default function PagLogin() {
       return
     }
 
-    //let resultado = await pegaEValidaTokenLogin()
-
     const dadosUsuario = {
       email: emailINPT,
       password: senha
@@ -65,18 +64,42 @@ export default function PagLogin() {
     }
 
     httpClient().post('/auth/login', dadosUsuario)
-    .then((response) => {
+      .then((response) => {
 
-    const token = response.token
-    localStorage.setItem("token", token)
+        const token = response.token
+        localStorage.setItem("token", token)
 
-      navigate('/')
+        toast.success('Login efetuado com sucesso!', {
+          position: "top-right",
+          autoClose: 2000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+          transition: Bounce
+        });
 
-    })
-    .catch((e) => {
+        navigate('/')
 
-      console.log(e)
-    })
+      })
+      .catch((e) => {
+
+        toast.error('Erro em efetuar o login', {
+          position: "top-right",
+          autoClose: 2000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+          transition: Bounce
+        })
+
+        console.log(e)
+      })
 
   }
 
@@ -103,7 +126,7 @@ export default function PagLogin() {
               <input type='password' name='senha' id='senha' onChange={(e) => setSenha(e.target.value)} value={senha} className='campo' />
               <Erro mensagem={erros.senha} />
             </div>
-            <div style={{textAlign: "center", marginTop: "40px"}}>
+            <div style={{ textAlign: "center", marginTop: "40px" }}>
               <button className='btn-entrar' type='submit'>Entrar</button>
             </div>
           </form>
