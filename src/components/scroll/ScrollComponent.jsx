@@ -13,6 +13,7 @@ const ScrollComponent = ({cadeiras}) => {
                 id={cadeira.id} 
                 nomeCadeira={cadeira.nome}
                 precoCadeira={cadeira.preco} 
+                cor={cadeira.cores_disponiveis[0]}
               />
         ))}
       </div>
