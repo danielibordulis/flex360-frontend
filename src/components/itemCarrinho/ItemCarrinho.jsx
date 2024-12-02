@@ -8,27 +8,28 @@ function ItemCarrinho({ item }) {
 
   if (!item) return null
 
+  let initialFoto
+
+  if (item.coresDisponiveis) {
+    initialFoto = item.coresDisponiveis[0].foto_cadeira
+  }
 
   const { removeItem } = useContext(CarrinhoContext)
-  const [fotoCorCadeira, setFotoCorCadeira] = useState(item.coresDisponiveis[0].foto_cadeira);
+  const [fotoCorCadeira, setFotoCorCadeira] = useState(initialFoto);
 
   useEffect(() => {
-    
-    const corSelecionada = item.coresDisponiveis.find(obj => obj.id === item.corSelecionada.id);
+    if (item.coresDisponiveis) {
+      const corSelecionada = item.coresDisponiveis.find(obj => obj.id === item.corSelecionada.id);
 
-    setFotoCorCadeira(corSelecionada.foto_cadeira)
-
-    console.log(item.corSelecionada)
-    console.log(item.coresDisponiveis)
-    console.log(fotoCorCadeira)
-  
+      setFotoCorCadeira(corSelecionada.foto_cadeira)
+    }
   }, [])
-  
- 
+
+
   return (
     <div className='item-container'>
       <div className='container-img-carrinho'>
-        <img src={fotoCorCadeira ?  fotoCorCadeira : item.foto} alt="" />
+        <img src={fotoCorCadeira ? fotoCorCadeira : item.foto} alt="" />
       </div>
       <div className='container-info-item'>
 
@@ -37,7 +38,7 @@ function ItemCarrinho({ item }) {
             <h2>{item.nome}</h2>
           </div>
           <div className='container-deletar-item'>
-            <button onClick={ async() => await removeItem(item.id)}>
+            <button onClick={async () => await removeItem(item.id)}>
               <img src="botao-deletar.png" alt="Remover do carrinho" />
             </button>
           </div>
@@ -49,7 +50,7 @@ function ItemCarrinho({ item }) {
           {item.cores_disponiveis && (
             <PaletaCor cores={item.cores_disponiveis} />
           )}
-          <span className={`item-preco ${!item.cores_disponiveis ? "isAcessorio" : ""}`} >{Number(item.preco).toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})}</span>
+          <span className={`item-preco ${!item.cores_disponiveis ? "isAcessorio" : ""}`} >{Number(item.preco).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</span>
         </div>
 
       </div>
