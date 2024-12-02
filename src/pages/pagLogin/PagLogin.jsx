@@ -118,7 +118,7 @@ export default function PagLogin() {
           <form onSubmit={entra} noValidate>
             <div className='grupo-input'>
               <label htmlFor='email'>Email</label>
-              <input type='email' name='email' onChange={(e) => setEmailINPT(e.target.value)} value={emailINPT} id='email' className='campo' />
+              <input type='email' name='email' onChange={(e) => setEmailINPT(e.target.value)} value={emailINPT} id='email' className='campo' autoFocus/>
               <Erro mensagem={erros.email} />
             </div>
             <div className='grupo-input'>

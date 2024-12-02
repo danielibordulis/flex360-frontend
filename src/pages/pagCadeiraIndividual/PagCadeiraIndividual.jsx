@@ -41,6 +41,8 @@ function PagCadeiraIndividual() {
 
   async function carregaCadeira() {
     if (cadeiraId) {
+      localStorage.setItem('ultimaCadeira', cadeiraId)
+      
       // Busca a cadeira no JSON usando o id
 
       const cadeiraSelecionada = await httpClient().get(`/cadeira/buscarPorId/${cadeiraId}`, false)
