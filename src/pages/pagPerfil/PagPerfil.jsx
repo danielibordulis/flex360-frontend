@@ -3,7 +3,7 @@ import Header from '../../components/header/Header';
 import './PagPerfil.css';
 import ScrollComponent from '../../components/scroll/ScrollComponent';
 import httpClient from '../../services/httpClient';
-import { validaToken } from '../../utils/validation-user';
+import { validaToken, pegaEValidaTokenLogin } from '../../utils/validation-user';
 import { useNavigate } from 'react-router-dom';
 
 
@@ -87,8 +87,17 @@ function PagPerfil() {
   }, [])
 
 
-  function atualizaPerfil(campo, valor) {
-    //Colocar a requisição para o banco depois
+  async function atualizaPerfil(campo, valor) {
+    const body = {
+      nome: inputNome,
+      email: inputEmail
+    }
+
+    try {
+      await httpClient().put('/usuario/editar', body, pegaEValidaTokenLogin())
+    } catch(e) {
+      console.log(`Erro ao atualizar perfil: ${e}`)
+    }
   }
 
   return (
