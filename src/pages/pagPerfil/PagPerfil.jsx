@@ -44,39 +44,14 @@ function PagPerfil() {
   useEffect(() => {
 
     async function buscaCadeirasRecentes() {
+      const cadeiraId = localStorage.getItem('ultimaCadeira')
+      if (cadeiraId !== false) {
+        const ultimaCadeira = await httpClient().get(`/cadeira/buscarPorId/${cadeiraId}`, false)
 
-      const jsonCadeiras = [
-        {
-          "id": "fnbefyihaef-aeofjaeum9f-oe97fhae7809fh",
-          "nome": "Cadeira Tecton",
-          "informacoes": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla facilisi. Phasellus interdum sem sit ametarcuconsequat, sit amet dignissim felis tincidunt. Vivamus convallis orci ac lectus egestas, non malesuada turpis aliquam.Suspendisse potenti. Cras ut odio nec libero gravida fermentum. Pellentesque habitant morbi tristique senectus et netus etmalesuada fames ac turpis egestas.",
-          "descricao": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla facilisi. Phasellus interdum sem sit ametarcuconsequat, sit amet dignissim felis tincidunt. Vivamus convallis orci ac lectus egestas, non malesuada turpis aliquam.Suspendisse potenti. Cras ut odio nec libero gravida fermentum. Pellentesque habitant morbi tristique senectus et netus etmalesuada fames ac turpis egestas.",
-          "temp_cagarantia": 5,
-          "preco": 1000.34,
-          "cores_disponiveis": [
-            {
-              "id": "aiundaiyuwdn -3927hdht28hd-d19872ghd1",
-              "nome": "Marrom",
-              "codigo": "#a52a2a"
-            },
-            {
-              "id": "aiundaiyuwdn -3927hdht28hd-d19872ghd1",
-              "nome": "Roxo",
-              "codigo": "#7C1FF1"
-            }
-          ],
-          "dimensoes": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla facilisi. Phasellus interdum sem sit ametarcuconsequat, sit amet dignissim felis tincidunt. Vivamus convallis orci ac lectus egestas, non malesuada turpis aliquam.",
-          "foto_cadeira": "./cadeira-ex.png",
-          "foto_dimensoes": "./dimensao-ex-cadeira.png",
-          "desc_encosto": "Encosto com estrutura injetada em resina plastica, com regulagem de altura.",
-          "desc_apoio": "Apoia braços  2D, regulável na altura e largura.",
-          "desc_rodinha": "Rodizio especial com freio, suporta alta capacidade de peso",
-          "desc_ajuste_altura": "Mecanismo ajuste de altura do assento. Inclinação do encosto com 4 pontos de parada, possui movimento relax.",
-          "desc_revestimento": "Revestimento em pvc sintético ."
-        },
-      ]
+        setCadeirasRecentes([ultimaCadeira])
+        console.log(ultimaCadeira)
+      }
 
-      setCadeirasRecentes(jsonCadeiras)
     }
 
     getUser()
@@ -95,7 +70,7 @@ function PagPerfil() {
 
     try {
       await httpClient().put('/usuario/editar', body, pegaEValidaTokenLogin())
-    } catch(e) {
+    } catch (e) {
       console.log(`Erro ao atualizar perfil: ${e}`)
     }
   }
