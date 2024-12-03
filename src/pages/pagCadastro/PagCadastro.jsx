@@ -21,6 +21,9 @@ export default function PagCadastro() {
   const emailRef = useRef(null)
   const navigate = useNavigate()
 
+  function isAnyFieldFilled(object) {
+    return Object.values(object).some(value => value !== null && value !== undefined && value !== "");
+  }
 
   useEffect(() => {
     const campos = [nomeRef, senhaRef, repetirSenhaRef, emailRef]
@@ -62,6 +65,10 @@ export default function PagCadastro() {
 
     setErros(listaErros)
 
+    if (isAnyFieldFilled(listaErros)) {
+      return
+    }
+
     const dadosUsuario = {
       nome: inputNome,
       email: inputEmail,
@@ -69,7 +76,8 @@ export default function PagCadastro() {
     }
 
     httpClient().post('/auth/register', dadosUsuario)
-      .then(() => {
+      .then((result) => {
+
 
         toast.success('Cadastro efetuado com sucesso!', {
           position: "top-right",
@@ -86,8 +94,19 @@ export default function PagCadastro() {
         navigate('/entrar')
 
       })
-      .catch(() => {
-        
+      .catch((e) => {
+
+        const mensagem = e.response.data.message
+
+        const novaListaErros = { ...listaErros }
+        if (mensagem.includes("E-mail")) novaListaErros.email = mensagem
+        else if (mensagem.includes("O Nome")) novaListaErros.nomeCadastro = mensagem
+        else if (mensagem.includes("A senha")) novaListaErros.senhaCadastro = mensagem
+
+        if (isAnyFieldFilled(novaListaErros)) {
+          setErros(novaListaErros)
+        }
+
         toast.error('Erro em efetuar o cadastro', {
           position: "top-right",
           autoClose: 2000,
