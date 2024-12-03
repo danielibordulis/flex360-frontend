@@ -112,7 +112,8 @@ function PagPerfil() {
           )}
         </div>
 
-        <button onClick={sair}>Sair</button>
+        <button className="sair" onClick={sair}>Sair</button>
+
       </section>
     </>
   );
