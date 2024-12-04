@@ -105,7 +105,7 @@ function Cadeira({ cadeiraData }) {
             <Line />
 
             <div className='container-btn-comprar'>
-                <button className='btn-comprar' onClick={comprar}>Comprar</button>
+                <button className='btn-comprar' onClick={comprar}>Detalhes</button>
             </div>
 
         </div>
