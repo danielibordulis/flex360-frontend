@@ -40,10 +40,10 @@ function PagHome() {
         </div>
 
         <div className="imagens-secao">
-          <img src="../../../public/conforto1.png" alt="Imagem ilustrativa escrito: escolha a cadeira certa para você" className="imagemEstilo" />
-          <img src="../../../public/conforto2.png" alt="imagem ilustrativa escrito: o melhor para sua saude" className="imagemEstilo" />
-          <img src="../../../public/conforto3.png" alt="Imagem ilustrativa escrito: design unico" className="imagemEstilo" />
-          <img src="../../../public/conforto4.png" alt="Imagem ilustrativa escrito: o conforto que você precisa" className="imagemEstilo" />
+          <img src="./conforto1.png" alt="Imagem ilustrativa escrito: escolha a cadeira certa para você" className="imagemEstilo" />
+          <img src="./conforto2.png" alt="imagem ilustrativa escrito: o melhor para sua saude" className="imagemEstilo" />
+          <img src="./conforto3.png" alt="Imagem ilustrativa escrito: design unico" className="imagemEstilo" />
+          <img src="./conforto4.png" alt="Imagem ilustrativa escrito: o conforto que você precisa" className="imagemEstilo" />
         </div>
         <div className='elementosBody'>
 
