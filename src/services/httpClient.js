@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "http://localhost:8081", // Exemplo: URL do backend
+  baseURL: "http://tf-lb-20241204172913710900000005-1670721625.us-east-1.elb.amazonaws.com", // Exemplo: URL do backend
 });
 
 export default function httpClient() {
