@@ -41,7 +41,6 @@ function PagCadeiraIndividual() {
 
   async function carregaCadeira() {
     if (cadeiraId) {
-      localStorage.setItem('ultimaCadeira', cadeiraId)
       
       // Busca a cadeira no JSON usando o id
 
@@ -51,6 +50,16 @@ function PagCadeiraIndividual() {
 
       const corEncontrada = cadeiraSelecionada.cores_disponiveis.find(obj => obj.id === corId)
       setCorSelecionada(corEncontrada)
+
+      let ultimasCadeiras = []
+      const result = localStorage.getItem('ultimasCadeiras')
+      if(result !== null) {
+        ultimasCadeiras = JSON.parse(result)
+      }
+
+      ultimasCadeiras = ultimasCadeiras.filter(cadeira => cadeira.id !== cadeiraId)
+      ultimasCadeiras = [cadeiraSelecionada, ...ultimasCadeiras]
+      localStorage.setItem('ultimasCadeiras', JSON.stringify(ultimasCadeiras))
 
     }
 
