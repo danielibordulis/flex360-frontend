@@ -35,17 +35,7 @@
     scrollbar-color: #747474 transparent; /* Define a cor do polegar e o fundo da faixa */
    
 }
-/* .container-cadeirinha{
-   border-style: solid;
-   border-width: 2px;
-   border-color: #DA1C1C ;
-   border-radius: 10px;
-   padding: 10px;
-   display: flex;
-   flex-direction: column;
-   position: relative;
-   width: 90%;
-} */
+
 .texto {
     position: absolute; 
     bottom: 10px; 

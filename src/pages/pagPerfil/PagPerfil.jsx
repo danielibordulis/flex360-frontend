@@ -44,12 +44,9 @@ function PagPerfil() {
   useEffect(() => {
 
     async function buscaCadeirasRecentes() {
-      const cadeiraId = localStorage.getItem('ultimaCadeira')
-      if (cadeiraId !== false) {
-        const ultimaCadeira = await httpClient().get(`/cadeira/buscarPorId/${cadeiraId}`, false)
-
-        setCadeirasRecentes([ultimaCadeira])
-        console.log(ultimaCadeira)
+      const result = localStorage.getItem('ultimasCadeiras')
+      if(result !== null) {
+        setCadeirasRecentes(JSON.parse(result))
       }
 
     }
@@ -112,7 +109,8 @@ function PagPerfil() {
           )}
         </div>
 
-        <button onClick={sair}>Sair</button>
+        <button className="sair" onClick={sair}>Sair</button>
+
       </section>
     </>
   );
