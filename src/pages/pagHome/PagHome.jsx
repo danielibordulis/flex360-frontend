@@ -59,8 +59,9 @@ function PagHome() {
             <img src="./trabalhador.png.png" alt="Imagem de um homem sentado no escritório com seu notebook" />
             <h3>Quem somos</h3>
             <p className='tituloBemVindo'>Bem-vindo à Flex360!
-              Cadeiras ergonômicas e consultoria para um ambiente de trabalho saudável.
-              Explore nossas soluções: cadeiras ergonômicas, assessoria e consultoria de ergonomia conforme a NR17.</p>
+              Aqui você encontra cadeiras ergonômica para um ambiente de trabalho saudável.<p></p>
+              Explore nossas soluções: cadeiras ergonômicas ajustada ao seu biotipo, peso e altura. Escolha a cadeira
+              perfeita para você!</p>
           </div>
         </div>
       </section>
