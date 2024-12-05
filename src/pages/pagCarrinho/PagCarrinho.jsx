@@ -45,7 +45,7 @@ function PagCarrinho() {
 
                             <span>{pegaPrecoTotal().toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</span>
 
-                            <button onClick={ async() => await finalizaCompra()}>Finalizar Compra</button>
+                            <button onClick={ async() => await finalizaCompra()}  disabled={carrinho.length === 0}>Finalizar Compra</button>
 
                         </div>
 
