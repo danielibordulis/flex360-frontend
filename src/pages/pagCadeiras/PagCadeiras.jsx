@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { toast, Bounce } from 'react-toastify';
 import { useLocation } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import Header from '../../components/header/Header'
@@ -10,6 +11,7 @@ import httpClient from '../../services/httpClient'
 function PagCadeiras() {
 
   const location = useLocation();
+  const navigate = useNavigate()
   const { busca } = location.state || {};
 
   const [grupoAmostra, setGrupoAmostra] = useState(1)
@@ -19,34 +21,49 @@ function PagCadeiras() {
 
     let todasCadeiras
 
-    const rotaUsar = '/cadeira/' + (busca? 'buscarPorNome/' + busca: 'buscarTodas')
+    const rotaUsar = '/cadeira/' + (busca ? 'buscarPorNome/' + busca : 'buscarTodas')
 
-    const resultado = await httpClient().get(rotaUsar)
+    try {
+      const resultado = await httpClient().get(rotaUsar)
 
-    if (resultado) {
       todasCadeiras = resultado
-    }
 
-    const grupos = [[]]
-    let index = 0
+      const grupos = [[]]
+      let index = 0
 
-    for (let cadeira of todasCadeiras) {
+      for (let cadeira of todasCadeiras) {
 
-      if (grupos[index].length < 3) {
+        if (grupos[index].length < 3) {
 
-        grupos[index].push(cadeira)
+          grupos[index].push(cadeira)
 
-      } else {
+        } else {
 
-        index++
-        grupos.push([cadeira])
+          index++
+          grupos.push([cadeira])
+
+        }
 
       }
 
+      setGrupoCadeiras(grupos)
+
+    } catch (err) {
+      toast.error('Nenhuma cadeira encontrada', {
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        transition: Bounce
+      })
+
+      navigate("/")
+      return
     }
-
-    setGrupoCadeiras(grupos)
-
   }
 
   function proxCadeiras() {
