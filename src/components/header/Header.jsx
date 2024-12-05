@@ -42,15 +42,13 @@ function Header() {
     const isAuthenticated = await validaToken()
 
     if (destino == "carrinho" || destino == "perfil") {
-
+     
       if (!isAuthenticated) {
-       
         navigate("/entrar")
       }
 
-      return
     }
-
+   
     navigate(`/${destino}`)
 
   }

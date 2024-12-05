@@ -70,6 +70,8 @@ export function CarrinhoProvider({ children }) {
             const carrinhoFormatado = formataCarrinho(result)
             setCarrinho(carrinhoFormatado)
 
+            const itemNoCarrinho = carrinhoFormatado.find(itemBuscar => itemBuscar.id === itemAdd.id)
+            if(itemNoCarrinho !== null && itemNoCarrinho.quantidade === 1) {
             toast.success('Adicionado ao carrinho!', {
                 position: "top-right",
                 autoClose: 2000,
@@ -81,6 +83,7 @@ export function CarrinhoProvider({ children }) {
                 theme: "light",
                 transition: Bounce
             });
+        }
 
             return carrinhoFormatado
 

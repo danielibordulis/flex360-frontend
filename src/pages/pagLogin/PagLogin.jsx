@@ -86,6 +86,18 @@ export default function PagLogin() {
       })
       .catch((e) => {
 
+        const mensagem = e.response.data.message
+
+        const novaListaErros = { ...listaErros }
+        if (mensagem.includes("E-mail ou")) {
+          novaListaErros.email = mensagem
+          novaListaErros.senha = mensagem
+        }
+
+        if (Object.keys(novaListaErros).length > 0) {
+          setErros(novaListaErros)
+        }
+    
         toast.error('Erro em efetuar o login', {
           position: "top-right",
           autoClose: 2000,
