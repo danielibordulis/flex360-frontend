@@ -4,6 +4,7 @@ import "./PagCarrinho.css"
 import Header from '../../components/header/Header'
 import ItemCarrinho from '../../components/itemCarrinho/ItemCarrinho.jsx'
 import { CarrinhoContext } from '../../contexts/CarrinhoContext.jsx'
+import { Bounce, toast } from 'react-toastify';
 
 function PagCarrinho() {
 
@@ -12,7 +13,19 @@ function PagCarrinho() {
     async function finalizaCompra() {
 
         await limpaCarrinho()
-        alert("Compra finalizada!")
+        
+
+        toast.error('Compra finalizada', {
+            position: "top-right",
+            autoClose: 2000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+            transition: Bounce
+          })
     }
 
     useEffect(() => {
@@ -41,7 +54,7 @@ function PagCarrinho() {
 
                         <div className='preco-total'>
 
-                            <h3>Valor total</h3>
+                            <h3 className='tituloTotal'>Valor total</h3>
 
                             <span>{pegaPrecoTotal().toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</span>
 

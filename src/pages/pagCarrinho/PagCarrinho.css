@@ -112,3 +112,7 @@
 .container-text img {
     width: 150px;
 }
+.tituloTotal{
+    color: black;
+    font-family: var(--font-1), Helvetica, sans-serif;
+}
