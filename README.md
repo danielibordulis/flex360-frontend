@@ -51,3 +51,7 @@ O Flex360 é um e-commerce especializado em cadeiras ergonômicas, com foco em o
 1. Clone este repositório:
    ```bash
    git clone https://github.com/seuusuario/flex360.git
+
+2. Para produção
+
+   após o build, no dist/index.html, adicionar  <script src="/static/alb-dns-config.js"></script> no <head>
