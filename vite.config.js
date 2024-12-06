@@ -1,8 +1,14 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
+import htmlPlugin from 'vite-plugin-html'
 
-// https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react()],
-  base: 'http://flex360-front-ae8fh.s3-website-us-east-1.amazonaws.com/'
+  plugins: [
+    react(),
+    htmlPlugin({
+      inject: {
+        injectScript: `<script src="/static/alm-dns-config.js"></script>`
+      }
+    })
+  ]
 })
