@@ -153,7 +153,7 @@ export default function PagLogin() {
       </div>
 
       <button className='botao-nav-home' onClick={() => navigate('/')}>
-        <TiHome />
+        <TiHome color='white'/>
       </button>
     </section>
   );

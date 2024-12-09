@@ -166,7 +166,7 @@ export default function PagCadastro() {
       </div>
 
       <button className='botao-nav-home-cadastro' onClick={() => navigate('/')}>
-        <TiHome />
+        <TiHome color='white'/>
       </button>
     </section>
   );

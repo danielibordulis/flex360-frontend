@@ -81,7 +81,7 @@
   
 /* Estilo da seção da imagem de cadastro */
 .imagem-cadastro {
-    background-image: url(./fotonova-cadastro.png);
+    background-image: url(/fotonova-cadastro.png);
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;

@@ -146,7 +146,7 @@ display: flex;  /* Permite centralizar a imagem */
 justify-content: center;  /* Centraliza a imagem horizontalmente */
 align-items: center;  /* Centraliza a imagem verticalmente */
 width: 50%;  /* Reduz a largura da imagem para ocupar metade da tela */
-background-image: url(./foto-login.png);
+background-image: url(/foto-login.png);
 background-repeat: no-repeat;
 background-position: top;
 background-size: cover;
