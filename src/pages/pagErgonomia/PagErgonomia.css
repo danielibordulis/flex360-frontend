@@ -146,7 +146,7 @@
 .container-direita {
   width: 50%;
   height: -webkit-fill-available;
-  background-image: url(./foto-ergonomia.png);
+  background-image: url(/foto-ergonomia.png);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
