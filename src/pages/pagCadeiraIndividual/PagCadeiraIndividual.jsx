@@ -40,20 +40,21 @@ function PagCadeiraIndividual() {
   };
 
   async function carregaCadeira() {
+
     if (cadeiraId) {
-      
+
       // Busca a cadeira no JSON usando o id
 
       const cadeiraSelecionada = await httpClient().get(`/cadeira/buscarPorId/${cadeiraId}`, false)
 
       setCadeira(cadeiraSelecionada);
 
+
       const corEncontrada = cadeiraSelecionada.cores_disponiveis.find(obj => obj.id === corId)
       setCorSelecionada(corEncontrada)
-
       let ultimasCadeiras = []
       const result = localStorage.getItem('ultimasCadeiras')
-      if(result !== null) {
+      if (result !== null) {
         ultimasCadeiras = JSON.parse(result)
       }
 
@@ -115,7 +116,7 @@ function PagCadeiraIndividual() {
         </div>
 
         <div className='sub-containers'>
-          <div className='img-top' />
+          <div className='img-top' style={{ backgroundImage: `url('${cadeira?.foto_banner}')` }} />
 
           <div className='container-info-cadeira'>
             <div className='container-top'>

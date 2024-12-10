@@ -15,7 +15,7 @@ function PagCarrinho() {
         await limpaCarrinho()
         
 
-        toast.error('Compra finalizada', {
+        toast.success('Compra finalizada', {
             position: "top-right",
             autoClose: 2000,
             hideProgressBar: false,
